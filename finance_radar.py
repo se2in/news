@@ -1631,6 +1631,14 @@ def append_dashboard_link(message: str) -> str:
     return f"{message.rstrip()}\n\n[기업실적 대시보드]\n{dashboard_url}"
 
 
+def format_telegram_report(message: str) -> str:
+    title = "유진증권 안상현 센터장의 AI NEWS BOT BRIEF"
+    body = message.lstrip()
+    if body.startswith(title):
+        return append_dashboard_link(body)
+    return append_dashboard_link(f"{title}\n\n{body}")
+
+
 def split_telegram_message(message: str, limit: int = 3500) -> list[str]:
     if len(message) <= limit:
         return [message]
@@ -1692,7 +1700,7 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
             (base_dir / "latest_dify_result.md").write_text(extract_dify_result(dify_response), encoding="utf-8")
         (base_dir / "latest_dify_report.md").write_text(final_message, encoding="utf-8")
         if send_tg:
-            send_telegram(append_dashboard_link(final_message))
+            send_telegram(format_telegram_report(final_message))
 
         conn.execute(
             """
