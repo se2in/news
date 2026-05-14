@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>유진증권 안상현 센터장의 기업실적 dash board</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+      --bg: #050505;
+      --panel: #101010;
+      --grid: #303030;
+      --text: #f4f4f5;
+      --muted: #9ca3af;
+      --orange: #f59e0b;
+      --blue: #60a5fa;
+      --green: #10b981;
+      --red: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      padding: 18px 24px;
+      background: #000;
+      border-bottom: 2px solid var(--orange);
+    }
+    h1 { margin: 0; color: var(--orange); font-size: 24px; line-height: 1.25; }
+    .meta { color: var(--muted); font-size: 13px; text-align: right; }
+    main { padding: 18px 24px 28px; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(130px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .tile { background: var(--panel); border: 1px solid var(--grid); padding: 12px; }
+    .tile strong { display: block; color: var(--orange); font-size: 22px; }
+    .tile span { color: var(--muted); font-size: 12px; }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    input, select, button {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--grid);
+      border-radius: 2px;
+      padding: 9px 10px;
+      min-height: 38px;
+    }
+    input { min-width: 220px; }
+    button { color: var(--orange); cursor: pointer; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--grid); }
+    table { width: 100%; border-collapse: collapse; background: #070707; min-width: 980px; }
+    th, td {
+      border-bottom: 1px solid #222;
+      border-right: 1px solid #181818;
+      padding: 9px 8px;
+      text-align: left;
+      font-size: 13px;
+      vertical-align: top;
+    }
+    th { position: sticky; top: 0; background: #171717; color: var(--orange); z-index: 1; font-size: 12px; }
+    tr:hover td { background: #111; }
+    a { color: var(--blue); text-decoration: none; }
+    .badge { display: inline-block; min-width: 48px; text-align: center; border-radius: 999px; padding: 3px 8px; font-weight: 700; font-size: 12px; }
+    .Beat { background: #063f2e; color: #a7f3d0; }
+    .Miss { background: #5f1717; color: #fecaca; }
+    .Meet { background: #374151; color: #e5e7eb; }
+    .Pending { background: #3b2f0b; color: #fde68a; }
+    .num { white-space: nowrap; }
+    .empty { padding: 28px; color: var(--muted); text-align: center; }
+    @media (max-width: 800px) {
+      header { display: block; }
+      .meta { text-align: left; margin-top: 8px; }
+      .summary { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>유진증권 안상현 센터장의 기업실적 dash board</h1>
+      <div class="meta">GitHub Pages 공개용 기업실적 현황</div>
+    </div>
+    <div class="meta" id="meta">loading...</div>
+  </header>
+
+  <main>
+    <section class="summary">
+      <div class="tile"><strong id="total">-</strong><span>전체 기업</span></div>
+      <div class="tile"><strong id="beat">-</strong><span>Beat</span></div>
+      <div class="tile"><strong id="miss">-</strong><span>Miss</span></div>
+      <div class="tile"><strong id="pending">-</strong><span>예정/미확인</span></div>
+    </section>
+
+    <div class="controls">
+      <input id="q" placeholder="티커/회사 검색">
+      <select id="eventDate"><option value="">전체 날짜</option></select>
+      <select id="resultStatus">
+        <option value="">전체 결과</option>
+        <option value="Beat">Beat</option>
+        <option value="Miss">Miss</option>
+        <option value="Meet">Meet</option>
+        <option value="예정">예정</option>
+        <option value="실제치 발표">실제치 발표</option>
+      </select>
+      <select id="callTime">
+        <option value="">전체 발표시간</option>
+        <option value="AMC">AMC 장마감 후</option>
+        <option value="BMO">BMO 장전</option>
+        <option value="TNS">TNS 시간 미정</option>
+      </select>
+      <button id="reset">초기화</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>날짜</th>
+            <th>티커/회사</th>
+            <th>발표시간</th>
+            <th>EPS 예상</th>
+            <th>EPS 실제</th>
+            <th>서프라이즈</th>
+            <th>결과</th>
+            <th>시총</th>
+            <th>수집시각</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let allRows = [];
+
+    function countBy(status) {
+      return allRows.filter(row => row.result_status === status).length;
+    }
+
+    function badgeClass(status) {
+      if (status === 'Beat' || status === 'Miss' || status === 'Meet') return status;
+      return 'Pending';
+    }
+
+    function fmt(value) {
+      return value === null || value === undefined || value === '' ? '-' : value;
+    }
+
+    function renderDates(dates) {
+      $('eventDate').innerHTML = '<option value="">전체 날짜</option>' + dates.map(date => `<option value="${date}">${date}</option>`).join('');
+    }
+
+    function renderSummary(payload) {
+      $('total').textContent = allRows.length;
+      $('beat').textContent = countBy('Beat');
+      $('miss').textContent = countBy('Miss');
+      $('pending').textContent = countBy('예정') + countBy('실제치 발표') + countBy('미확인');
+      $('meta').textContent = `생성시각 ${payload.generated_at || '-'} / 표시 ${allRows.length.toLocaleString()}건`;
+    }
+
+    function renderRows() {
+      const q = $('q').value.trim().toLowerCase();
+      const date = $('eventDate').value;
+      const status = $('resultStatus').value;
+      const callTime = $('callTime').value;
+      const rows = allRows.filter(row => {
+        const haystack = `${row.ticker || ''} ${row.company || ''}`.toLowerCase();
+        return (!q || haystack.includes(q)) &&
+          (!date || row.event_date === date) &&
+          (!status || row.result_status === status) &&
+          (!callTime || row.earnings_call_time === callTime);
+      });
+
+      $('rows').innerHTML = rows.length ? rows.map(row => `
+        <tr>
+          <td>${fmt(row.event_date)}</td>
+          <td><a href="${row.url}" target="_blank" rel="noopener">${fmt(row.ticker)}</a><br>${fmt(row.company)}</td>
+          <td>${fmt(row.earnings_call_time)}</td>
+          <td class="num">${fmt(row.eps_estimate)}</td>
+          <td class="num">${fmt(row.eps_actual)}</td>
+          <td class="num">${fmt(row.eps_surprise_pct)}</td>
+          <td><span class="badge ${badgeClass(row.result_status)}">${fmt(row.result_status)}</span></td>
+          <td class="num">${fmt(row.market_cap)}</td>
+          <td>${fmt(row.collected_at)}</td>
+        </tr>
+      `).join('') : '<tr><td colspan="9" class="empty">조건에 맞는 기업실적 데이터가 없습니다.</td></tr>';
+    }
+
+    async function load() {
+      const response = await fetch('earnings.json?ts=' + Date.now());
+      const payload = await response.json();
+      allRows = payload.rows || [];
+      renderDates((payload.summary && payload.summary.dates) || []);
+      renderSummary(payload);
+      renderRows();
+    }
+
+    ['q', 'eventDate', 'resultStatus', 'callTime'].forEach(id => {
+      $(id).addEventListener('input', renderRows);
+      $(id).addEventListener('change', renderRows);
+    });
+    $('reset').addEventListener('click', () => {
+      $('q').value = '';
+      $('eventDate').value = '';
+      $('resultStatus').value = '';
+      $('callTime').value = '';
+      renderRows();
+    });
+
+    load().catch(error => {
+      $('meta').textContent = '데이터를 불러오지 못했습니다.';
+      $('rows').innerHTML = `<tr><td colspan="9" class="empty">${error}</td></tr>`;
+    });
+  </script>
+</body>
+</html>
