@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>유진증권 안상현 센터장의 기업실적 dash board</title>
+  <title>유진증권 안상현 센터장의 AI NEWS BOT DASH BOARD</title>
   <style>
     :root {
       color-scheme: dark;
@@ -15,48 +15,31 @@
       --muted: #9ca3af;
       --orange: #f59e0b;
       --blue: #60a5fa;
-      --green: #10b981;
-      --red: #ef4444;
     }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--bg); color: var(--text); }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 16px;
-      padding: 18px 24px;
-      background: #000;
-      border-bottom: 2px solid var(--orange);
-    }
+    header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 18px 24px; background: #000; border-bottom: 2px solid var(--orange); }
     h1 { margin: 0; color: var(--orange); font-size: 24px; line-height: 1.25; }
+    h2 { margin: 28px 0 12px; color: var(--orange); font-size: 18px; border-bottom: 1px solid var(--grid); padding-bottom: 8px; }
+    h3 { margin: 18px 0 8px; color: #f8fafc; font-size: 15px; }
     .meta { color: var(--muted); font-size: 13px; text-align: right; }
-    main { padding: 18px 24px 28px; }
-    .summary { display: grid; grid-template-columns: repeat(4, minmax(130px, 1fr)); gap: 10px; margin-bottom: 14px; }
-    .tile { background: var(--panel); border: 1px solid var(--grid); padding: 12px; }
-    .tile strong { display: block; color: var(--orange); font-size: 22px; }
+    main { padding: 18px 24px 32px; }
+    .summary, .market-grid { display: grid; grid-template-columns: repeat(4, minmax(130px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .tile { background: var(--panel); border: 1px solid var(--grid); padding: 12px; min-height: 72px; }
+    .tile strong { display: block; color: var(--orange); font-size: 20px; word-break: break-word; }
     .tile span { color: var(--muted); font-size: 12px; }
     .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
-    input, select, button {
-      background: var(--panel);
-      color: var(--text);
-      border: 1px solid var(--grid);
-      border-radius: 2px;
-      padding: 9px 10px;
-      min-height: 38px;
-    }
+    input, select, button { background: var(--panel); color: var(--text); border: 1px solid var(--grid); border-radius: 2px; padding: 9px 10px; min-height: 38px; }
     input { min-width: 220px; }
     button { color: var(--orange); cursor: pointer; }
+    .source-section { margin-bottom: 8px; }
+    .news-grid { display: grid; grid-template-columns: repeat(2, minmax(260px, 1fr)); gap: 12px; }
+    .news-list { margin: 0; padding-left: 22px; background: #070707; border: 1px solid var(--grid); }
+    .news-list li { padding: 9px 8px 9px 0; border-bottom: 1px solid #1d1d1d; font-size: 13px; line-height: 1.35; }
+    .news-list li:last-child { border-bottom: 0; }
     .table-wrap { overflow-x: auto; border: 1px solid var(--grid); }
     table { width: 100%; border-collapse: collapse; background: #070707; min-width: 980px; }
-    th, td {
-      border-bottom: 1px solid #222;
-      border-right: 1px solid #181818;
-      padding: 9px 8px;
-      text-align: left;
-      font-size: 13px;
-      vertical-align: top;
-    }
+    th, td { border-bottom: 1px solid #222; border-right: 1px solid #181818; padding: 9px 8px; text-align: left; font-size: 13px; vertical-align: top; }
     th { position: sticky; top: 0; background: #171717; color: var(--orange); z-index: 1; font-size: 12px; }
     tr:hover td { background: #111; }
     a { color: var(--blue); text-decoration: none; }
@@ -66,24 +49,42 @@
     .Meet { background: #374151; color: #e5e7eb; }
     .Pending { background: #3b2f0b; color: #fde68a; }
     .num { white-space: nowrap; }
-    .empty { padding: 28px; color: var(--muted); text-align: center; }
-    @media (max-width: 800px) {
+    .empty { padding: 22px; color: var(--muted); text-align: center; }
+    @media (max-width: 900px) {
       header { display: block; }
       .meta { text-align: left; margin-top: 8px; }
-      .summary { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .summary, .market-grid, .news-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <header>
     <div>
-      <h1>유진증권 안상현 센터장의 기업실적 dash board</h1>
-      <div class="meta">GitHub Pages 공개용 기업실적 현황</div>
+      <h1>유진증권 안상현 센터장의 AI NEWS BOT DASH BOARD</h1>
+      <div class="meta">시장동향, 뉴스, 기업실적 통합 대시보드</div>
     </div>
     <div class="meta" id="meta">loading...</div>
   </header>
 
   <main>
+    <h2>시장동향</h2>
+    <section class="market-grid" id="market"></section>
+
+    <h2>뉴스</h2>
+    <section class="source-section">
+      <h3>네이버 뉴스</h3>
+      <div class="news-grid" id="naverNews"></div>
+    </section>
+    <section class="source-section">
+      <h3>레딧</h3>
+      <div class="news-grid" id="redditNews"></div>
+    </section>
+    <section class="source-section">
+      <h3>야후</h3>
+      <div class="news-grid" id="yahooNews"></div>
+    </section>
+
+    <h2>기업실적 발표</h2>
     <section class="summary">
       <div class="tile"><strong id="total">-</strong><span>전체 기업</span></div>
       <div class="tile"><strong id="beat">-</strong><span>Beat</span></div>
@@ -107,6 +108,7 @@
         <option value="AMC">AMC 장마감 후</option>
         <option value="BMO">BMO 장전</option>
         <option value="TNS">TNS 시간 미정</option>
+        <option value="TAS">TAS 발표 후</option>
       </select>
       <button id="reset">초기화</button>
     </div>
@@ -135,31 +137,31 @@
     const $ = id => document.getElementById(id);
     let allRows = [];
 
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[char]));
+    }
+    function fmt(value) {
+      return value === null || value === undefined || value === '' ? '-' : value;
+    }
     function countBy(status) {
       return allRows.filter(row => row.result_status === status).length;
     }
-
     function badgeClass(status) {
       if (status === 'Beat' || status === 'Miss' || status === 'Meet') return status;
       return 'Pending';
     }
-
-    function fmt(value) {
-      return value === null || value === undefined || value === '' ? '-' : value;
-    }
-
     function renderDates(dates) {
-      $('eventDate').innerHTML = '<option value="">전체 날짜</option>' + dates.map(date => `<option value="${date}">${date}</option>`).join('');
+      $('eventDate').innerHTML = '<option value="">전체 날짜</option>' + dates.map(date => `<option value="${esc(date)}">${esc(date)}</option>`).join('');
     }
-
     function renderSummary(payload) {
       $('total').textContent = allRows.length;
       $('beat').textContent = countBy('Beat');
       $('miss').textContent = countBy('Miss');
       $('pending').textContent = countBy('예정') + countBy('실제치 발표') + countBy('미확인');
-      $('meta').textContent = `생성시각 ${payload.generated_at || '-'} / 표시 ${allRows.length.toLocaleString()}건`;
+      $('meta').textContent = `생성시각 ${payload.generated_at || '-'} / 실적 ${allRows.length.toLocaleString()}건`;
     }
-
     function renderRows() {
       const q = $('q').value.trim().toLowerCase();
       const date = $('eventDate').value;
@@ -172,31 +174,57 @@
           (!status || row.result_status === status) &&
           (!callTime || row.earnings_call_time === callTime);
       });
-
       $('rows').innerHTML = rows.length ? rows.map(row => `
         <tr>
-          <td>${fmt(row.event_date)}</td>
-          <td><a href="${row.url}" target="_blank" rel="noopener">${fmt(row.ticker)}</a><br>${fmt(row.company)}</td>
-          <td>${fmt(row.earnings_call_time)}</td>
-          <td class="num">${fmt(row.eps_estimate)}</td>
-          <td class="num">${fmt(row.eps_actual)}</td>
-          <td class="num">${fmt(row.eps_surprise_pct)}</td>
-          <td><span class="badge ${badgeClass(row.result_status)}">${fmt(row.result_status)}</span></td>
-          <td class="num">${fmt(row.market_cap)}</td>
-          <td>${fmt(row.collected_at)}</td>
+          <td>${esc(fmt(row.event_date))}</td>
+          <td><a href="${esc(row.url)}" target="_blank" rel="noopener">${esc(fmt(row.ticker))}</a><br>${esc(fmt(row.company))}</td>
+          <td>${esc(fmt(row.earnings_call_time))}</td>
+          <td class="num">${esc(fmt(row.eps_estimate))}</td>
+          <td class="num">${esc(fmt(row.eps_actual))}</td>
+          <td class="num">${esc(fmt(row.eps_surprise_pct))}</td>
+          <td><span class="badge ${badgeClass(row.result_status)}">${esc(fmt(row.result_status))}</span></td>
+          <td class="num">${esc(fmt(row.market_cap))}</td>
+          <td>${esc(fmt(row.collected_at))}</td>
         </tr>
       `).join('') : '<tr><td colspan="9" class="empty">조건에 맞는 기업실적 데이터가 없습니다.</td></tr>';
     }
-
-    async function load() {
-      const response = await fetch('earnings.json?ts=' + Date.now());
-      const payload = await response.json();
-      allRows = payload.rows || [];
-      renderDates((payload.summary && payload.summary.dates) || []);
-      renderSummary(payload);
-      renderRows();
+    function renderMarket(items) {
+      $('market').innerHTML = (items || []).length ? items.map(item => `
+        <a class="tile" href="${esc(item.url || '#')}" target="_blank" rel="noopener">
+          <strong>${esc(item.value || '-')}</strong>
+          <span>${esc(item.name || '')}<br>${esc(item.change || '')} ${esc(item.timestamp || item.date || '')}</span>
+        </a>
+      `).join('') : '<div class="empty">시장동향 데이터가 없습니다.</div>';
     }
-
+    function renderNewsGroup(targetId, groups) {
+      const entries = Object.entries(groups || {});
+      $(targetId).innerHTML = entries.length ? entries.map(([category, items]) => `
+        <div>
+          <h3>${esc(category)}</h3>
+          <ol class="news-list">
+            ${(items || []).length ? items.map(item => `
+              <li><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.headline || '-')}</a></li>
+            `).join('') : '<li>수집된 항목 없음</li>'}
+          </ol>
+        </div>
+      `).join('') : '<div class="empty">뉴스 데이터가 없습니다.</div>';
+    }
+    async function load() {
+      const [earningsResponse, newsResponse] = await Promise.all([
+        fetch('earnings.json?ts=' + Date.now()),
+        fetch('news.json?ts=' + Date.now())
+      ]);
+      const earningsPayload = await earningsResponse.json();
+      const newsPayload = await newsResponse.json();
+      allRows = earningsPayload.rows || [];
+      renderDates((earningsPayload.summary && earningsPayload.summary.dates) || []);
+      renderSummary(earningsPayload);
+      renderRows();
+      renderMarket(newsPayload.market_trends || []);
+      renderNewsGroup('naverNews', newsPayload.news && newsPayload.news.naver);
+      renderNewsGroup('redditNews', newsPayload.news && newsPayload.news.reddit);
+      renderNewsGroup('yahooNews', newsPayload.news && newsPayload.news.yahoo);
+    }
     ['q', 'eventDate', 'resultStatus', 'callTime'].forEach(id => {
       $(id).addEventListener('input', renderRows);
       $(id).addEventListener('change', renderRows);
@@ -208,10 +236,9 @@
       $('callTime').value = '';
       renderRows();
     });
-
     load().catch(error => {
       $('meta').textContent = '데이터를 불러오지 못했습니다.';
-      $('rows').innerHTML = `<tr><td colspan="9" class="empty">${error}</td></tr>`;
+      $('rows').innerHTML = `<tr><td colspan="9" class="empty">${esc(error)}</td></tr>`;
     });
   </script>
 </body>

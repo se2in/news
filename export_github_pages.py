@@ -9,10 +9,11 @@ from typing import Any
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / "finance_radar.sqlite3"
+WORKFLOW_PAYLOAD_PATH = BASE_DIR / "workflow_payload.json"
 DOCS_DIR = BASE_DIR / "docs"
 
 
-def fetch_rows() -> list[dict[str, Any]]:
+def fetch_earnings_rows() -> list[dict[str, Any]]:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     try:
@@ -40,7 +41,7 @@ def fetch_rows() -> list[dict[str, Any]]:
         conn.close()
 
 
-def build_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+def build_earnings_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
     by_result: dict[str, int] = {}
     dates: list[str] = []
     for row in rows:
@@ -61,17 +62,62 @@ def build_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def load_workflow_payload() -> dict[str, Any]:
+    if not WORKFLOW_PAYLOAD_PATH.exists():
+        return {}
+    return json.loads(WORKFLOW_PAYLOAD_PATH.read_text(encoding="utf-8"))
+
+
+def normalize_news_groups(groups: dict[str, Any], wanted_categories: list[str] | None = None) -> dict[str, list[dict[str, Any]]]:
+    output: dict[str, list[dict[str, Any]]] = {}
+    for category, items in groups.items():
+        if wanted_categories and category not in wanted_categories:
+            continue
+        output[category] = [
+            {
+                "headline": item.get("headline", ""),
+                "url": item.get("url", ""),
+                "source": item.get("source", ""),
+                "score": item.get("score", ""),
+                "comments": item.get("comments", ""),
+            }
+            for item in (items or [])[:10]
+        ]
+    return output
+
+
+def build_news_payload(workflow_payload: dict[str, Any]) -> dict[str, Any]:
+    briefing = workflow_payload.get("briefing", {}) if isinstance(workflow_payload, dict) else {}
+    return {
+        "generated_at": workflow_payload.get("generated_at") or datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "market_trends": briefing.get("market_trends", []),
+        "featured_stocks": briefing.get("featured_stocks", {}),
+        "news": {
+            "naver": normalize_news_groups(briefing.get("naver_news", {})),
+            "reddit": normalize_news_groups(briefing.get("reddit_news", {}), ["경제", "IT"]),
+            "yahoo": normalize_news_groups(briefing.get("yahoo_news", {}), ["경제", "IT"]),
+        },
+    }
+
+
 def main() -> None:
     if not DB_PATH.exists():
         raise SystemExit(f"DB file not found: {DB_PATH}")
 
     DOCS_DIR.mkdir(exist_ok=True)
-    payload = build_payload(fetch_rows())
+    earnings_payload = build_earnings_payload(fetch_earnings_rows())
+    news_payload = build_news_payload(load_workflow_payload())
+
     (DOCS_DIR / "earnings.json").write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
+        json.dumps(earnings_payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"GitHub Pages data exported: {DOCS_DIR / 'earnings.json'}")
+    (DOCS_DIR / "news.json").write_text(
+        json.dumps(news_payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"GitHub Pages earnings exported: {DOCS_DIR / 'earnings.json'}")
+    print(f"GitHub Pages news exported: {DOCS_DIR / 'news.json'}")
 
 
 if __name__ == "__main__":

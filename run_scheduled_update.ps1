@@ -23,7 +23,7 @@ $LogFile = Join-Path $LogDir "finance_radar_$Stamp.log"
 & $Python ".\finance_radar.py" run --config $Config --send-dify --send-telegram *> $LogFile
 & $Python ".\export_github_pages.py" *>> $LogFile
 
-git add docs\earnings.json *>> $LogFile
+git add docs\earnings.json docs\news.json *>> $LogFile
 git diff --cached --quiet
 if ($LASTEXITCODE -ne 0) {
     git commit -m "Update earnings dashboard data" *>> $LogFile

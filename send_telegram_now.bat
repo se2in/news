@@ -27,7 +27,7 @@ if errorlevel 1 (
   exit /b 1
 )
 
-git add docs\earnings.json
+git add docs\earnings.json docs\news.json
 git diff --cached --quiet
 if errorlevel 1 (
   git commit -m "Update earnings dashboard data"
