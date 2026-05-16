@@ -44,19 +44,28 @@ def fetch_earnings_rows() -> list[dict[str, Any]]:
 def build_earnings_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
     by_result: dict[str, int] = {}
     dates: list[str] = []
+    latest_collected_at = ""
     for row in rows:
         status = row.get("result_status") or "미확인"
         by_result[status] = by_result.get(status, 0) + 1
         event_date = row.get("event_date")
         if event_date and event_date not in dates:
             dates.append(event_date)
+        collected_at = row.get("collected_at") or ""
+        if collected_at > latest_collected_at:
+            latest_collected_at = collected_at
+
+    reported_count = sum(by_result.get(status, 0) for status in ("Beat", "Miss", "Meet", "실제치 발표"))
 
     return {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "summary": {
             "total": len(rows),
+            "reported": reported_count,
+            "pending": by_result.get("예정", 0) + by_result.get("미확인", 0),
             "by_result": by_result,
             "dates": dates[:60],
+            "latest_collected_at": latest_collected_at,
         },
         "rows": rows,
     }

@@ -87,9 +87,9 @@
     <h2>기업실적 발표</h2>
     <section class="summary">
       <div class="tile"><strong id="total">-</strong><span>전체 기업</span></div>
+      <div class="tile"><strong id="reported">-</strong><span>실제 발표</span></div>
       <div class="tile"><strong id="beat">-</strong><span>Beat</span></div>
       <div class="tile"><strong id="miss">-</strong><span>Miss</span></div>
-      <div class="tile"><strong id="pending">-</strong><span>예정/미확인</span></div>
     </section>
 
     <div class="controls">
@@ -156,11 +156,12 @@
       $('eventDate').innerHTML = '<option value="">전체 날짜</option>' + dates.map(date => `<option value="${esc(date)}">${esc(date)}</option>`).join('');
     }
     function renderSummary(payload) {
+      const summary = payload.summary || {};
       $('total').textContent = allRows.length;
+      $('reported').textContent = summary.reported ?? (countBy('Beat') + countBy('Miss') + countBy('Meet') + countBy('실제치 발표'));
       $('beat').textContent = countBy('Beat');
       $('miss').textContent = countBy('Miss');
-      $('pending').textContent = countBy('예정') + countBy('실제치 발표') + countBy('미확인');
-      $('meta').textContent = `생성시각 ${payload.generated_at || '-'} / 실적 ${allRows.length.toLocaleString()}건`;
+      $('meta').textContent = `생성시각 ${payload.generated_at || '-'} / 실적수집 ${summary.latest_collected_at || '-'}`;
     }
     function renderRows() {
       const q = $('q').value.trim().toLowerCase();
