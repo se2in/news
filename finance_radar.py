@@ -911,6 +911,74 @@ def collect_yahoo_earnings_for_day(day: str, limit: int) -> list[dict[str, Any]]
         return []
 
 
+def clean_eps_value(value: Any) -> str:
+    text = clean_text(value).replace("$", "").replace(",", "").strip()
+    if not text or text in {"-", "N/A", "na"}:
+        return "-"
+    if text.startswith("(") and text.endswith(")"):
+        text = "-" + text[1:-1]
+    return text
+
+
+def normalize_nasdaq_time(value: str) -> str:
+    text = (value or "").lower()
+    if "pre" in text or "before" in text:
+        return "BMO"
+    if "after" in text or "post" in text:
+        return "AMC"
+    if "not" in text or "unsupplied" in text:
+        return "TAS"
+    return clean_text(value).upper() or "TAS"
+
+
+def collect_nasdaq_earnings_for_day(day: str, limit: int = 500) -> list[dict[str, Any]]:
+    url = f"https://api.nasdaq.com/api/calendar/earnings?date={day}"
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "application/json, text/plain, */*",
+        "Origin": "https://www.nasdaq.com",
+        "Referer": "https://www.nasdaq.com/market-activity/earnings",
+    }
+    try:
+        data = request_get(url, headers=headers, timeout=30).json()
+        rows = data.get("data", {}).get("rows", []) or []
+    except Exception as exc:
+        print(f"[warn] nasdaq earnings failed: {day}: {exc}", file=sys.stderr)
+        return []
+
+    earnings: list[dict[str, Any]] = []
+    for row in rows[:limit]:
+        ticker = clean_text(row.get("symbol"))
+        if not ticker:
+            continue
+        actual = clean_eps_value(row.get("eps"))
+        estimate = clean_eps_value(row.get("epsForecast"))
+        surprise = clean_eps_value(row.get("surprise"))
+        if actual == "-":
+            continue
+        company = clean_text(row.get("name"))
+        fiscal_quarter = clean_text(row.get("fiscalQuarterEnding"))
+        event_name = f"Earnings {fiscal_quarter}".strip()
+        earnings.append(
+            {
+                "ticker": ticker,
+                "company": company,
+                "headline": f"{ticker} {company}".strip(),
+                "url": f"https://www.nasdaq.com/market-activity/stocks/{ticker.lower()}/earnings",
+                "markdown": f"[{ticker} {company}](https://www.nasdaq.com/market-activity/stocks/{ticker.lower()}/earnings)".strip(),
+                "event_date": day,
+                "event_name": event_name,
+                "earnings_call_time": normalize_nasdaq_time(clean_text(row.get("time"))),
+                "eps_estimate": estimate,
+                "eps_actual": actual,
+                "eps_surprise_pct": surprise,
+                "market_cap": clean_text(row.get("marketCap")),
+                "result_status": classify_earnings_result(actual, estimate),
+            }
+        )
+    return earnings
+
+
 def parse_optional_float(value: Any) -> float | None:
     if value is None:
         return None
@@ -1228,6 +1296,27 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
     )
     conn.commit()
     return conn.total_changes - before
+
+
+def backfill_recent_earnings_from_nasdaq(conn: sqlite3.Connection, days: int) -> int:
+    cutoff = (now_kst().date() - timedelta(days=max(days, 0))).isoformat()
+    rows = conn.execute(
+        """
+        SELECT DISTINCT event_date
+        FROM earnings_results
+        WHERE event_date >= ?
+          AND (eps_actual = '' OR eps_actual = '-')
+        ORDER BY event_date DESC
+        """,
+        (cutoff,),
+    ).fetchall()
+    total = 0
+    for row in rows:
+        event_date = row["event_date"]
+        nasdaq_rows = collect_nasdaq_earnings_for_day(event_date, 500)
+        if nasdaq_rows:
+            total += save_earnings_results(conn, nasdaq_rows)
+    return total
 
 
 def load_recent_earnings_from_db(conn: sqlite3.Connection, limit: int) -> list[dict[str, Any]]:
@@ -1723,6 +1812,10 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
         refresh_keyword_daily(conn, config, day)
         briefing_data = collect_briefing_data(config)
         earnings_saved = save_earnings_results(conn, briefing_data.get("yahoo_earnings", []))
+        earnings_backfilled = backfill_recent_earnings_from_nasdaq(
+            conn,
+            int(config.get("earnings_backfill_days", 7)),
+        )
         if not briefing_data.get("yahoo_earnings"):
             briefing_data["yahoo_earnings"] = load_recent_earnings_from_db(
                 conn,
@@ -1757,7 +1850,7 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
         conn.commit()
         print(
             f"ok: collected={len(all_items)}, inserted={inserted}, earnings_saved={earnings_saved}, "
-            f"payload={payload_path}, report={report_path}"
+            f"earnings_backfilled={earnings_backfilled}, payload={payload_path}, report={report_path}"
         )
     except Exception as exc:
         conn.execute(
