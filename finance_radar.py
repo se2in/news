@@ -1230,6 +1230,45 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
     return conn.total_changes - before
 
 
+def load_recent_earnings_from_db(conn: sqlite3.Connection, limit: int) -> list[dict[str, Any]]:
+    rows = conn.execute(
+        """
+        SELECT event_date, ticker, company, event_name, earnings_call_time,
+               eps_estimate, eps_actual, eps_surprise_pct, result_status,
+               market_cap, url, collected_at
+        FROM earnings_results
+        WHERE event_date IN (
+            SELECT DISTINCT event_date
+            FROM earnings_results
+            ORDER BY event_date DESC
+            LIMIT 2
+        )
+        ORDER BY event_date DESC,
+                 CASE result_status
+                   WHEN 'Beat' THEN 1
+                   WHEN 'Miss' THEN 2
+                   WHEN 'Meet' THEN 3
+                   WHEN '실제치 발표' THEN 4
+                   WHEN '예정' THEN 5
+                   ELSE 6
+                 END,
+                 market_cap DESC,
+                 ticker ASC
+        LIMIT ?
+        """,
+        (limit,),
+    ).fetchall()
+    results: list[dict[str, Any]] = []
+    for row in rows:
+        item = dict(row)
+        ticker = item.get("ticker", "")
+        company = item.get("company", "")
+        item["headline"] = f"{ticker} {company}".strip()
+        item["markdown"] = md_link(item["headline"], item.get("url", ""))
+        results.append(item)
+    return results
+
+
 def export_earnings_dashboard(conn: sqlite3.Connection, base_dir: Path) -> None:
     rows = conn.execute(
         """
@@ -1684,6 +1723,11 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
         refresh_keyword_daily(conn, config, day)
         briefing_data = collect_briefing_data(config)
         earnings_saved = save_earnings_results(conn, briefing_data.get("yahoo_earnings", []))
+        if not briefing_data.get("yahoo_earnings"):
+            briefing_data["yahoo_earnings"] = load_recent_earnings_from_db(
+                conn,
+                int(config.get("earnings_report_limit", 10)),
+            )
         export_earnings_dashboard(conn, base_dir)
         payload = build_payload(conn, config, day, briefing_data)
 
