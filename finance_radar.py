@@ -1756,15 +1756,65 @@ def append_dashboard_link(message: str) -> str:
     dashboard_url = os.getenv("EARNINGS_DASHBOARD_URL", "https://se2in.github.io/news/").strip()
     if not dashboard_url or dashboard_url in message:
         return message
-    return f"{message.rstrip()}\n\n[기업실적 대시보드]\n{dashboard_url}"
+    return f"{message.rstrip()}\n\n━━━━━━━━━━━━━━━━━━━━\n통합 대시보드\n{dashboard_url}"
+
+
+def strip_local_dashboard_block(message: str) -> str:
+    lines = message.splitlines()
+    cleaned: list[str] = []
+    skipping = False
+    for line in lines:
+        stripped = line.strip()
+        if stripped in {"[기업실적발표 대쉬보드]", "[기업실적발표 대시보드]"}:
+            skipping = True
+            continue
+        if skipping:
+            if not stripped:
+                skipping = False
+            continue
+        cleaned.append(line)
+    return "\n".join(cleaned).strip()
+
+
+def beautify_telegram_sections(message: str) -> str:
+    section_titles = {
+        "[시장동향]": "시장동향",
+        "[장중 특징주]": "장중 특징주",
+        "[네이버 뉴스]": "네이버 뉴스",
+        "[레딧]": "레딧",
+        "[야후]": "야후",
+        "기업 실적 발표": "기업 실적 발표",
+        "[종합내용]": "종합내용",
+    }
+    lines: list[str] = []
+    for line in message.splitlines():
+        stripped = line.strip()
+        if stripped in section_titles:
+            if lines and lines[-1] != "":
+                lines.append("")
+            lines.append("━━━━━━━━━━━━━━━━━━━━")
+            lines.append(section_titles[stripped])
+            lines.append("━━━━━━━━━━━━━━━━━━━━")
+            continue
+        lines.append(line)
+    return "\n".join(lines).strip()
 
 
 def format_telegram_report(message: str) -> str:
     title = "유진증권 안상현 센터장의 AI NEWS BOT BRIEF"
-    body = message.lstrip()
+    generated_at = now_kst().strftime("%Y-%m-%d %H:%M")
+    body = strip_local_dashboard_block(message.lstrip())
+    body = beautify_telegram_sections(body)
     if body.startswith(title):
         return append_dashboard_link(body)
-    return append_dashboard_link(f"{title}\n\n{body}")
+    header = "\n".join(
+        [
+            title,
+            f"기준시각: {generated_at} KST",
+            "시장, 뉴스, 실적을 한 번에 보는 데일리 브리핑",
+        ]
+    )
+    return append_dashboard_link(f"{header}\n\n{body}")
 
 
 def split_telegram_message(message: str, limit: int = 3500) -> list[str]:
