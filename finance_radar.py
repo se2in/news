@@ -1254,6 +1254,9 @@ def init_db(conn: sqlite3.Connection) -> None:
             eps_estimate TEXT NOT NULL DEFAULT '',
             eps_actual TEXT NOT NULL DEFAULT '',
             eps_surprise_pct TEXT NOT NULL DEFAULT '',
+            revenue_estimate TEXT NOT NULL DEFAULT '',
+            revenue_actual TEXT NOT NULL DEFAULT '',
+            revenue_surprise_pct TEXT NOT NULL DEFAULT '',
             result_status TEXT NOT NULL DEFAULT '',
             market_cap TEXT NOT NULL DEFAULT '',
             url TEXT NOT NULL DEFAULT '',
@@ -1266,6 +1269,11 @@ def init_db(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE keyword_daily ADD COLUMN avg_comments REAL NOT NULL DEFAULT 0")
     except sqlite3.OperationalError:
         pass
+    for column in ("revenue_estimate", "revenue_actual", "revenue_surprise_pct"):
+        try:
+            conn.execute(f"ALTER TABLE earnings_results ADD COLUMN {column} TEXT NOT NULL DEFAULT ''")
+        except sqlite3.OperationalError:
+            pass
     conn.commit()
 
 
@@ -1281,6 +1289,9 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
             str(item.get("eps_estimate", "")),
             str(item.get("eps_actual", "")),
             str(item.get("eps_surprise_pct", "")),
+            str(item.get("revenue_estimate", "")),
+            str(item.get("revenue_actual", "")),
+            str(item.get("revenue_surprise_pct", "")),
             item.get("result_status", ""),
             item.get("market_cap", ""),
             item.get("url", ""),
@@ -1294,13 +1305,29 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
         """
         INSERT INTO earnings_results
         (event_date, ticker, company, event_name, earnings_call_time, eps_estimate, eps_actual,
-         eps_surprise_pct, result_status, market_cap, url, collected_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         eps_surprise_pct, revenue_estimate, revenue_actual, revenue_surprise_pct,
+         result_status, market_cap, url, collected_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(event_date, ticker) DO UPDATE SET
             company = excluded.company,
             event_name = excluded.event_name,
             earnings_call_time = excluded.earnings_call_time,
             eps_estimate = excluded.eps_estimate,
+            revenue_estimate = CASE
+                WHEN excluded.revenue_estimate NOT IN ('', '-') OR earnings_results.revenue_estimate IN ('', '-')
+                THEN excluded.revenue_estimate
+                ELSE earnings_results.revenue_estimate
+            END,
+            revenue_actual = CASE
+                WHEN excluded.revenue_actual NOT IN ('', '-') OR earnings_results.revenue_actual IN ('', '-')
+                THEN excluded.revenue_actual
+                ELSE earnings_results.revenue_actual
+            END,
+            revenue_surprise_pct = CASE
+                WHEN excluded.revenue_actual NOT IN ('', '-') OR earnings_results.revenue_actual IN ('', '-')
+                THEN excluded.revenue_surprise_pct
+                ELSE earnings_results.revenue_surprise_pct
+            END,
             eps_actual = CASE
                 WHEN excluded.eps_actual NOT IN ('', '-') OR earnings_results.eps_actual IN ('', '-')
                 THEN excluded.eps_actual
@@ -1341,7 +1368,8 @@ def load_recent_earnings_from_db(conn: sqlite3.Connection, limit: int) -> list[d
     rows = conn.execute(
         """
         SELECT event_date, ticker, company, event_name, earnings_call_time,
-               eps_estimate, eps_actual, eps_surprise_pct, result_status,
+               eps_estimate, eps_actual, eps_surprise_pct,
+               revenue_estimate, revenue_actual, revenue_surprise_pct, result_status,
                market_cap, url, collected_at
         FROM earnings_results
         WHERE event_date IN (
@@ -1380,7 +1408,8 @@ def export_earnings_dashboard(conn: sqlite3.Connection, base_dir: Path) -> None:
     rows = conn.execute(
         """
         SELECT event_date, ticker, company, event_name, earnings_call_time, eps_estimate, eps_actual,
-               eps_surprise_pct, result_status, market_cap, url, collected_at
+               eps_surprise_pct, revenue_estimate, revenue_actual, revenue_surprise_pct,
+               result_status, market_cap, url, collected_at
         FROM earnings_results
         ORDER BY event_date DESC, result_status ASC, market_cap DESC, ticker ASC
         LIMIT 1000
