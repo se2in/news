@@ -949,7 +949,7 @@ def normalize_nasdaq_time(value: str) -> str:
     return clean_text(value).upper() or "TAS"
 
 
-def collect_nasdaq_earnings_for_day(day: str, limit: int = 500) -> list[dict[str, Any]]:
+def collect_nasdaq_earnings_for_day(day: str, limit: int = 1000) -> list[dict[str, Any]]:
     url = f"https://api.nasdaq.com/api/calendar/earnings?date={day}"
     headers = {
         "User-Agent": "Mozilla/5.0",
@@ -972,8 +972,6 @@ def collect_nasdaq_earnings_for_day(day: str, limit: int = 500) -> list[dict[str
         actual = clean_eps_value(row.get("eps"))
         estimate = clean_eps_value(row.get("epsForecast"))
         surprise = clean_eps_value(row.get("surprise"))
-        if actual == "-":
-            continue
         company = clean_text(row.get("name"))
         fiscal_quarter = clean_text(row.get("fiscalQuarterEnding"))
         event_name = f"Earnings {fiscal_quarter}".strip()
@@ -1303,9 +1301,21 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
             event_name = excluded.event_name,
             earnings_call_time = excluded.earnings_call_time,
             eps_estimate = excluded.eps_estimate,
-            eps_actual = excluded.eps_actual,
-            eps_surprise_pct = excluded.eps_surprise_pct,
-            result_status = excluded.result_status,
+            eps_actual = CASE
+                WHEN excluded.eps_actual NOT IN ('', '-') OR earnings_results.eps_actual IN ('', '-')
+                THEN excluded.eps_actual
+                ELSE earnings_results.eps_actual
+            END,
+            eps_surprise_pct = CASE
+                WHEN excluded.eps_actual NOT IN ('', '-') OR earnings_results.eps_actual IN ('', '-')
+                THEN excluded.eps_surprise_pct
+                ELSE earnings_results.eps_surprise_pct
+            END,
+            result_status = CASE
+                WHEN excluded.eps_actual NOT IN ('', '-') OR earnings_results.eps_actual IN ('', '-')
+                THEN excluded.result_status
+                ELSE earnings_results.result_status
+            END,
             market_cap = excluded.market_cap,
             url = excluded.url,
             collected_at = excluded.collected_at
@@ -1316,22 +1326,12 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
     return conn.total_changes - before
 
 
-def backfill_recent_earnings_from_nasdaq(conn: sqlite3.Connection, days: int) -> int:
-    cutoff = (now_kst().date() - timedelta(days=max(days, 0))).isoformat()
-    rows = conn.execute(
-        """
-        SELECT DISTINCT event_date
-        FROM earnings_results
-        WHERE event_date >= ?
-          AND (eps_actual = '' OR eps_actual = '-')
-        ORDER BY event_date DESC
-        """,
-        (cutoff,),
-    ).fetchall()
+def sync_recent_earnings_from_nasdaq(conn: sqlite3.Connection, days: int) -> int:
     total = 0
-    for row in rows:
-        event_date = row["event_date"]
-        nasdaq_rows = collect_nasdaq_earnings_for_day(event_date, 500)
+    today = now_kst().date()
+    for offset in range(max(days, 0), -1, -1):
+        event_date = (today - timedelta(days=offset)).isoformat()
+        nasdaq_rows = collect_nasdaq_earnings_for_day(event_date, 1000)
         if nasdaq_rows:
             total += save_earnings_results(conn, nasdaq_rows)
     return total
@@ -1880,9 +1880,9 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
         refresh_keyword_daily(conn, config, day)
         briefing_data = collect_briefing_data(config)
         earnings_saved = save_earnings_results(conn, briefing_data.get("yahoo_earnings", []))
-        earnings_backfilled = backfill_recent_earnings_from_nasdaq(
+        earnings_synced = sync_recent_earnings_from_nasdaq(
             conn,
-            int(config.get("earnings_backfill_days", 7)),
+            int(config.get("earnings_sync_days", config.get("earnings_backfill_days", 14))),
         )
         if not briefing_data.get("yahoo_earnings"):
             briefing_data["yahoo_earnings"] = load_recent_earnings_from_db(
@@ -1918,7 +1918,7 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
         conn.commit()
         print(
             f"ok: collected={len(all_items)}, inserted={inserted}, earnings_saved={earnings_saved}, "
-            f"earnings_backfilled={earnings_backfilled}, payload={payload_path}, report={report_path}"
+            f"earnings_synced={earnings_synced}, payload={payload_path}, report={report_path}"
         )
     except Exception as exc:
         conn.execute(
