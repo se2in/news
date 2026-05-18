@@ -705,16 +705,34 @@ def collect_us_featured_stocks(limit: int = 10) -> dict[str, Any]:
     }
 
 
+def collect_korea_after_close_featured_stocks(limit: int = 10) -> dict[str, Any]:
+    data = collect_korea_featured_stocks(limit)
+    data["session"] = "korea_after_close"
+    data["title"] = "한국 마감 후 특징주"
+    data["description"] = "장 마감 후에도 당일 상승률 상위 종목을 표시합니다."
+    return data
+
+
+def is_korea_after_close_window(moment: datetime | None = None) -> bool:
+    current = moment or now_kst()
+    if current.weekday() >= 5:
+        return False
+    minutes = current.hour * 60 + current.minute
+    return 15 * 60 + 30 < minutes <= 21 * 60
+
+
 def collect_featured_stocks(limit: int = 10) -> dict[str, Any]:
     current = now_kst()
     if is_korea_market_open(current):
         return collect_korea_featured_stocks(limit)
+    if is_korea_after_close_window(current):
+        return collect_korea_after_close_featured_stocks(limit)
     if is_us_market_open(current):
         return collect_us_featured_stocks(limit)
     return {
         "session": "closed",
         "title": "장중 특징주",
-        "description": "현재 한국/미국 정규장 장중 시간이 아닙니다.",
+        "description": "현재 한국/미국 정규장 또는 한국 마감 후 특징주 표시 시간이 아닙니다.",
         "stocks": [],
     }
 
