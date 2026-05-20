@@ -587,8 +587,9 @@ def collect_foreign_spot_flow() -> dict[str, Any]:
 def collect_market_trends() -> list[dict[str, Any]]:
     current = now_kst()
     minutes = current.hour * 60 + current.minute
+    morning_us_market_window = 7 * 60 <= minutes <= 8 * 60 + 30
     show_domestic_until = minutes <= 17 * 60
-    show_global_overnight = minutes >= 17 * 60 or minutes < 7 * 60
+    show_global_overnight = minutes >= 17 * 60 or minutes < 7 * 60 or morning_us_market_window
 
     if show_domestic_until and not show_global_overnight:
         kospi = collect_naver_index("KOSPI", "KOSPI 지수")
