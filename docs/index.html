@@ -123,9 +123,6 @@
             <th>EPS 예상</th>
             <th>EPS 실제</th>
             <th>서프라이즈</th>
-            <th>매출 예상</th>
-            <th>매출 실제</th>
-            <th>매출 서프라이즈</th>
             <th>결과</th>
             <th>시총</th>
             <th>수집시각</th>
@@ -186,9 +183,6 @@
           <td class="num">${esc(fmt(row.eps_estimate))}</td>
           <td class="num">${esc(fmt(row.eps_actual))}</td>
           <td class="num">${esc(fmt(row.eps_surprise_pct))}</td>
-          <td class="num">${esc(fmt(row.revenue_estimate))}</td>
-          <td class="num">${esc(fmt(row.revenue_actual))}</td>
-          <td class="num">${esc(fmt(row.revenue_surprise_pct))}</td>
           <td><span class="badge ${badgeClass(row.result_status)}">${esc(fmt(row.result_status))}</span></td>
           <td class="num">${esc(fmt(row.market_cap))}</td>
           <td>${esc(fmt(row.collected_at))}</td>

@@ -930,7 +930,7 @@ def collect_yahoo_earnings_for_day(day: str, limit: int) -> list[dict[str, Any]]
 
 
 def clean_eps_value(value: Any) -> str:
-    text = clean_text(value).replace("$", "").replace(",", "").strip()
+    text = clean_text(str(value) if value is not None else "").replace("$", "").replace(",", "").strip()
     if not text or text in {"-", "N/A", "na"}:
         return "-"
     if text.startswith("(") and text.endswith(")"):
@@ -995,6 +995,36 @@ def collect_nasdaq_earnings_for_day(day: str, limit: int = 1000) -> list[dict[st
     return earnings
 
 
+def collect_nasdaq_earnings_surprise_rows(ticker: str) -> list[dict[str, Any]]:
+    symbol = clean_text(ticker).upper()
+    if not symbol:
+        return []
+    url = f"https://api.nasdaq.com/api/company/{quote_plus(symbol)}/earnings-surprise"
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "application/json, text/plain, */*",
+        "Origin": "https://www.nasdaq.com",
+        "Referer": f"https://www.nasdaq.com/market-activity/stocks/{symbol.lower()}/earnings",
+    }
+    try:
+        data = request_get(url, headers=headers, timeout=30).json()
+        table = (data.get("data") or {}).get("earningsSurpriseTable") or {}
+        return table.get("rows", []) or []
+    except Exception as exc:
+        print(f"[warn] nasdaq earnings surprise failed: {symbol}: {exc}", file=sys.stderr)
+        return []
+
+
+def parse_us_date(value: Any) -> str:
+    text = clean_text(value)
+    for fmt in ("%m/%d/%Y", "%m/%d/%y"):
+        try:
+            return datetime.strptime(text, fmt).date().isoformat()
+        except ValueError:
+            pass
+    return ""
+
+
 def parse_optional_float(value: Any) -> float | None:
     if value is None:
         return None
@@ -1019,6 +1049,68 @@ def classify_earnings_result(actual: Any, estimate: Any) -> str:
     if actual_value < estimate_value:
         return "Miss"
     return "Meet"
+
+
+def backfill_missing_eps_estimates_from_nasdaq(conn: sqlite3.Connection, days: int, max_tickers: int = 120) -> int:
+    cutoff = (now_kst().date() - timedelta(days=max(days, 0))).isoformat()
+    rows = conn.execute(
+        """
+        SELECT event_date, ticker, eps_actual
+        FROM earnings_results
+        WHERE event_date >= ?
+          AND eps_actual NOT IN ('', '-')
+          AND eps_estimate IN ('', '-')
+          AND eps_estimate_checked_at = ''
+        ORDER BY event_date DESC, ticker ASC
+        LIMIT ?
+        """,
+        (cutoff, max(max_tickers, 1)),
+    ).fetchall()
+    targets: dict[str, set[str]] = {}
+    for row in rows:
+        targets.setdefault(row["ticker"], set()).add(row["event_date"])
+
+    total = 0
+    checked_at = now_kst().isoformat()
+    for ticker, event_dates in targets.items():
+        updates: list[tuple[str, str, str, str, str]] = []
+        for row in collect_nasdaq_earnings_surprise_rows(ticker):
+            event_date = parse_us_date(row.get("dateReported"))
+            if event_date not in event_dates:
+                continue
+            estimate = clean_eps_value(row.get("consensusForecast"))
+            actual = clean_eps_value(row.get("eps"))
+            surprise = clean_eps_value(row.get("percentageSurprise"))
+            if estimate == "-":
+                continue
+            updates.append((estimate, surprise, classify_earnings_result(actual, estimate), event_date, ticker))
+        if updates:
+            before = conn.total_changes
+            conn.executemany(
+                """
+                UPDATE earnings_results
+                SET eps_estimate = ?,
+                    eps_surprise_pct = ?,
+                    result_status = ?
+                WHERE event_date = ? AND ticker = ?
+                """,
+                updates,
+            )
+            conn.commit()
+            total += conn.total_changes - before
+        conn.executemany(
+            """
+            UPDATE earnings_results
+            SET eps_estimate_checked_at = ?
+            WHERE event_date = ? AND ticker = ?
+              AND eps_actual NOT IN ('', '-')
+              AND eps_estimate IN ('', '-')
+            """,
+            [(checked_at, event_date, ticker) for event_date in event_dates],
+        )
+        conn.commit()
+
+    return total
 
 
 def collect_briefing_data(config: dict[str, Any]) -> dict[str, Any]:
@@ -1254,12 +1346,10 @@ def init_db(conn: sqlite3.Connection) -> None:
             eps_estimate TEXT NOT NULL DEFAULT '',
             eps_actual TEXT NOT NULL DEFAULT '',
             eps_surprise_pct TEXT NOT NULL DEFAULT '',
-            revenue_estimate TEXT NOT NULL DEFAULT '',
-            revenue_actual TEXT NOT NULL DEFAULT '',
-            revenue_surprise_pct TEXT NOT NULL DEFAULT '',
             result_status TEXT NOT NULL DEFAULT '',
             market_cap TEXT NOT NULL DEFAULT '',
             url TEXT NOT NULL DEFAULT '',
+            eps_estimate_checked_at TEXT NOT NULL DEFAULT '',
             collected_at TEXT NOT NULL,
             PRIMARY KEY (event_date, ticker)
         );
@@ -1269,11 +1359,10 @@ def init_db(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE keyword_daily ADD COLUMN avg_comments REAL NOT NULL DEFAULT 0")
     except sqlite3.OperationalError:
         pass
-    for column in ("revenue_estimate", "revenue_actual", "revenue_surprise_pct"):
-        try:
-            conn.execute(f"ALTER TABLE earnings_results ADD COLUMN {column} TEXT NOT NULL DEFAULT ''")
-        except sqlite3.OperationalError:
-            pass
+    try:
+        conn.execute("ALTER TABLE earnings_results ADD COLUMN eps_estimate_checked_at TEXT NOT NULL DEFAULT ''")
+    except sqlite3.OperationalError:
+        pass
     conn.commit()
 
 
@@ -1289,9 +1378,6 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
             str(item.get("eps_estimate", "")),
             str(item.get("eps_actual", "")),
             str(item.get("eps_surprise_pct", "")),
-            str(item.get("revenue_estimate", "")),
-            str(item.get("revenue_actual", "")),
-            str(item.get("revenue_surprise_pct", "")),
             item.get("result_status", ""),
             item.get("market_cap", ""),
             item.get("url", ""),
@@ -1305,29 +1391,13 @@ def save_earnings_results(conn: sqlite3.Connection, earnings: list[dict[str, Any
         """
         INSERT INTO earnings_results
         (event_date, ticker, company, event_name, earnings_call_time, eps_estimate, eps_actual,
-         eps_surprise_pct, revenue_estimate, revenue_actual, revenue_surprise_pct,
-         result_status, market_cap, url, collected_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         eps_surprise_pct, result_status, market_cap, url, collected_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(event_date, ticker) DO UPDATE SET
             company = excluded.company,
             event_name = excluded.event_name,
             earnings_call_time = excluded.earnings_call_time,
             eps_estimate = excluded.eps_estimate,
-            revenue_estimate = CASE
-                WHEN excluded.revenue_estimate NOT IN ('', '-') OR earnings_results.revenue_estimate IN ('', '-')
-                THEN excluded.revenue_estimate
-                ELSE earnings_results.revenue_estimate
-            END,
-            revenue_actual = CASE
-                WHEN excluded.revenue_actual NOT IN ('', '-') OR earnings_results.revenue_actual IN ('', '-')
-                THEN excluded.revenue_actual
-                ELSE earnings_results.revenue_actual
-            END,
-            revenue_surprise_pct = CASE
-                WHEN excluded.revenue_actual NOT IN ('', '-') OR earnings_results.revenue_actual IN ('', '-')
-                THEN excluded.revenue_surprise_pct
-                ELSE earnings_results.revenue_surprise_pct
-            END,
             eps_actual = CASE
                 WHEN excluded.eps_actual NOT IN ('', '-') OR earnings_results.eps_actual IN ('', '-')
                 THEN excluded.eps_actual
@@ -1368,8 +1438,7 @@ def load_recent_earnings_from_db(conn: sqlite3.Connection, limit: int) -> list[d
     rows = conn.execute(
         """
         SELECT event_date, ticker, company, event_name, earnings_call_time,
-               eps_estimate, eps_actual, eps_surprise_pct,
-               revenue_estimate, revenue_actual, revenue_surprise_pct, result_status,
+               eps_estimate, eps_actual, eps_surprise_pct, result_status,
                market_cap, url, collected_at
         FROM earnings_results
         WHERE event_date IN (
@@ -1408,8 +1477,7 @@ def export_earnings_dashboard(conn: sqlite3.Connection, base_dir: Path) -> None:
     rows = conn.execute(
         """
         SELECT event_date, ticker, company, event_name, earnings_call_time, eps_estimate, eps_actual,
-               eps_surprise_pct, revenue_estimate, revenue_actual, revenue_surprise_pct,
-               result_status, market_cap, url, collected_at
+               eps_surprise_pct, result_status, market_cap, url, collected_at
         FROM earnings_results
         ORDER BY event_date DESC, result_status ASC, market_cap DESC, ticker ASC
         LIMIT 1000
@@ -1913,6 +1981,11 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
             conn,
             int(config.get("earnings_sync_days", config.get("earnings_backfill_days", 14))),
         )
+        earnings_estimates_backfilled = backfill_missing_eps_estimates_from_nasdaq(
+            conn,
+            int(config.get("earnings_estimate_backfill_days", 30)),
+            int(config.get("earnings_estimate_backfill_limit", 120)),
+        )
         if not briefing_data.get("yahoo_earnings"):
             briefing_data["yahoo_earnings"] = load_recent_earnings_from_db(
                 conn,
@@ -1947,7 +2020,8 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
         conn.commit()
         print(
             f"ok: collected={len(all_items)}, inserted={inserted}, earnings_saved={earnings_saved}, "
-            f"earnings_synced={earnings_synced}, payload={payload_path}, report={report_path}"
+            f"earnings_synced={earnings_synced}, earnings_estimates_backfilled={earnings_estimates_backfilled}, "
+            f"payload={payload_path}, report={report_path}"
         )
     except Exception as exc:
         conn.execute(

@@ -20,8 +20,7 @@ def fetch_earnings_rows() -> list[dict[str, Any]]:
         rows = conn.execute(
             """
             SELECT event_date, ticker, company, event_name, earnings_call_time,
-                   eps_estimate, eps_actual, eps_surprise_pct,
-                   revenue_estimate, revenue_actual, revenue_surprise_pct, result_status,
+                   eps_estimate, eps_actual, eps_surprise_pct, result_status,
                    market_cap, url, collected_at
             FROM earnings_results
             ORDER BY event_date DESC,
