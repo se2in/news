@@ -38,7 +38,7 @@
     .news-list li { padding: 9px 8px 9px 0; border-bottom: 1px solid #1d1d1d; font-size: 13px; line-height: 1.35; }
     .news-list li:last-child { border-bottom: 0; }
     .table-wrap { overflow-x: auto; border: 1px solid var(--grid); }
-    table { width: 100%; border-collapse: collapse; background: #070707; min-width: 980px; }
+    table { width: 100%; border-collapse: collapse; background: #070707; min-width: 1080px; }
     th, td { border-bottom: 1px solid #222; border-right: 1px solid #181818; padding: 9px 8px; text-align: left; font-size: 13px; vertical-align: top; }
     th { position: sticky; top: 0; background: #171717; color: var(--orange); z-index: 1; font-size: 12px; }
     tr:hover td { background: #111; }
@@ -108,7 +108,7 @@
         <option value="AMC">AMC 장마감 후</option>
         <option value="BMO">BMO 장전</option>
         <option value="TNS">TNS 시간 미정</option>
-        <option value="TAS">TAS 발표 후</option>
+        <option value="TAS">TAS 발표 완료</option>
       </select>
       <button id="reset">초기화</button>
     </div>
@@ -124,6 +124,7 @@
             <th>EPS 실제</th>
             <th>서프라이즈</th>
             <th>결과</th>
+            <th>다음날 등락률</th>
             <th>시총</th>
             <th>수집시각</th>
           </tr>
@@ -178,16 +179,17 @@
       $('rows').innerHTML = rows.length ? rows.map(row => `
         <tr>
           <td>${esc(fmt(row.event_date))}</td>
-          <td><a href="${esc(row.url)}" target="_blank" rel="noopener">${esc(fmt(row.ticker))}</a><br>${esc(fmt(row.company))}</td>
+          <td><a href="${esc(row.url || '#')}" target="_blank" rel="noopener">${esc(fmt(row.ticker))}</a><br>${esc(fmt(row.company))}</td>
           <td>${esc(fmt(row.earnings_call_time))}</td>
           <td class="num">${esc(fmt(row.eps_estimate))}</td>
           <td class="num">${esc(fmt(row.eps_actual))}</td>
           <td class="num">${esc(fmt(row.eps_surprise_pct))}</td>
           <td><span class="badge ${badgeClass(row.result_status)}">${esc(fmt(row.result_status))}</span></td>
+          <td class="num">${esc(fmt(row.next_day_change_pct))}</td>
           <td class="num">${esc(fmt(row.market_cap))}</td>
           <td>${esc(fmt(row.collected_at))}</td>
         </tr>
-      `).join('') : '<tr><td colspan="9" class="empty">조건에 맞는 기업실적 데이터가 없습니다.</td></tr>';
+      `).join('') : '<tr><td colspan="10" class="empty">조건에 맞는 기업실적 데이터가 없습니다.</td></tr>';
     }
     function renderMarket(items) {
       $('market').innerHTML = (items || []).length ? items.map(item => `
@@ -239,7 +241,7 @@
     });
     load().catch(error => {
       $('meta').textContent = '데이터를 불러오지 못했습니다.';
-      $('rows').innerHTML = `<tr><td colspan="9" class="empty">${esc(error)}</td></tr>`;
+      $('rows').innerHTML = `<tr><td colspan="10" class="empty">${esc(error)}</td></tr>`;
     });
   </script>
 </body>

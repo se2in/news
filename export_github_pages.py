@@ -21,7 +21,7 @@ def fetch_earnings_rows() -> list[dict[str, Any]]:
             """
             SELECT event_date, ticker, company, event_name, earnings_call_time,
                    eps_estimate, eps_actual, eps_surprise_pct, result_status,
-                   market_cap, url, collected_at
+                   next_day_change_pct, market_cap, url, collected_at
             FROM earnings_results
             ORDER BY event_date DESC,
                      CASE result_status

@@ -26,6 +26,7 @@ from bs4 import MarkupResemblesLocatorWarning
 KST = timezone(timedelta(hours=9))
 NY_TZ = ZoneInfo("America/New_York")
 DEFAULT_USER_AGENT = "DifyFinanceRadar/1.0 (+https://cloud.dify.ai)"
+KRX_CREDENTIAL_SERVICE = "se2in-etf-monitor-krx"
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
 EARNINGS_DASHBOARD_HTML = """<!doctype html>
@@ -89,6 +90,7 @@ EARNINGS_DASHBOARD_HTML = """<!doctype html>
           <th>EPS 실제</th>
           <th>서프라이즈</th>
           <th>결과</th>
+          <th>다음날 등락률</th>
           <th>시총</th>
         </tr>
       </thead>
@@ -116,6 +118,7 @@ EARNINGS_DASHBOARD_HTML = """<!doctype html>
           <td class="num">${r.eps_actual || '-'}</td>
           <td class="num">${r.eps_surprise_pct || '-'}</td>
           <td><span class="badge ${cls(r.result_status)}">${r.result_status || '-'}</span></td>
+          <td class="num">${r.next_day_change_pct || '-'}</td>
           <td class="num">${r.market_cap || '-'}</td>
         </tr>
       `).join('');
@@ -584,6 +587,61 @@ def collect_foreign_spot_flow() -> dict[str, Any]:
     return {"name": "외국인 현물", "value": "", "change": "확인 필요", "unit": "억원", "date": "", "url": url}
 
 
+def load_krx_credentials_for_pykrx() -> None:
+    if os.environ.get("KRX_ID") and os.environ.get("KRX_PW"):
+        return
+    try:
+        import keyring
+
+        krx_id = keyring.get_password(KRX_CREDENTIAL_SERVICE, "KRX_ID")
+        krx_pw = keyring.get_password(KRX_CREDENTIAL_SERVICE, "KRX_PW")
+    except Exception:
+        krx_id = None
+        krx_pw = None
+    if krx_id and krx_pw:
+        os.environ.setdefault("KRX_ID", krx_id)
+        os.environ.setdefault("KRX_PW", krx_pw)
+
+
+def format_krw_uk(value: Any) -> str:
+    amount = parse_optional_float(value)
+    if amount is None:
+        return "-"
+    return f"{amount / 100_000_000:+,.0f}억원"
+
+
+def collect_krx_market_investor_flow(market: str, label: str) -> dict[str, Any]:
+    try:
+        load_krx_credentials_for_pykrx()
+        from pykrx import stock
+
+        end = now_kst().date()
+        start = end - timedelta(days=10)
+        df = stock.get_market_trading_value_by_date(start.strftime("%Y%m%d"), end.strftime("%Y%m%d"), market)
+        if df is None or df.empty:
+            raise RuntimeError("empty pykrx investor flow")
+        row = df.tail(1).iloc[0]
+        trade_date = df.tail(1).index[0]
+        institution = row.get("기관합계", "")
+        foreign = row.get("외국인합계", "")
+        return {
+            "name": f"{label} 기관/외국인 수급",
+            "value": f"기관 {format_krw_uk(institution)}",
+            "change": f"외국인 {format_krw_uk(foreign)}",
+            "timestamp": str(trade_date)[:10],
+            "url": "https://data.krx.co.kr/",
+        }
+    except Exception as exc:
+        print(f"[warn] krx investor flow failed: {market}: {exc}", file=sys.stderr)
+        return {
+            "name": f"{label} 기관/외국인 수급",
+            "value": "확인 필요",
+            "change": "",
+            "timestamp": "",
+            "url": "https://data.krx.co.kr/",
+        }
+
+
 def collect_market_trends() -> list[dict[str, Any]]:
     current = now_kst()
     minutes = current.hour * 60 + current.minute
@@ -599,6 +657,8 @@ def collect_market_trends() -> list[dict[str, Any]]:
             kosdaq,
             collect_nasdaq_futures(),
             collect_foreign_spot_flow(),
+            collect_krx_market_investor_flow("KOSPI", "KOSPI"),
+            collect_krx_market_investor_flow("KOSDAQ", "KOSDAQ"),
         ]
 
     return [
@@ -1114,6 +1174,88 @@ def backfill_missing_eps_estimates_from_nasdaq(conn: sqlite3.Connection, days: i
     return total
 
 
+def collect_yahoo_next_day_change_pct(ticker: str, event_date: str) -> str:
+    symbol = clean_text(ticker)
+    if not symbol or not event_date:
+        return ""
+    try:
+        start_date = datetime.strptime(event_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return ""
+    period1 = int((start_date - timedelta(days=2)).timestamp())
+    period2 = int((start_date + timedelta(days=10)).timestamp())
+    url = (
+        f"https://query1.finance.yahoo.com/v8/finance/chart/{quote_plus(symbol)}"
+        f"?period1={period1}&period2={period2}&interval=1d&events=history"
+    )
+    try:
+        data = request_get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20).json()
+        result = data.get("chart", {}).get("result", [{}])[0]
+        timestamps = result.get("timestamp", []) or []
+        closes = result.get("indicators", {}).get("quote", [{}])[0].get("close", []) or []
+        pairs: list[tuple[str, float]] = []
+        for ts, close in zip(timestamps, closes):
+            if close is None:
+                continue
+            day = datetime.fromtimestamp(int(ts), tz=timezone.utc).date().isoformat()
+            pairs.append((day, float(close)))
+        if len(pairs) < 2:
+            return ""
+        event_index = None
+        for idx, (day, _) in enumerate(pairs):
+            if day == event_date:
+                event_index = idx
+                break
+        if event_index is None:
+            for idx, (day, _) in enumerate(pairs):
+                if day > event_date:
+                    event_index = idx - 1
+                    break
+        if event_index is None or event_index < 0 or event_index + 1 >= len(pairs):
+            return ""
+        base_close = pairs[event_index][1]
+        next_close = pairs[event_index + 1][1]
+        if not base_close:
+            return ""
+        return f"{((next_close / base_close) - 1) * 100:+.2f}%"
+    except Exception as exc:
+        print(f"[warn] yahoo next day change failed: {symbol}: {exc}", file=sys.stderr)
+        return ""
+
+
+def backfill_next_day_changes(conn: sqlite3.Connection, days: int, max_rows: int = 200) -> int:
+    cutoff = (now_kst().date() - timedelta(days=max(days, 0))).isoformat()
+    rows = conn.execute(
+        """
+        SELECT event_date, ticker
+        FROM earnings_results
+        WHERE event_date >= ?
+          AND event_date < ?
+          AND next_day_change_pct = ''
+        ORDER BY event_date DESC, ticker ASC
+        LIMIT ?
+        """,
+        (cutoff, now_kst().date().isoformat(), max(max_rows, 1)),
+    ).fetchall()
+    total = 0
+    for row in rows:
+        change_pct = collect_yahoo_next_day_change_pct(row["ticker"], row["event_date"])
+        if not change_pct:
+            continue
+        before = conn.total_changes
+        conn.execute(
+            """
+            UPDATE earnings_results
+            SET next_day_change_pct = ?
+            WHERE event_date = ? AND ticker = ?
+            """,
+            (change_pct, row["event_date"], row["ticker"]),
+        )
+        conn.commit()
+        total += conn.total_changes - before
+    return total
+
+
 def collect_briefing_data(config: dict[str, Any]) -> dict[str, Any]:
     news_limit = int(config.get("briefing_news_limit", 10))
     return {
@@ -1349,6 +1491,7 @@ def init_db(conn: sqlite3.Connection) -> None:
             eps_surprise_pct TEXT NOT NULL DEFAULT '',
             result_status TEXT NOT NULL DEFAULT '',
             market_cap TEXT NOT NULL DEFAULT '',
+            next_day_change_pct TEXT NOT NULL DEFAULT '',
             url TEXT NOT NULL DEFAULT '',
             eps_estimate_checked_at TEXT NOT NULL DEFAULT '',
             collected_at TEXT NOT NULL,
@@ -1362,6 +1505,10 @@ def init_db(conn: sqlite3.Connection) -> None:
         pass
     try:
         conn.execute("ALTER TABLE earnings_results ADD COLUMN eps_estimate_checked_at TEXT NOT NULL DEFAULT ''")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        conn.execute("ALTER TABLE earnings_results ADD COLUMN next_day_change_pct TEXT NOT NULL DEFAULT ''")
     except sqlite3.OperationalError:
         pass
     conn.commit()
@@ -1440,7 +1587,7 @@ def load_recent_earnings_from_db(conn: sqlite3.Connection, limit: int) -> list[d
         """
         SELECT event_date, ticker, company, event_name, earnings_call_time,
                eps_estimate, eps_actual, eps_surprise_pct, result_status,
-               market_cap, url, collected_at
+               next_day_change_pct, market_cap, url, collected_at
         FROM earnings_results
         WHERE event_date IN (
             SELECT DISTINCT event_date
@@ -1478,7 +1625,7 @@ def export_earnings_dashboard(conn: sqlite3.Connection, base_dir: Path) -> None:
     rows = conn.execute(
         """
         SELECT event_date, ticker, company, event_name, earnings_call_time, eps_estimate, eps_actual,
-               eps_surprise_pct, result_status, market_cap, url, collected_at
+               eps_surprise_pct, result_status, next_day_change_pct, market_cap, url, collected_at
         FROM earnings_results
         ORDER BY event_date DESC, result_status ASC, market_cap DESC, ticker ASC
         LIMIT 1000
@@ -1987,6 +2134,11 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
             int(config.get("earnings_estimate_backfill_days", 30)),
             int(config.get("earnings_estimate_backfill_limit", 120)),
         )
+        next_day_changes_backfilled = backfill_next_day_changes(
+            conn,
+            int(config.get("earnings_next_day_change_days", 30)),
+            int(config.get("earnings_next_day_change_limit", 200)),
+        )
         if not briefing_data.get("yahoo_earnings"):
             briefing_data["yahoo_earnings"] = load_recent_earnings_from_db(
                 conn,
@@ -2022,6 +2174,7 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
         print(
             f"ok: collected={len(all_items)}, inserted={inserted}, earnings_saved={earnings_saved}, "
             f"earnings_synced={earnings_synced}, earnings_estimates_backfilled={earnings_estimates_backfilled}, "
+            f"next_day_changes_backfilled={next_day_changes_backfilled}, "
             f"payload={payload_path}, report={report_path}"
         )
     except Exception as exc:
