@@ -485,6 +485,46 @@ def collect_naver_index(code: str, label: str) -> dict[str, Any]:
         return {"name": label, "value": "", "change": "", "timestamp": "", "url": url}
 
 
+def collect_naver_index_investor_flow(code: str, label: str) -> dict[str, Any]:
+    url = f"https://finance.naver.com/sise/sise_index.naver?code={code}"
+    try:
+        response = request_get(url, headers={"User-Agent": "Mozilla/5.0"})
+        response.encoding = "euc-kr"
+        soup = BeautifulSoup(response.text, "html.parser")
+        flows: list[str] = []
+        for dd in soup.select("dl.lst_kos_info dd.dd")[:3]:
+            parts = [clean_text(part) for part in dd.stripped_strings if clean_text(part)]
+            if len(parts) >= 3:
+                flows.append(f"{parts[0]} {parts[1]}{parts[2]}")
+            elif len(parts) >= 2:
+                flows.append(f"{parts[0]} {parts[1]}")
+
+        timestamp = ""
+        content = soup.select_one("div#contentarea")
+        if content:
+            match = re.search(r"\d{4}\.\d{2}\.\d{2}\s+\d{2}:\d{2}\s+\S+", content.get_text(" ", strip=True))
+            timestamp = match.group(0) if match else ""
+
+        if not flows:
+            raise RuntimeError("missing investor flow rows")
+        return {
+            "name": f"{label} 투자자별 매매동향",
+            "value": " / ".join(flows),
+            "change": "",
+            "timestamp": timestamp,
+            "url": url,
+        }
+    except Exception as exc:
+        print(f"[warn] naver index investor flow failed: {code}: {exc}", file=sys.stderr)
+        return {
+            "name": f"{label} 투자자별 매매동향",
+            "value": "확인 필요",
+            "change": "",
+            "timestamp": "",
+            "url": url,
+        }
+
+
 def collect_nasdaq_futures() -> dict[str, Any]:
     url = "https://query1.finance.yahoo.com/v8/finance/chart/NQ=F?range=1d&interval=1m"
     try:
@@ -656,9 +696,8 @@ def collect_market_trends() -> list[dict[str, Any]]:
             kospi,
             kosdaq,
             collect_nasdaq_futures(),
-            collect_foreign_spot_flow(),
-            collect_krx_market_investor_flow("KOSPI", "KOSPI"),
-            collect_krx_market_investor_flow("KOSDAQ", "KOSDAQ"),
+            collect_naver_index_investor_flow("KOSPI", "KOSPI"),
+            collect_naver_index_investor_flow("KOSDAQ", "KOSDAQ"),
         ]
 
     return [
