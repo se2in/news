@@ -412,6 +412,35 @@ def collect_naver(queries: list[str]) -> list[Item]:
     return api_items if api_items else collect_naver_finance_public()
 
 
+def collect_reddit_rss(subreddit: str, sort_name: str, limit: int) -> list[Item]:
+    url = f"https://www.reddit.com/r/{subreddit}/{sort_name}.rss"
+    response = request_get(url, headers={"User-Agent": "DifyFinanceRadar/1.0 by local-script"}, timeout=30)
+    root = ElementTree.fromstring(response.text)
+    ns = {"atom": "http://www.w3.org/2005/Atom"}
+    items: list[Item] = []
+    for entry in root.findall("atom:entry", ns)[:limit]:
+        title = clean_text(entry.findtext("atom:title", default="", namespaces=ns))
+        link_node = entry.find("atom:link", ns)
+        link = clean_text(link_node.get("href", "") if link_node is not None else "")
+        content = entry.findtext("atom:content", default="", namespaces=ns)
+        summary = clean_text(BeautifulSoup(content, "html.parser").get_text(" ", strip=True)) if content else ""
+        published = clean_text(
+            entry.findtext("atom:published", default="", namespaces=ns)
+            or entry.findtext("atom:updated", default="", namespaces=ns)
+        )
+        author_node = entry.find("atom:author/atom:name", ns)
+        author = clean_text(author_node.text if author_node is not None else "")
+        published_at = None
+        if published:
+            try:
+                published_at = datetime.fromisoformat(published.replace("Z", "+00:00")).astimezone(KST).isoformat()
+            except ValueError:
+                published_at = None
+        if title and link:
+            items.append(Item("reddit", f"{subreddit}/{sort_name}", title, link, summary, published_at, author=author))
+    return items
+
+
 def collect_reddit(subreddits: list[str], sorts: list[str], limit: int) -> list[Item]:
     items: list[Item] = []
     for subreddit in subreddits:
@@ -441,7 +470,10 @@ def collect_reddit(subreddits: list[str], sorts: list[str], limit: int) -> list[
                             )
                         )
             except Exception as exc:
-                print(f"[warn] reddit subreddit failed: {subreddit}/{sort_name}: {exc}", file=sys.stderr)
+                try:
+                    items.extend(collect_reddit_rss(subreddit, sort_name, int(limit)))
+                except Exception as rss_exc:
+                    print(f"[warn] reddit subreddit failed: {subreddit}/{sort_name}: {exc}; rss={rss_exc}", file=sys.stderr)
     return items
 
 
@@ -891,7 +923,24 @@ def collect_reddit_news_by_category(category_map: dict[str, list[str]], limit: i
                             )
                         )
             except Exception as exc:
-                print(f"[warn] reddit category news failed: {category}/{subreddit}: {exc}", file=sys.stderr)
+                try:
+                    for item in collect_reddit_rss(subreddit, "hot", limit):
+                        category_items.append(
+                            news_record(
+                                item.title,
+                                item.url,
+                                "reddit",
+                                category,
+                                {
+                                    "subreddit": subreddit,
+                                    "summary": item.summary,
+                                    "score": item.score,
+                                    "comments": item.comments,
+                                },
+                            )
+                        )
+                except Exception as rss_exc:
+                    print(f"[warn] reddit category news failed: {category}/{subreddit}: {exc}; rss={rss_exc}", file=sys.stderr)
         category_items.sort(key=lambda item: (int(item.get("score") or 0), int(item.get("comments") or 0)), reverse=True)
         results[category] = category_items[:limit]
     return results
