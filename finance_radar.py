@@ -901,46 +901,26 @@ def collect_reddit_news_by_category(category_map: dict[str, list[str]], limit: i
     for category, subreddits in category_map.items():
         category_items: list[dict[str, Any]] = []
         for subreddit in subreddits:
-            url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit={limit}"
             try:
-                data = request_get(url, headers={"User-Agent": "DifyFinanceRadar/1.0 by local-script"}).json()
-                for child in data.get("data", {}).get("children", []):
-                    row = child.get("data", {})
-                    title = clean_text(row.get("title"))
-                    permalink = row.get("permalink", "")
-                    if title and permalink:
-                        category_items.append(
-                            news_record(
-                                title,
-                                f"https://www.reddit.com{permalink}",
-                                "reddit",
-                                category,
-                                {
-                                    "subreddit": subreddit,
-                                    "score": int(row.get("score") or 0),
-                                    "comments": int(row.get("num_comments") or 0),
-                                },
-                            )
+                for item in collect_reddit_rss(subreddit, "hot", limit):
+                    category_items.append(
+                        news_record(
+                            item.title,
+                            item.url,
+                            "reddit",
+                            category,
+                            {
+                                "subreddit": subreddit,
+                                "summary": item.summary,
+                                "score": item.score,
+                                "comments": item.comments,
+                            },
                         )
+                    )
+                if category_items:
+                    break
             except Exception as exc:
-                try:
-                    for item in collect_reddit_rss(subreddit, "hot", limit):
-                        category_items.append(
-                            news_record(
-                                item.title,
-                                item.url,
-                                "reddit",
-                                category,
-                                {
-                                    "subreddit": subreddit,
-                                    "summary": item.summary,
-                                    "score": item.score,
-                                    "comments": item.comments,
-                                },
-                            )
-                        )
-                except Exception as rss_exc:
-                    print(f"[warn] reddit category news failed: {category}/{subreddit}: {exc}; rss={rss_exc}", file=sys.stderr)
+                print(f"[warn] reddit category news failed: {category}/{subreddit}: {exc}", file=sys.stderr)
         category_items.sort(key=lambda item: (int(item.get("score") or 0), int(item.get("comments") or 0)), reverse=True)
         results[category] = category_items[:limit]
     return results
@@ -1346,11 +1326,18 @@ def backfill_next_day_changes(conn: sqlite3.Connection, days: int, max_rows: int
 
 def collect_briefing_data(config: dict[str, Any]) -> dict[str, Any]:
     news_limit = int(config.get("briefing_news_limit", 10))
+    reddit_categories = config.get("reddit_news_subreddits", {})
+    reddit_category = "경제" if now_kst().hour < 12 or now_kst().hour >= 15 else "IT"
+    reddit_categories = {
+        category: subreddits
+        for category, subreddits in reddit_categories.items()
+        if category == reddit_category
+    }
     return {
         "market_trends": collect_market_trends(),
         "featured_stocks": collect_featured_stocks(news_limit),
         "naver_news": collect_naver_popular_news(news_limit),
-        "reddit_news": collect_reddit_news_by_category(config.get("reddit_news_subreddits", {}), news_limit),
+        "reddit_news": collect_reddit_news_by_category(reddit_categories, news_limit),
         "yahoo_news": collect_yahoo_news_by_category(news_limit),
         "yahoo_earnings": collect_yahoo_earnings_window(
             int(config.get("earnings_limit", 20)),
@@ -2187,6 +2174,46 @@ def split_telegram_message(message: str, limit: int = 3500) -> list[str]:
     return chunks
 
 
+def preserve_cached_reddit_news(base_dir: Path, briefing_data: dict[str, Any]) -> None:
+    current = briefing_data.get("reddit_news") or {}
+    if current and all(current.get(category) for category in ("경제", "IT")):
+        return
+    payload_path = base_dir / "workflow_payload.json"
+    if not payload_path.exists():
+        return
+    try:
+        previous_payload = json.loads(payload_path.read_text(encoding="utf-8"))
+        previous = (previous_payload.get("briefing") or {}).get("reddit_news") or {}
+    except (OSError, json.JSONDecodeError):
+        return
+    for category in ("경제", "IT"):
+        if not current.get(category) and previous.get(category):
+            current[category] = previous[category]
+    briefing_data["reddit_news"] = current
+
+
+def reddit_news_to_items(reddit_news: dict[str, list[dict[str, Any]]]) -> list[Item]:
+    items: list[Item] = []
+    for category, records in reddit_news.items():
+        for record in records:
+            title = clean_text(record.get("headline"))
+            url = clean_text(record.get("url"))
+            if title and url:
+                items.append(
+                    Item(
+                        "reddit",
+                        f"{category}/{record.get('subreddit', '')}".rstrip("/"),
+                        title,
+                        url,
+                        clean_text(record.get("summary")),
+                        author=clean_text(record.get("author")),
+                        score=int(record.get("score") or 0),
+                        comments=int(record.get("comments") or 0),
+                    )
+                )
+    return items
+
+
 def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
     load_env(config_path.with_name(".env"))
     config = load_config(config_path)
@@ -2201,17 +2228,14 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
     conn.commit()
 
     try:
+        briefing_data = collect_briefing_data(config)
+        preserve_cached_reddit_news(base_dir, briefing_data)
         yahoo_items = collect_yahoo_finance(config.get("yahoo_queries", []))
         naver_items = collect_naver(config.get("naver_queries", []))
-        reddit_items = collect_reddit(
-            config.get("reddit_subreddits", []),
-            config.get("reddit_sorts", ["hot", "new", "rising"]),
-            int(config.get("reddit_limit_per_subreddit", 25)),
-        )
+        reddit_items = reddit_news_to_items(briefing_data.get("reddit_news", {}))
         all_items = yahoo_items + naver_items + reddit_items
         inserted = save_items(conn, all_items)
         refresh_keyword_daily(conn, config, day)
-        briefing_data = collect_briefing_data(config)
         earnings_saved = save_earnings_results(conn, briefing_data.get("yahoo_earnings", []))
         earnings_synced = sync_recent_earnings_from_nasdaq(
             conn,
