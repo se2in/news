@@ -2267,9 +2267,13 @@ def run(config_path: Path, send_dify: bool, send_tg: bool) -> None:
 
         final_message = report
         if send_dify:
-            dify_response = call_dify(payload)
-            (base_dir / "dify_response.json").write_text(json.dumps(dify_response, ensure_ascii=False, indent=2), encoding="utf-8")
-            (base_dir / "latest_dify_result.md").write_text(extract_dify_result(dify_response), encoding="utf-8")
+            try:
+                dify_response = call_dify(payload)
+                (base_dir / "dify_response.json").write_text(json.dumps(dify_response, ensure_ascii=False, indent=2), encoding="utf-8")
+                (base_dir / "latest_dify_result.md").write_text(extract_dify_result(dify_response), encoding="utf-8")
+            except Exception as exc:
+                print(f"[warn] dify workflow failed, continuing Telegram delivery: {exc}", file=sys.stderr)
+                (base_dir / "dify_response_error.txt").write_text(str(exc), encoding="utf-8")
         (base_dir / "latest_dify_report.md").write_text(final_message, encoding="utf-8")
         if send_tg:
             send_telegram(format_telegram_report(final_message))

@@ -9,9 +9,9 @@ $Action = New-ScheduledTaskAction `
     -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$ScriptPath`" -ProjectDir `"$ProjectDir`""
 
 $Trigger1020 = New-ScheduledTaskTrigger -Daily -At "10:20"
-$Trigger1545 = New-ScheduledTaskTrigger -Daily -At "15:45"
-$Trigger2100 = New-ScheduledTaskTrigger -Daily -At "21:00"
-$Triggers = @($Trigger1020, $Trigger1545, $Trigger2100)
+$Trigger1300 = New-ScheduledTaskTrigger -Daily -At "13:00"
+$Trigger1600 = New-ScheduledTaskTrigger -Daily -At "16:00"
+$Triggers = @($Trigger1020, $Trigger1300, $Trigger1600)
 
 $Settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
@@ -28,4 +28,4 @@ Register-ScheduledTask `
     -Force
 
 Write-Host "Registered task: $TaskName"
-Write-Host "Schedule: 10:20, 15:45, 21:00 daily"
+Write-Host "Schedule: 10:20, 13:00, 16:00 daily"
