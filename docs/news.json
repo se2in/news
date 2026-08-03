@@ -1,156 +1,156 @@
 {
-  "generated_at": "2026-07-31T16:04:57.602834+09:00",
+  "generated_at": "2026-08-03T10:25:34.702378+09:00",
   "market_trends": [
     {
       "name": "KOSPI 지수",
-      "value": "6,595.45",
-      "change": "1,001.89 +17.91% 상승",
-      "timestamp": "",
+      "value": "6,289.79",
+      "change": "305.66 -4.63% 하락",
+      "timestamp": "2026.08.03 10:20 장중",
       "url": "https://finance.naver.com/sise/sise_index.naver?code=KOSPI"
     },
     {
       "name": "KOSDAQ 지수",
-      "value": "719.76",
-      "change": "74.98 +11.63% 상승",
-      "timestamp": "",
+      "value": "736.18",
+      "change": "16.42 +2.28% 상승",
+      "timestamp": "2026.08.03 10:20 장중",
       "url": "https://finance.naver.com/sise/sise_index.naver?code=KOSDAQ"
     },
     {
       "name": "미국 나스닥 선물 지수",
-      "value": "28,476.00",
-      "change": "+238.25 (+0.84%)",
-      "timestamp": "2026-07-31T15:50:05+09:00",
+      "value": "28,617.00",
+      "change": "+212.75 (+0.75%)",
+      "timestamp": "2026-08-03T10:10:04+09:00",
       "url": "https://finance.yahoo.com/quote/NQ=F"
     },
     {
       "name": "KOSPI 투자자별 매매동향",
-      "value": "개인 -82,737억 / 외국인 +72,412억 / 기관 +11,396억",
+      "value": "개인 +21,633억 / 외국인 -14,877억 / 기관 -7,247억",
       "change": "",
-      "timestamp": "",
+      "timestamp": "2026.08.03 10:20 장중",
       "url": "https://finance.naver.com/sise/sise_index.naver?code=KOSPI"
     },
     {
       "name": "KOSDAQ 투자자별 매매동향",
-      "value": "개인 -4,695억 / 외국인 +1,696억 / 기관 +2,967억",
+      "value": "개인 +1,151억 / 외국인 -862억 / 기관 -294억",
       "change": "",
-      "timestamp": "",
+      "timestamp": "2026.08.03 10:20 장중",
       "url": "https://finance.naver.com/sise/sise_index.naver?code=KOSDAQ"
     }
   ],
   "featured_stocks": {
-    "session": "korea_after_close",
-    "title": "한국 마감 후 특징주",
-    "description": "장 마감 후에도 당일 상승률 상위 종목을 표시합니다.",
+    "session": "korea_regular",
+    "title": "한국 장중 특징주",
+    "description": "네이버금융 상승률 상위 종목 기준",
     "stocks": [
       {
         "market": "KOSPI",
-        "name": "RISE SK하이닉스단일종목레버리지",
-        "code": "0192",
-        "price": "9,600",
-        "change": "상승 3,575",
-        "change_pct": "+59.34%",
-        "volume": "781,201",
-        "url": "https://finance.naver.com/item/main.naver?code=0192",
-        "markdown": "[RISE SK하이닉스단일종목레버리지](https://finance.naver.com/item/main.naver?code=0192)"
+        "name": "티웨이홀딩스",
+        "code": "004870",
+        "price": "1,248",
+        "change": "상한가 288",
+        "change_pct": "+30.00%",
+        "volume": "660,314",
+        "url": "https://finance.naver.com/item/main.naver?code=004870",
+        "markdown": "[티웨이홀딩스](https://finance.naver.com/item/main.naver?code=004870)"
       },
       {
         "market": "KOSPI",
-        "name": "KIWOOM SK하이닉스선물단일종목레버리지",
-        "code": "0194",
-        "price": "9,100",
-        "change": "상승 3,315",
-        "change_pct": "+57.30%",
-        "volume": "441,824",
-        "url": "https://finance.naver.com/item/main.naver?code=0194",
-        "markdown": "[KIWOOM SK하이닉스선물단일종목레버리지](https://finance.naver.com/item/main.naver?code=0194)"
+        "name": "비비안",
+        "code": "002070",
+        "price": "6,590",
+        "change": "상한가 1,520",
+        "change_pct": "+29.98%",
+        "volume": "331,391",
+        "url": "https://finance.naver.com/item/main.naver?code=002070",
+        "markdown": "[비비안](https://finance.naver.com/item/main.naver?code=002070)"
       },
       {
         "market": "KOSPI",
-        "name": "1Q SK하이닉스선물단일종목레버리지",
-        "code": "0198",
-        "price": "9,450",
-        "change": "상승 3,265",
-        "change_pct": "+52.79%",
-        "volume": "608,890",
-        "url": "https://finance.naver.com/item/main.naver?code=0198",
-        "markdown": "[1Q SK하이닉스선물단일종목레버리지](https://finance.naver.com/item/main.naver?code=0198)"
+        "name": "아센디오",
+        "code": "012170",
+        "price": "842",
+        "change": "상한가 194",
+        "change_pct": "+29.94%",
+        "volume": "859,182",
+        "url": "https://finance.naver.com/item/main.naver?code=012170",
+        "markdown": "[아센디오](https://finance.naver.com/item/main.naver?code=012170)"
       },
       {
         "market": "KOSPI",
-        "name": "RISE 삼성전자단일종목레버리지",
-        "code": "0192",
-        "price": "11,715",
-        "change": "상승 3,925",
-        "change_pct": "+50.39%",
-        "volume": "391,849",
-        "url": "https://finance.naver.com/item/main.naver?code=0192",
-        "markdown": "[RISE 삼성전자단일종목레버리지](https://finance.naver.com/item/main.naver?code=0192)"
+        "name": "한일철강",
+        "code": "002220",
+        "price": "3,390",
+        "change": "상승 510",
+        "change_pct": "+17.71%",
+        "volume": "437,865",
+        "url": "https://finance.naver.com/item/main.naver?code=002220",
+        "markdown": "[한일철강](https://finance.naver.com/item/main.naver?code=002220)"
       },
       {
         "market": "KOSPI",
-        "name": "KIWOOM 삼성전자선물단일종목레버리지",
-        "code": "0194",
-        "price": "11,485",
-        "change": "상승 3,840",
-        "change_pct": "+50.23%",
-        "volume": "108,902",
-        "url": "https://finance.naver.com/item/main.naver?code=0194",
-        "markdown": "[KIWOOM 삼성전자선물단일종목레버리지](https://finance.naver.com/item/main.naver?code=0194)"
+        "name": "삼아알미늄",
+        "code": "006110",
+        "price": "35,250",
+        "change": "상승 4,800",
+        "change_pct": "+15.76%",
+        "volume": "82,039",
+        "url": "https://finance.naver.com/item/main.naver?code=006110",
+        "markdown": "[삼아알미늄](https://finance.naver.com/item/main.naver?code=006110)"
       },
       {
         "market": "KOSPI",
-        "name": "1Q 삼성전자선물단일종목레버리지",
-        "code": "0198",
-        "price": "11,830",
-        "change": "상승 3,870",
-        "change_pct": "+48.62%",
-        "volume": "205,542",
-        "url": "https://finance.naver.com/item/main.naver?code=0198",
-        "markdown": "[1Q 삼성전자선물단일종목레버리지](https://finance.naver.com/item/main.naver?code=0198)"
+        "name": "SGC에너지",
+        "code": "005090",
+        "price": "46,700",
+        "change": "상승 5,950",
+        "change_pct": "+14.60%",
+        "volume": "117,192",
+        "url": "https://finance.naver.com/item/main.naver?code=005090",
+        "markdown": "[SGC에너지](https://finance.naver.com/item/main.naver?code=005090)"
       },
       {
         "market": "KOSPI",
-        "name": "PLUS 삼성전자단일종목레버리지",
+        "name": "계양전기우",
+        "code": "012205",
+        "price": "6,490",
+        "change": "상승 770",
+        "change_pct": "+13.46%",
+        "volume": "5,486",
+        "url": "https://finance.naver.com/item/main.naver?code=012205",
+        "markdown": "[계양전기우](https://finance.naver.com/item/main.naver?code=012205)"
+      },
+      {
+        "market": "KOSPI",
+        "name": "KIWOOM 200선물인버스2X",
+        "code": "253230",
+        "price": "96",
+        "change": "상승 10",
+        "change_pct": "+11.63%",
+        "volume": "2,256,914",
+        "url": "https://finance.naver.com/item/main.naver?code=253230",
+        "markdown": "[KIWOOM 200선물인버스2X](https://finance.naver.com/item/main.naver?code=253230)"
+      },
+      {
+        "market": "KOSPI",
+        "name": "체시스",
+        "code": "033250",
+        "price": "3,910",
+        "change": "상승 405",
+        "change_pct": "+11.55%",
+        "volume": "54,467",
+        "url": "https://finance.naver.com/item/main.naver?code=033250",
+        "markdown": "[체시스](https://finance.naver.com/item/main.naver?code=033250)"
+      },
+      {
+        "market": "KOSPI",
+        "name": "PLUS 삼성전자선물단일종목인버스2X",
         "code": "0193",
-        "price": "12,560",
-        "change": "상승 4,085",
-        "change_pct": "+48.20%",
-        "volume": "342,108",
+        "price": "12,345",
+        "change": "상승 1,265",
+        "change_pct": "+11.42%",
+        "volume": "910,843",
         "url": "https://finance.naver.com/item/main.naver?code=0193",
-        "markdown": "[PLUS 삼성전자단일종목레버리지](https://finance.naver.com/item/main.naver?code=0193)"
-      },
-      {
-        "market": "KOSPI",
-        "name": "KIWOOM 200선물레버리지",
-        "code": "253250",
-        "price": "95,090",
-        "change": "상승 26,680",
-        "change_pct": "+39.00%",
-        "volume": "11,083",
-        "url": "https://finance.naver.com/item/main.naver?code=253250",
-        "markdown": "[KIWOOM 200선물레버리지](https://finance.naver.com/item/main.naver?code=253250)"
-      },
-      {
-        "market": "KOSPI",
-        "name": "PLUS 200선물레버리지",
-        "code": "253150",
-        "price": "191,385",
-        "change": "상승 51,735",
-        "change_pct": "+37.05%",
-        "volume": "25,105",
-        "url": "https://finance.naver.com/item/main.naver?code=253150",
-        "markdown": "[PLUS 200선물레버리지](https://finance.naver.com/item/main.naver?code=253150)"
-      },
-      {
-        "market": "KOSPI",
-        "name": "RISE 200선물레버리지",
-        "code": "252400",
-        "price": "95,495",
-        "change": "상승 25,430",
-        "change_pct": "+36.29%",
-        "volume": "56,915",
-        "url": "https://finance.naver.com/item/main.naver?code=252400",
-        "markdown": "[RISE 200선물레버리지](https://finance.naver.com/item/main.naver?code=252400)"
+        "markdown": "[PLUS 삼성전자선물단일종목인버스2X](https://finance.naver.com/item/main.naver?code=0193)"
       }
     ]
   },
@@ -158,71 +158,71 @@
     "naver": {
       "정치": [
         {
-          "headline": "'형소법 개정안' 본회의 상정...필리버스터 대치",
-          "url": "https://n.news.naver.com/mnews/article/052/0002386783",
+          "headline": "[속보] 부·울·경은 정청래가 이겼다…엎치락 뒤치락 여당 전대",
+          "url": "https://n.news.naver.com/mnews/article/025/0003541792",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "훈련인 줄 모르고 격추할 뻔…軍, 美무인기에 ‘두루미’ 발령",
-          "url": "https://n.news.naver.com/mnews/article/022/0004147340",
+          "headline": "국힘 \"형사소송법 개정안 위헌성 농후…헌법 소원 심판 청구\"",
+          "url": "https://n.news.naver.com/mnews/article/277/0005797716",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "주한美대사 내정자 \"'안보 핵심축' 한미동맹, 트럼프 비전 실현\"…韓정부 \"환영\"(종합)",
-          "url": "https://n.news.naver.com/mnews/article/277/0005796998",
+          "headline": "\"노무현 대통령님, 내주신 숙제 다 끝냈다\"…형소법 개정안 들고 간 김용민",
+          "url": "https://n.news.naver.com/mnews/article/057/0001961587",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "李대통령 \"한-칠레, 글로벌 격변기 위기를 공동번영의 기회로\"(종합)",
-          "url": "https://n.news.naver.com/mnews/article/001/0016226678",
+          "headline": "세일즈 외교 마친 李…오자마자 증시·부동산부터 살핀다",
+          "url": "https://n.news.naver.com/mnews/article/025/0003541870",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "국힘 \"동맹국 무인기도 구분 못해 격추할 뻔…국방장관 사퇴해야\"",
-          "url": "https://n.news.naver.com/mnews/article/055/0001376997",
+          "headline": "‘노무현 사위’ 곽상언, 文·정청래에 “검수완박, 盧 뜻과 달라”",
+          "url": "https://n.news.naver.com/mnews/article/020/0003738308",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "한병도 \"다음 주 형소법 대국민 보고회…후속 조치 설명\"",
-          "url": "https://n.news.naver.com/mnews/article/422/0000890897",
+          "headline": "장동혁 \"이재명과 범죄자에만 좋은 법…반드시 거부권 행사해야\"",
+          "url": "https://n.news.naver.com/mnews/article/018/0006342884",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "'문자 파동'·'회피성 답변'...팬들 한숨 짓게 한 '맹탕 청문회' [앵커리포트]",
-          "url": "https://n.news.naver.com/mnews/article/052/0002387003",
+          "headline": "이 대통령, 순방 귀국 직후 부동산·증시 점검 회의...다음 날 업무보고 재개",
+          "url": "https://n.news.naver.com/mnews/article/052/0002387909",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "한동훈 \"공천권 국민이 가져야…당 텃밭엔 상향식 공천 규정화\"",
-          "url": "https://n.news.naver.com/mnews/article/421/0009090289",
+          "headline": "李대통령 지지율 45.9% 취임 후 '최저'…민주 45.1%·국힘 37.7% [리얼미터]",
+          "url": "https://n.news.naver.com/mnews/article/015/0005316534",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "[속보] ‘盧 죽여버리겠다’ 김민석 과거 조명에… 김의겸 “당시 해명 다르더라”",
-          "url": "https://n.news.naver.com/mnews/article/029/0003040027",
+          "headline": "이 대통령, 이번 주 부처별 업무보고 재개…산업·국방·법무부 등",
+          "url": "https://n.news.naver.com/mnews/article/055/0001377378",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "김용민 “공소기각 조항, 李대통령 재판 적용 가능”",
-          "url": "https://n.news.naver.com/mnews/article/005/0001864243",
+          "headline": "지뢰제거, 민간기업에 개방…국방부, 제1차 기본계획 확정",
+          "url": "https://n.news.naver.com/mnews/article/001/0016230090",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -230,71 +230,71 @@
       ],
       "경제": [
         {
-          "headline": "딱 1억 모자란…최태원, 하이닉스 주식 ‘49억 매수’ 왜?",
-          "url": "https://n.news.naver.com/mnews/article/028/0002816618",
+          "headline": "한화, '우주의 조약돌'로 대중과 우주 미래 그린다",
+          "url": "https://n.news.naver.com/mnews/article/277/0005797840",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "김승연의 승계 방정식…세 형제에게 나눠준 세 개의 축",
-          "url": "https://n.news.naver.com/mnews/article/029/0003039967",
+          "headline": "KTX·SRT 앱 하나로 예매한다…통합 '코레일+' 출시",
+          "url": "https://n.news.naver.com/mnews/article/018/0006342313",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "[1보]아마존, AWS 매출 37% 급증…2021년 이후 최고 성장률",
-          "url": "https://n.news.naver.com/mnews/article/277/0005797062",
+          "headline": "위기시 레버리지 배율 낮추나…정부 ‘긴급조치권’ 추진",
+          "url": "https://n.news.naver.com/mnews/article/005/0001864380",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "BOJ, 기준금리 1% '유지'…성장률 전망은 '상향'",
-          "url": "https://n.news.naver.com/mnews/article/277/0005797347",
+          "headline": "넥센타이어, 말레이시아 브랜드샵 80곳 구축…아세안 공략 속도",
+          "url": "https://n.news.naver.com/mnews/article/018/0006342803",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "한온시스템, 2Q 영업익 1037억…전년비 61.2%↑",
-          "url": "https://n.news.naver.com/mnews/article/629/0000520778",
+          "headline": "비트코인 6만 3천 달러 선에서 관망 지속[코인시세]",
+          "url": "https://n.news.naver.com/mnews/article/422/0000891706",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "러 밀착, 北 3년째 3%대 성장…1인당 소득은 남한의 3.6%",
-          "url": "https://n.news.naver.com/mnews/article/469/0000945508",
+          "headline": "에쓰오일, 2분기 영업이익 9650억원…전년 比 흑자 전환",
+          "url": "https://n.news.naver.com/mnews/article/008/0005394641",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "새도약기금, 상록수·케이비스타 2.6조 장기연체채권 매입",
-          "url": "https://n.news.naver.com/mnews/article/421/0009090101",
+          "headline": "아스트라제네카·BMS 합병 논의…성사 땐 4000억달러 '빅파마' 탄생",
+          "url": "https://n.news.naver.com/mnews/article/277/0005797754",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "현대엔지니어링, 공간·에너지 연계 사업 확대…새 가치체계 선포",
-          "url": "https://n.news.naver.com/mnews/article/008/0005393944",
+          "headline": "GS25, 신선강화형 매장 1000호점 개점…신선식품 매출 12배",
+          "url": "https://n.news.naver.com/mnews/article/277/0005797827",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "중기부 \"'모두의 창업' 2기, 8월 말-9월 초 모집 재개\"",
-          "url": "https://n.news.naver.com/mnews/article/656/0000182940",
+          "headline": "KGM·체리자동차 '전략적 동맹'…렉스턴 후속부터 SDV까지 공동 개발",
+          "url": "https://n.news.naver.com/mnews/article/015/0005316562",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "LG, 국내 최대 AI 모델 ‘K-엑사원 2.0’ 공개",
-          "url": "https://n.news.naver.com/mnews/article/005/0001864233",
+          "headline": "“고소작업 충돌·끼임 사고 예방”…롯데건설, 가디언웍스와 협업",
+          "url": "https://n.news.naver.com/mnews/article/009/0005715705",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -302,71 +302,71 @@
       ],
       "사회": [
         {
-          "headline": "보훈의료대상자, 8월부터 치매검사비 지원 받는다…3만9000여명 새 지원 혜택",
-          "url": "https://n.news.naver.com/mnews/article/021/0002808368",
+          "headline": "양천구, 중소기업·소상공인에 '연 0.8% 최저금리' 융자 지원",
+          "url": "https://n.news.naver.com/mnews/article/001/0016229944",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "대법 \"허위 공시로 주가 폭락 차바이오텍, 투자자 배상해야\"",
-          "url": "https://n.news.naver.com/mnews/article/374/0000524761",
+          "headline": "K-푸드로 할랄시장 공략하는 식품업계, 허영인 회장이 이끄는 파리바게뜨도 가세",
+          "url": "https://n.news.naver.com/mnews/article/081/0003666930",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "계명대 동산병원, '환자가 뽑은 병원' 전국 1위",
-          "url": "https://n.news.naver.com/mnews/article/001/0016226604",
+          "headline": "휴가 중 '업무 카톡' 띠링…직장인 절반은 결국 일했다",
+          "url": "https://n.news.naver.com/mnews/article/015/0005316481",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "마른장마에 끝 안 보이는 폭염까지…메말라가는 남부지방 '가뭄' 집중 대응한다",
-          "url": "https://n.news.naver.com/mnews/article/437/0000503972",
+          "headline": "경찰, 최영중 전 청주시의원 다른 미성년자 '성매수' 포착",
+          "url": "https://n.news.naver.com/mnews/article/003/0014103942",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "내란 특검, 박성재 '수사무마 청탁' 종합특검 이첩",
-          "url": "https://n.news.naver.com/mnews/article/052/0002387097",
+          "headline": "오늘도 끓는다…남부 곳곳서 '폭염중대경보', 낮 최고 39도",
+          "url": "https://n.news.naver.com/mnews/article/018/0006342850",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "종합특검, '수사무마 의혹' 정원주 전 통일교 비서실장 소환",
-          "url": "https://n.news.naver.com/mnews/article/015/0005315959",
+          "headline": "'부산청년 기쁨두배 통장' 참여자 모집",
+          "url": "https://n.news.naver.com/mnews/article/079/0004174718",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "경찰, 강선우 ‘보좌진 갑질 의혹’ 고발 모두 불송치",
-          "url": "https://n.news.naver.com/mnews/article/025/0003541523",
+          "headline": "\"제주 땅 수백억 가져도 안 돼\" 한국인 성추행한 외국 기업인, 입국 금지",
+          "url": "https://n.news.naver.com/mnews/article/082/0001392320",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "경찰, '수유동 오피스텔 살인' 피의자 주거지 압수수색",
-          "url": "https://n.news.naver.com/mnews/article/052/0002387151",
+          "headline": "용인시, '조아용' 3D 이모티콘 쏜다...7일 오후 2시 '27만명분' 무료 배포",
+          "url": "https://n.news.naver.com/mnews/article/014/0005556244",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "'41.4도' 경남 양산, 기상관측 사상 최고…곳곳 폭염중대경보",
-          "url": "https://n.news.naver.com/mnews/article/437/0000503966",
+          "headline": "에어부산·부산은행, 휴가철 ‘퀴즈 풀고 용돈·항공권’ 이벤트 진행",
+          "url": "https://n.news.naver.com/mnews/article/011/0004647864",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "법원, 모스 탄 출국정지 유지… \"해외도피 가능성 있어 공익상 필요\"",
-          "url": "https://n.news.naver.com/mnews/article/422/0000890963",
+          "headline": "목포대·순천대 협상 연장시켰지만…‘시한부 전남권 국립의대’",
+          "url": "https://n.news.naver.com/mnews/article/011/0004647883",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -374,71 +374,71 @@
       ],
       "생활": [
         {
-          "headline": "부산문화재단 '씨어터링크' 사업 참여 공연작품, 국제 수상 쾌거",
-          "url": "https://n.news.naver.com/mnews/article/014/0005555628",
+          "headline": "광주 39도·서울 37도…동풍 타고 '서쪽'으로 옮겨간 극한 폭염",
+          "url": "https://n.news.naver.com/mnews/article/055/0001377495",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "구자욱·최나연, BMW 7시리즈 탄다…연말까지 콘텐츠 협업",
-          "url": "https://n.news.naver.com/mnews/article/016/0002677782",
+          "headline": "\"8월에 아이오닉 9 사면 최대 550만원 할인\" 현대차 썸머 페스타",
+          "url": "https://n.news.naver.com/mnews/article/018/0006342667",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "기록적인 폭염…오늘도 양산 '40도'[날씨]",
-          "url": "https://n.news.naver.com/mnews/article/448/0000630520",
+          "headline": "인도네시아도 홀린 '아그작'…뚜레쥬르, K-디저트 인기 확산",
+          "url": "https://n.news.naver.com/mnews/article/421/0009093097",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "\"추월 차선은 비워두세요\"…벤츠, '배려운전 캠페인' 실시",
-          "url": "https://n.news.naver.com/mnews/article/018/0006340990",
+          "headline": "자신감 보인 르노코리아, 8월에도 '60일 반납보장 프로그램' 이어간다",
+          "url": "https://n.news.naver.com/mnews/article/014/0005555985",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "태풍 '돌핀' 中 향하면...한반도 '최악의 폭염' 시나리오 [Y녹취록]",
-          "url": "https://n.news.naver.com/mnews/article/052/0002387103",
+          "headline": "서울 이번 주 내내 37도…태풍 '돌핀' 북상",
+          "url": "https://n.news.naver.com/mnews/article/422/0000891707",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "백범 김구 탄생 150주년, 경교장서 특별전",
-          "url": "https://n.news.naver.com/mnews/article/277/0005797149",
+          "headline": "2026년 8월 3일 띠별 운세[오늘의 운세]",
+          "url": "https://n.news.naver.com/mnews/article/018/0006342723",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "정념스님, 월정사 주지 사임…총무원장 출마 가시화",
-          "url": "https://n.news.naver.com/mnews/article/016/0002677940",
+          "headline": "“시원한 곳에서 한 잔씩”…염증 줄이는 데 좋은 3가지 음료",
+          "url": "https://n.news.naver.com/mnews/article/296/0000103265",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "산호 '연옥당'으로 '만화계의 오스카상' 수상… 한국인 첫 아이스너상",
-          "url": "https://n.news.naver.com/mnews/article/015/0005316043",
+          "headline": "동영상뉴스 재생시간 00:31",
+          "url": "https://n.news.naver.com/mnews/article/047/0002524388",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "41.4도 극한 폭염에 가뭄·고수온까지…전국 피해 '눈덩이'",
-          "url": "https://n.news.naver.com/mnews/article/001/0016227201",
+          "headline": "동영상뉴스 재생시간 01:36",
+          "url": "https://n.news.naver.com/mnews/article/052/0002388061",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "“건강식만 먹었는데”…40대 인플루언서, ‘이것’ 10년 참다 대장암 4기 [헬시타임]",
-          "url": "https://n.news.naver.com/mnews/article/011/0004647349",
+          "headline": "기후 변동성…강력한 폭염 불러온다 [지금은 기후위기]",
+          "url": "https://n.news.naver.com/mnews/article/031/0001046667",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -446,71 +446,71 @@
       ],
       "IT": [
         {
-          "headline": "알뜰폰 데이터 다 써도 카톡은 된다",
-          "url": "https://n.news.naver.com/mnews/article/374/0000524848",
+          "headline": "오픈AI, 차세대 AI모델 '아스트라' 예고…\"수학 난제 10개 해결\"",
+          "url": "https://n.news.naver.com/mnews/article/001/0016229604",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "LG CNS, 2분기 영업익 1279억원…전년比 9.2% 감소",
-          "url": "https://n.news.naver.com/mnews/article/018/0006341000",
+          "headline": "KT샵, 'KT다이렉트샵'으로 새 단장…공식 직영몰 정체성 강화",
+          "url": "https://n.news.naver.com/mnews/article/014/0005555915",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "통신이용자정보 제공 늘었다…검찰·경찰 요청 증가",
-          "url": "https://n.news.naver.com/mnews/article/001/0016226316",
+          "headline": "SKT, 순천향대와 'AI 그림일기'로 디지털새싹 사업 참여…교육 AX 속도",
+          "url": "https://n.news.naver.com/mnews/article/421/0009093139",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "NHN 게임·AI 해커톤 대회 'NAN 2026', 홈페이지 방문자 10만명 돌파",
-          "url": "https://n.news.naver.com/mnews/article/138/0002236135",
+          "headline": "‘배움-개발-창업까지’ 모두의 AI 성장사다리 프로젝트’ 출범…배경훈 총리 “AI 혜택, 국민 모두에게 도달할 것”",
+          "url": "https://n.news.naver.com/mnews/article/016/0002678595",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "SOOP, 글로벌 게임사 협력 확대…e스포츠 제작·운영 역량 강화",
-          "url": "https://n.news.naver.com/mnews/article/119/0003116870",
+          "headline": "배송계획·인력배치도 척척…AI가 현실조건 따져 실행계획 짠다",
+          "url": "https://n.news.naver.com/mnews/article/421/0009093360",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "로봇이 '쓰봉' 묶고 전구교체…구글 제미나이 로보틱스2 공개",
-          "url": "https://n.news.naver.com/mnews/article/015/0005315874",
+          "headline": "누리호 5차 발사 10월로 연기…군집위성 추력기 교체 영향",
+          "url": "https://n.news.naver.com/mnews/article/001/0016228607",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "\"여권처럼 생겼네\"…크기 '싹둑' 잘랐는데 MZ들 열광한 삼성폰",
-          "url": "https://n.news.naver.com/mnews/article/015/0005315961",
+          "headline": "중국인들도 \"믿기지 않을 정도\"…'한국 대작' 일냈다",
+          "url": "https://n.news.naver.com/mnews/article/015/0005316583",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "'쿠키런' IP 방치형으로 키운다…'크럼블', 반복 피로 잡을까[뉴겜]",
-          "url": "https://n.news.naver.com/mnews/article/138/0002236014",
+          "headline": "中 AI 잡는다 … K오픈모델 잇따라 출격",
+          "url": "https://n.news.naver.com/mnews/article/009/0005715508",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "메모리 악재속 애플 점유율 4%p 확대… AI폰 SoC 24% 성장",
-          "url": "https://n.news.naver.com/mnews/article/138/0002236182",
+          "headline": "AI용 낸드 시장 맞붙는 韓·日…차세대 제품 양산 경쟁 확대",
+          "url": "https://n.news.naver.com/mnews/article/092/0002432798",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "\"일상 속 행동이 돈 되는 시대\"…5000억 엑시트한 젊은 '연쇄창업가'가 토스와 손잡은 이유",
-          "url": "https://n.news.naver.com/mnews/article/015/0005316048",
+          "headline": "갤폴드8 앞두고 7월 번호이동 숨 고르기…SKT·LGU+ 순증",
+          "url": "https://n.news.naver.com/mnews/article/421/0009093380",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -518,71 +518,71 @@
       ],
       "세계": [
         {
-          "headline": "트럼프, '폐배터리 등 수출금지' 지시…中 핵심광물 패권 견제",
-          "url": "https://n.news.naver.com/mnews/article/001/0016225929",
+          "headline": "‘시속 8700㎞’로 달과 충돌하는 머스크 로켓, 韓 궤도선이 관찰…지구에 문제 없을까? [핫이슈]",
+          "url": "https://n.news.naver.com/mnews/article/081/0003666776",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "“보스가 이 돈 원한다”…중간선거 100일 앞두고 1조원 요구하는 트럼프",
-          "url": "https://n.news.naver.com/mnews/article/025/0003541488",
+          "headline": "룰라 브라질 대통령, 노동자당 대선후보로…통산 4선 도전",
+          "url": "https://n.news.naver.com/mnews/article/001/0016229611",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "모로코서 수백명 한꺼번에 스페인 세우타 진입…국경 대혼란",
-          "url": "https://n.news.naver.com/mnews/article/056/0012228732",
+          "headline": "[영상] '골프광' 트럼프, 전쟁 와중에 우승 자랑…\"난 재능 있다\"",
+          "url": "https://n.news.naver.com/mnews/article/437/0000504215",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "호르무즈 이어 '홍해' 쟁탈전…사우디, 다국적 연합 구성 추진",
-          "url": "https://n.news.naver.com/mnews/article/079/0004173896",
+          "headline": "이란 “오만과 호르무즈 해협 관리 협의…양국 주권 존중”",
+          "url": "https://n.news.naver.com/mnews/article/029/0003040277",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "WSJ “트럼프 정부, 외국인 졸업생 미국 취업에 수수료 1.4억 원 검토”",
-          "url": "https://n.news.naver.com/mnews/article/056/0012228743",
+          "headline": "스페인 월경사태 사망자 증가…유럽 이민규제 내홍 재점화(종합2보)",
+          "url": "https://n.news.naver.com/mnews/article/001/0016229904",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "젤렌스키 \"러시아, 오랜만에 우크라이나 공습에 북한 미사일 사용\"",
-          "url": "https://n.news.naver.com/mnews/article/214/0001515021",
+          "headline": "美·이란, MOU복원 협상재개…\"이스라엘, 이란공격 취소 몰랐다\"(종합)",
+          "url": "https://n.news.naver.com/mnews/article/421/0009093089",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "챗GPT 이어 클로드도 외부기관 해킹...현실 된 AI 보안위험",
-          "url": "https://n.news.naver.com/mnews/article/052/0002387084",
+          "headline": "美日 ‘엔화 방어’ 공조·韓 달러 수급 개선… 원·엔화 동반 강세",
+          "url": "https://n.news.naver.com/mnews/article/081/0003666876",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "트럼프 “하마스 무장 해제 합의 도달”… 중동 평화 돌파구",
-          "url": "https://n.news.naver.com/mnews/article/366/0001183349",
+          "headline": "트럼프 \"이란과 호르무즈 합의…내일부터 대화\"",
+          "url": "https://n.news.naver.com/mnews/article/018/0006342766",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "이란 “요르단 미군 기지 공격…F-35 전투기 3대 파괴”",
-          "url": "https://n.news.naver.com/mnews/article/025/0003541358",
+          "headline": "미 북서부 워싱턴주 대형 산불…주택 잿더미·수천명 대피",
+          "url": "https://n.news.naver.com/mnews/article/421/0009092910",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "日정부 “구마모토 7.1 강진 사망 28명으로 늘어”",
-          "url": "https://n.news.naver.com/mnews/article/449/0000354908",
+          "headline": "OPEC+, 9월부터 하루 18만 8천 배럴 증산",
+          "url": "https://n.news.naver.com/mnews/article/055/0001377410",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -599,64 +599,64 @@
           "comments": 0
         },
         {
-          "headline": "New Study Finds That A Minimum-Wage Worker In 1971 Had A Lifestyle Affordability Similar To Someone Making $100K Today",
-          "url": "https://www.reddit.com/r/economy/comments/1vazytd/new_study_finds_that_a_minimumwage_worker_in_1971/",
+          "headline": "5.24%: The Number Terrifying the U.S. Treasury. Japan holds $1.1T in U.S. bonds. If defending the yen forces Tokyo to liquidate, American borrowing costs will reprice forever.",
+          "url": "https://www.reddit.com/r/economy/comments/1vdkep9/524_the_number_terrifying_the_us_treasury_japan/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "Hospitals See Massive Surge in Uninsured Patients After GOP’s Healthcare Cuts | “We’re really crushing people who are desperately trying to pay their bills,” said a chief executive at a nonprofit hospital group.",
-          "url": "https://www.reddit.com/r/economy/comments/1vavy7h/hospitals_see_massive_surge_in_uninsured_patients/",
+          "headline": "Strange how cuts to essential public services never seem to arrive before Election Day. If policymakers believe these changes are good for the country, they should be willing to explain and defend them openly before voters head to the polls. Transparency shouldn’t be delayed until after the midterms",
+          "url": "https://www.reddit.com/r/economy/comments/1vdrtg9/strange_how_cuts_to_essential_public_services/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "Sales Are So Low, California Wineries Are Burning Their Vineyards",
-          "url": "https://www.reddit.com/r/economy/comments/1vbhwd1/sales_are_so_low_california_wineries_are_burning/",
+          "headline": "Trump Insider Trading Subscription Service",
+          "url": "https://www.reddit.com/r/economy/comments/1vdwaea/trump_insider_trading_subscription_service/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "This is an insane statement. I feel so bad for so many people.",
-          "url": "https://www.reddit.com/r/economy/comments/1vavpgq/this_is_an_insane_statement_i_feel_so_bad_for_so/",
+          "headline": "America's National Debt grows by $95,178.17 per second. Expected to reach $40 Trillion by October 09, 2026.",
+          "url": "https://www.reddit.com/r/economy/comments/1vdn29v/americas_national_debt_grows_by_9517817_per/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "Treasury Secretary Scott Bessent Ripped After Claiming Americans Soon Won't Need Retirement Savings Thanks To AI",
-          "url": "https://www.reddit.com/r/economy/comments/1vb4tr7/treasury_secretary_scott_bessent_ripped_after/",
+          "headline": "Has anyone else noticed?",
+          "url": "https://www.reddit.com/r/economy/comments/1vdfwir/has_anyone_else_noticed/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "Freddie Mac data reveals 30 year mortgage rates are stuck at 6.58 percent because lenders refuse to give up their massive spread",
-          "url": "https://www.reddit.com/r/economy/comments/1vb8v4j/freddie_mac_data_reveals_30_year_mortgage_rates/",
+          "headline": "Enshittification Relies on Broken Economic Math",
+          "url": "https://www.reddit.com/r/economy/comments/1vdinum/enshittification_relies_on_broken_economic_math/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "Donald Trump has turned the United States into an economic banana republic",
-          "url": "https://www.reddit.com/r/economy/comments/1vawh04/donald_trump_has_turned_the_united_states_into_an/",
+          "headline": "Three of the top ten lobbiests in America are Healthcare companies who spend tens of billions of dollars to prevent congress from passing any form of \"Medicare for All\"",
+          "url": "https://www.reddit.com/r/economy/comments/1vd7yh8/three_of_the_top_ten_lobbiests_in_america_are/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "Robert Half: Two-thirds of U.S. employers plan to increase hiring in second half of 2026",
-          "url": "https://www.reddit.com/r/economy/comments/1vbeeag/robert_half_twothirds_of_us_employers_plan_to/",
+          "headline": "New York Times predicts America is headed for “strategic defeat” in Iran. What does that mean for us economically?",
+          "url": "https://www.reddit.com/r/economy/comments/1vdeh6j/new_york_times_predicts_america_is_headed_for/",
           "source": "reddit",
           "score": 0,
           "comments": 0
         },
         {
-          "headline": "Fox Business: \"Second quarter GDP came in at 1.5%. The estimate was a gain of 2.1%, so we're coming in a little bit light.\"",
-          "url": "https://www.reddit.com/r/economy/comments/1vawjro/fox_business_second_quarter_gdp_came_in_at_15_the/",
+          "headline": "Iowa U.S. Senate candidate Josh Turek calls for raising federal minimum wage, eliminating 14(c) certificates, passing the PRO Act, and a Congressional stock trading ban",
+          "url": "https://www.reddit.com/r/economy/comments/1vdpzbf/iowa_us_senate_candidate_josh_turek_calls_for/",
           "source": "reddit",
           "score": 0,
           "comments": 0
@@ -738,71 +738,71 @@
     "yahoo": {
       "경제": [
         {
-          "headline": "Markets react to Fed's July interest rate decision",
-          "url": "https://finance.yahoo.com/economy/policy/articles/markets-react-feds-july-interest-210558874.html",
+          "headline": "Warren Buffett keeps pointing at the same ETF for a reason",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/warren-buffett-keeps-pointing-same-160300409.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Jim Cramer says this post-earnings sell-off is a golden buying opportunity",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-says-post-earnings-221700892.html",
+          "headline": "1 in 5 new car buyers are stuck in a $1,000-a-month nightmare — and it’s ruining their long-term wealth",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/1-5-car-buyers-stuck-142500536.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Why Japanese and Chinese Stocks Are Diverging and How to Play Them Here",
-          "url": "https://finance.yahoo.com/markets/world-indices/articles/why-japanese-chinese-stocks-diverging-184819463.html",
+          "headline": "A $2 Billion Reason to Buy Arm Holdings Stock Now",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/2-billion-reason-buy-arm-140002670.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "IBM Stock: 3 Reasons Q2 Earnings Weren’t as Bad as Investors Feared",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/ibm-stock-3-reasons-q2-185739356.html",
+          "headline": "Why BlackRock Is Betting Big on Ondas Stock Now",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/why-blackrock-betting-big-ondas-133002844.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Apple says UK App Store proposal amounts to price regulation",
-          "url": "https://finance.yahoo.com/technology/articles/apple-says-uk-app-store-155341930.html",
+          "headline": "The 2 IRS rules that allow you to continue making IRA contributions when you move abroad",
+          "url": "https://finance.yahoo.com/markets/currencies/articles/2-irs-rules-allow-continue-133000736.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Dear Palantir Stock Fans, Mark Your Calendars for August 3",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/dear-palantir-stock-fans-mark-190145025.html",
+          "headline": "Cathie Wood sells $5.5 million of surging tech stock",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-sells-5-5-163300469.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
-          "url": "https://finance.yahoo.com/economy/policy/articles/fed-interest-rate-decision-rocks-163300252.html",
+          "headline": "Best CD rates today, Saturday, August 1, 2026: Best CD account earns 4.10% APY",
+          "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-august-1-2026-best-cd-account-earns-410-apy-100000014.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "DASH Stock Alert: What to Know as FAA Approves DoorDash Delivery Drones",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/dash-stock-alert-know-faa-191118471.html",
+          "headline": "10 best money market accounts and rates for August 2026: Rates up to 3.9% APY",
+          "url": "https://finance.yahoo.com/personal-finance/banking/article/best-money-market-accounts-rates-160154089.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Aston Martin’s Supercar Recovery Still Needs Fuel",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/aston-martin-supercar-recovery-still-191535048.html",
+          "headline": "10 best high-yield savings accounts for August 2026: Earn up to 4.10% APY",
+          "url": "https://finance.yahoo.com/personal-finance/banking/article/10-best-high-yield-savings-accounts-for-august-2026-earn-up-to-410-apy-171334072.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Anika Therapeutics, Inc. Q2 2026 Earnings Call Summary",
-          "url": "https://finance.yahoo.com/healthcare/articles/anika-therapeutics-inc-q2-2026-191635891.html",
+          "headline": "15 best new bank account promotions and bonuses for August 2026: Earn up to $3,000",
+          "url": "https://finance.yahoo.com/personal-finance/banking/article/new-bank-account-bonuses-214704427.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
@@ -810,36 +810,36 @@
       ],
       "IT": [
         {
-          "headline": "Apple says gaming slowdown and App Store changes hurt services growth",
-          "url": "https://finance.yahoo.com/technology/articles/apple-says-gaming-slowdown-app-223706812.html",
+          "headline": "Peter Beck's Rocket Lab Reports Earnings on Aug. 10. Here's the One Number That Will Move the Stock.",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/peter-becks-rocket-lab-reports-130500464.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Strong iPhone sales propel Apple's fiscal Q3 results past Wall Street's expectations",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/strong-iphone-sales-propel-apples-205413484.html",
+          "headline": "Is the Quantum Threat to Bitcoin Real or Not? Galaxy Digital Just Pledged $5 Million to Boost Bitcoin's Quantum Resistance.",
+          "url": "https://finance.yahoo.com/markets/crypto/articles/quantum-threat-bitcoin-real-not-125200556.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "SpaceX Just Inked a New $1.6 Billion Deal With Space Force. Here's What it Means for Investors",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-just-inked-1-6-192501512.html",
+          "headline": "SpaceX’s record IPO is helping spur a new wave of startups aiming for orbit and opening a vast new market beyond Earth",
+          "url": "https://finance.yahoo.com/small-business/articles/spacex-record-ipo-helping-spur-100000630.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Space Investors Take Note: Rocket Lab or SpaceX Before 2026 Runs Out",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/space-investors-note-rocket-lab-192000222.html",
+          "headline": "Microsoft’s AI Cybersecurity Push Could Become a Major Growth Driver for MSFT Stock",
+          "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-ai-cybersecurity-push-could-160912618.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Apple Is the World's Newest $5 Trillion Giant. Here's What Means For AAPL Stock.",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/apple-worlds-newest-5-trillion-183226249.html",
+          "headline": "Why Investors Shouldn’t Sweat the Dip in Qualcomm’s Handset Revenue, According to Experts",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/why-investors-shouldn-t-sweat-150002057.html",
           "source": "yahoo",
           "score": "",
           "comments": ""
