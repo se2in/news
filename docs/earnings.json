@@ -1,17 +1,18 @@
 {
-  "generated_at": "2026-10-08 16:05:35",
+  "generated_at": "2026-10-09 23:39:39",
   "summary": {
     "total": 3000,
-    "reported": 1890,
-    "pending": 1110,
+    "reported": 1895,
+    "pending": 1105,
     "by_result": {
-      "예정": 1110,
-      "Beat": 565,
-      "Miss": 411,
-      "실제치 발표": 867,
-      "Meet": 47
+      "Beat": 571,
+      "Miss": 415,
+      "예정": 1105,
+      "Meet": 48,
+      "실제치 발표": 861
     },
     "dates": [
+      "2026-10-09",
       "2026-10-08",
       "2026-10-07",
       "2026-10-06",
@@ -60,38 +61,338 @@
       "2026-08-12",
       "2026-08-11"
     ],
-    "latest_collected_at": "2026-10-08T16:02:30.801534+09:00"
+    "latest_collected_at": "2026-10-09T23:36:44.036833+09:00"
   },
   "rows": [
+    {
+      "event_date": "2026-10-09",
+      "ticker": "HOVR",
+      "company": "New Horizon Aircraft Ltd.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "BMO",
+      "eps_estimate": "-0.08",
+      "eps_actual": "-0.06",
+      "eps_surprise_pct": "+50",
+      "result_status": "Beat",
+      "next_day_change_pct": "",
+      "market_cap": "$107,398,304",
+      "url": "https://www.nasdaq.com/market-activity/stocks/hovr/earnings",
+      "collected_at": "2026-10-09T23:36:44.036833+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "DAL",
+      "company": "Delta Air Lines, Inc.",
+      "event_name": "Earnings Sep/2026",
+      "earnings_call_time": "BMO",
+      "eps_estimate": "1.80",
+      "eps_actual": "1.72",
+      "eps_surprise_pct": "-2.12",
+      "result_status": "Miss",
+      "next_day_change_pct": "",
+      "market_cap": "$54,562,984,000",
+      "url": "https://www.nasdaq.com/market-activity/stocks/dal/earnings",
+      "collected_at": "2026-10-09T23:36:44.036833+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "CBAT",
+      "company": "CBAK Energy Technology Limited",
+      "event_name": "Q2 2026 Earnings Announcement",
+      "earnings_call_time": "BMO",
+      "eps_estimate": "-0.06",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "",
+      "market_cap": "93.08M",
+      "url": "https://finance.yahoo.com/quote/CBAT",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "GLDG",
+      "company": "GoldMining Inc.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "",
+      "market_cap": "$186,790,368",
+      "url": "https://www.nasdaq.com/market-activity/stocks/gldg/earnings",
+      "collected_at": "2026-10-09T23:36:44.036833+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "HIFS",
+      "company": "Hingham Institution for Savings",
+      "event_name": "Earnings Sep/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "",
+      "market_cap": "$614,049,020",
+      "url": "https://www.nasdaq.com/market-activity/stocks/hifs/earnings",
+      "collected_at": "2026-10-09T23:36:44.036833+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "LNAI",
+      "company": "Lunai Bioworks Inc.",
+      "event_name": "Q4 2026 Earnings Announcement",
+      "earnings_call_time": "AMC",
+      "eps_estimate": "-",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "",
+      "market_cap": "5.38M",
+      "url": "https://finance.yahoo.com/quote/LNAI",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "MWC",
+      "company": "Micware Co., Ltd.",
+      "event_name": "Q1 2027 Earnings Announcement",
+      "earnings_call_time": "BMO",
+      "eps_estimate": "-",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "",
+      "market_cap": "87.94M",
+      "url": "https://finance.yahoo.com/quote/MWC",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "RENB",
+      "company": "-",
+      "event_name": "Q4 2026 Earnings Announcement",
+      "earnings_call_time": "AMC",
+      "eps_estimate": "-",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "",
+      "market_cap": "--",
+      "url": "https://finance.yahoo.com/quote/RENB",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
+    {
+      "event_date": "2026-10-09",
+      "ticker": "VCIG",
+      "company": "VCI Global Limited",
+      "event_name": "H1 2026 Earnings Announcement",
+      "earnings_call_time": "BMO",
+      "eps_estimate": "-",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "",
+      "market_cap": "1.06M",
+      "url": "https://finance.yahoo.com/quote/VCIG",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
     {
       "event_date": "2026-10-08",
       "ticker": "ANGO",
       "company": "AngioDynamics, Inc.",
       "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "BMO",
+      "earnings_call_time": "TAS",
       "eps_estimate": "-0.10",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$596,013,060",
+      "eps_actual": "-0.04",
+      "eps_surprise_pct": "60",
+      "result_status": "Beat",
+      "next_day_change_pct": "-0.98%",
+      "market_cap": "$586,506,620",
       "url": "https://www.nasdaq.com/market-activity/stocks/ango/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
     },
     {
       "event_date": "2026-10-08",
       "ticker": "BYRN",
       "company": "Byrna Technologies, Inc.",
       "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-0.15",
+      "eps_actual": "-0.13",
+      "eps_surprise_pct": "13.33",
+      "result_status": "Beat",
+      "next_day_change_pct": "-9.09%",
+      "market_cap": "$110,704,488",
+      "url": "https://www.nasdaq.com/market-activity/stocks/byrn/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "HELE",
+      "company": "Helen of Troy Limited",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "0.32",
+      "eps_actual": "0.59",
+      "eps_surprise_pct": "84.37",
+      "result_status": "Beat",
+      "next_day_change_pct": "+0.19%",
+      "market_cap": "$595,112,130",
+      "url": "https://www.nasdaq.com/market-activity/stocks/hele/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "HOVR",
+      "company": "New Horizon Aircraft Ltd.",
+      "event_name": "-",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-0.12",
+      "eps_actual": "-0.06",
+      "eps_surprise_pct": "+50",
+      "result_status": "Beat",
+      "next_day_change_pct": "+0.33%",
+      "market_cap": "102.32M",
+      "url": "https://finance.yahoo.com/quote/HOVR",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "PEP",
+      "company": "Pepsico, Inc.",
+      "event_name": "Earnings Sep/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "2.29",
+      "eps_actual": "2.34",
+      "eps_surprise_pct": "2.18",
+      "result_status": "Beat",
+      "next_day_change_pct": "-2.03%",
+      "market_cap": "$168,878,031,000",
+      "url": "https://www.nasdaq.com/market-activity/stocks/pep/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "DAL",
+      "company": "Delta Air Lines, Inc.",
+      "event_name": "-",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "1.76",
+      "eps_actual": "1.72",
+      "eps_surprise_pct": "-2.12",
+      "result_status": "Miss",
+      "next_day_change_pct": "-1.69%",
+      "market_cap": "52.98B",
+      "url": "https://finance.yahoo.com/quote/DAL",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "NRIX",
+      "company": "Nurix Therapeutics, Inc.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-0.56",
+      "eps_actual": "-1.03",
+      "eps_surprise_pct": "-",
+      "result_status": "Miss",
+      "next_day_change_pct": "+0.50%",
+      "market_cap": "$2,358,957,570",
+      "url": "https://www.nasdaq.com/market-activity/stocks/nrix/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "TLRY",
+      "company": "Tilray Brands, Inc.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-0.19",
+      "eps_actual": "-0.32",
+      "eps_surprise_pct": "-68.42",
+      "result_status": "Miss",
+      "next_day_change_pct": "-4.60%",
+      "market_cap": "$553,142,660",
+      "url": "https://www.nasdaq.com/market-activity/stocks/tlry/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "NG",
+      "company": "Novagold Resources Inc.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-0.08",
+      "eps_actual": "-0.08",
+      "eps_surprise_pct": "-",
+      "result_status": "Meet",
+      "next_day_change_pct": "+4.78%",
+      "market_cap": "$2,797,139,970",
+      "url": "https://www.nasdaq.com/market-activity/stocks/ng/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "ODC",
+      "company": "Oil-Dri Corporation Of America",
+      "event_name": "Earnings Jul/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-",
+      "eps_actual": "1",
+      "eps_surprise_pct": "-",
+      "result_status": "실제치 발표",
+      "next_day_change_pct": "-2.09%",
+      "market_cap": "$1,272,220,670",
+      "url": "https://www.nasdaq.com/market-activity/stocks/odc/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "PKE",
+      "company": "Park Aerospace Corp.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-",
+      "eps_actual": "0.21",
+      "eps_surprise_pct": "-",
+      "result_status": "실제치 발표",
+      "next_day_change_pct": "-12.25%",
+      "market_cap": "$636,440,450",
+      "url": "https://www.nasdaq.com/market-activity/stocks/pke/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "RYDE",
+      "company": "Ryde Group Ltd.",
+      "event_name": "Earnings Jun/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-",
+      "eps_actual": "-0.06",
+      "eps_surprise_pct": "-",
+      "result_status": "실제치 발표",
+      "next_day_change_pct": "-1.93%",
+      "market_cap": "$131,565,200",
+      "url": "https://www.nasdaq.com/market-activity/stocks/ryde/earnings",
+      "collected_at": "2026-10-09T23:36:42.118513+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "CBAT",
+      "company": "CBAK Energy Technology Limited",
+      "event_name": "Q2 2026 Earnings Announcement",
       "earnings_call_time": "BMO",
-      "eps_estimate": "-0.14",
+      "eps_estimate": "-0.06",
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$86,363,544",
-      "url": "https://www.nasdaq.com/market-activity/stocks/byrn/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
+      "next_day_change_pct": "+0.00%",
+      "market_cap": "93.08M",
+      "url": "https://finance.yahoo.com/quote/CBAT",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
     },
     {
       "event_date": "2026-10-08",
@@ -103,25 +404,40 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+0.72%",
       "market_cap": "$10,143,851",
       "url": "https://www.nasdaq.com/market-activity/stocks/cmmb/earnings",
       "collected_at": "2026-10-08T16:02:30.801534+09:00"
     },
     {
       "event_date": "2026-10-08",
-      "ticker": "HELE",
-      "company": "Helen of Troy Limited",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "BMO",
-      "eps_estimate": "0.32",
+      "ticker": "GLDG",
+      "company": "GoldMining Inc.",
+      "event_name": "Q3 2026 Earnings Announcement",
+      "earnings_call_time": "AMC",
+      "eps_estimate": "-0.03",
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$589,755,010",
-      "url": "https://www.nasdaq.com/market-activity/stocks/hele/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
+      "next_day_change_pct": "-0.60%",
+      "market_cap": "194.01M",
+      "url": "https://finance.yahoo.com/quote/GLDG",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
+    },
+    {
+      "event_date": "2026-10-08",
+      "ticker": "LNAI",
+      "company": "Lunai Bioworks Inc.",
+      "event_name": "Q4 2026 Earnings Announcement",
+      "earnings_call_time": "AMC",
+      "eps_estimate": "-",
+      "eps_actual": "-",
+      "eps_surprise_pct": "-",
+      "result_status": "예정",
+      "next_day_change_pct": "+5.98%",
+      "market_cap": "5.38M",
+      "url": "https://finance.yahoo.com/quote/LNAI",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
     },
     {
       "event_date": "2026-10-08",
@@ -133,100 +449,25 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "87.35M",
+      "next_day_change_pct": "+3.45%",
+      "market_cap": "87.94M",
       "url": "https://finance.yahoo.com/quote/MWC",
-      "collected_at": "2026-10-08T16:01:58.722295+09:00"
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
     },
     {
       "event_date": "2026-10-08",
-      "ticker": "NG",
-      "company": "Novagold Resources Inc.",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "BMO",
-      "eps_estimate": "-0.08",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$2,894,627,330",
-      "url": "https://www.nasdaq.com/market-activity/stocks/ng/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
-    },
-    {
-      "event_date": "2026-10-08",
-      "ticker": "NRIX",
-      "company": "Nurix Therapeutics, Inc.",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-0.56",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$2,345,466,110",
-      "url": "https://www.nasdaq.com/market-activity/stocks/nrix/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
-    },
-    {
-      "event_date": "2026-10-08",
-      "ticker": "ODC",
-      "company": "Oil-Dri Corporation Of America",
-      "event_name": "Earnings Jul/2026",
+      "ticker": "RENB",
+      "company": "-",
+      "event_name": "Q4 2026 Earnings Announcement",
       "earnings_call_time": "AMC",
       "eps_estimate": "-",
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
       "next_day_change_pct": "",
-      "market_cap": "$1,276,856,960",
-      "url": "https://www.nasdaq.com/market-activity/stocks/odc/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
-    },
-    {
-      "event_date": "2026-10-08",
-      "ticker": "PEP",
-      "company": "Pepsico, Inc.",
-      "event_name": "Earnings Sep/2026",
-      "earnings_call_time": "BMO",
-      "eps_estimate": "2.29",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$171,580,522,000",
-      "url": "https://www.nasdaq.com/market-activity/stocks/pep/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
-    },
-    {
-      "event_date": "2026-10-08",
-      "ticker": "PKE",
-      "company": "Park Aerospace Corp.",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "AMC",
-      "eps_estimate": "-",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$653,841,410",
-      "url": "https://www.nasdaq.com/market-activity/stocks/pke/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
-    },
-    {
-      "event_date": "2026-10-08",
-      "ticker": "TLRY",
-      "company": "Tilray Brands, Inc.",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "BMO",
-      "eps_estimate": "-0.19",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$556,354,820",
-      "url": "https://www.nasdaq.com/market-activity/stocks/tlry/earnings",
-      "collected_at": "2026-10-08T16:02:30.801534+09:00"
+      "market_cap": "--",
+      "url": "https://finance.yahoo.com/quote/RENB",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
     },
     {
       "event_date": "2026-10-08",
@@ -238,70 +479,115 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-4.38%",
       "market_cap": "180.05M",
       "url": "https://finance.yahoo.com/quote/TORO",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
     },
     {
-      "event_date": "2026-10-07",
-      "ticker": "APLD",
-      "company": "Applied Digital Corporation",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "AMC",
-      "eps_estimate": "-0.25",
-      "eps_actual": "-0.11",
+      "event_date": "2026-10-08",
+      "ticker": "VCIG",
+      "company": "VCI Global Limited",
+      "event_name": "H1 2026 Earnings Announcement",
+      "earnings_call_time": "BMO",
+      "eps_estimate": "-",
+      "eps_actual": "-",
       "eps_surprise_pct": "-",
-      "result_status": "Beat",
-      "next_day_change_pct": "",
-      "market_cap": "$7,579,051,500",
-      "url": "https://www.nasdaq.com/market-activity/stocks/apld/earnings",
-      "collected_at": "2026-10-08T16:02:28.020581+09:00"
-    },
-    {
-      "event_date": "2026-10-07",
-      "ticker": "RELL",
-      "company": "Richardson Electronics, Ltd.",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "AMC",
-      "eps_estimate": "0.09",
-      "eps_actual": "0.13",
-      "eps_surprise_pct": "-",
-      "result_status": "Beat",
-      "next_day_change_pct": "",
-      "market_cap": "$283,163,360",
-      "url": "https://www.nasdaq.com/market-activity/stocks/rell/earnings",
-      "collected_at": "2026-10-08T16:02:28.020581+09:00"
-    },
-    {
-      "event_date": "2026-10-07",
-      "ticker": "RGP",
-      "company": "Resources Connection, Inc.",
-      "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "AMC",
-      "eps_estimate": "-0.22",
-      "eps_actual": "-0.04",
-      "eps_surprise_pct": "-",
-      "result_status": "Beat",
-      "next_day_change_pct": "",
-      "market_cap": "$128,047,808",
-      "url": "https://www.nasdaq.com/market-activity/stocks/rgp/earnings",
-      "collected_at": "2026-10-08T16:02:28.020581+09:00"
+      "result_status": "예정",
+      "next_day_change_pct": "-9.83%",
+      "market_cap": "1.06M",
+      "url": "https://finance.yahoo.com/quote/VCIG",
+      "collected_at": "2026-10-09T23:36:14.433155+09:00"
     },
     {
       "event_date": "2026-10-07",
       "ticker": "LEVI",
       "company": "Levi Strauss & Co.",
       "event_name": "Earnings Aug/2026",
-      "earnings_call_time": "AMC",
+      "earnings_call_time": "TAS",
       "eps_estimate": "0.36",
-      "eps_actual": "0.34",
-      "eps_surprise_pct": "-",
-      "result_status": "Miss",
-      "next_day_change_pct": "",
-      "market_cap": "$7,900,982,300",
+      "eps_actual": "0.48",
+      "eps_surprise_pct": "33.33",
+      "result_status": "Beat",
+      "next_day_change_pct": "-2.36%",
+      "market_cap": "$7,305,098,800",
       "url": "https://www.nasdaq.com/market-activity/stocks/levi/earnings",
-      "collected_at": "2026-10-08T16:02:28.020581+09:00"
+      "collected_at": "2026-10-09T23:36:40.065717+09:00"
+    },
+    {
+      "event_date": "2026-10-07",
+      "ticker": "RELL",
+      "company": "Richardson Electronics, Ltd.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "0.09",
+      "eps_actual": "0.27",
+      "eps_surprise_pct": "200",
+      "result_status": "Beat",
+      "next_day_change_pct": "-0.15%",
+      "market_cap": "$296,838,432",
+      "url": "https://www.nasdaq.com/market-activity/stocks/rell/earnings",
+      "collected_at": "2026-10-09T23:36:40.065717+09:00"
+    },
+    {
+      "event_date": "2026-10-07",
+      "ticker": "RGP",
+      "company": "Resources Connection, Inc.",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-0.22",
+      "eps_actual": "-0.20",
+      "eps_surprise_pct": "9.09",
+      "result_status": "Beat",
+      "next_day_change_pct": "-20.05%",
+      "market_cap": "$103,756,896",
+      "url": "https://www.nasdaq.com/market-activity/stocks/rgp/earnings",
+      "collected_at": "2026-10-09T23:36:40.065717+09:00"
+    },
+    {
+      "event_date": "2026-10-07",
+      "ticker": "APLD",
+      "company": "Applied Digital Corporation",
+      "event_name": "Earnings Aug/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-0.26",
+      "eps_actual": "-0.76",
+      "eps_surprise_pct": "-192.31",
+      "result_status": "Miss",
+      "next_day_change_pct": "+0.17%",
+      "market_cap": "$7,211,933,200",
+      "url": "https://www.nasdaq.com/market-activity/stocks/apld/earnings",
+      "collected_at": "2026-10-09T23:36:40.065717+09:00"
+    },
+    {
+      "event_date": "2026-10-07",
+      "ticker": "LFS",
+      "company": "LEIFRAS Co., Ltd.",
+      "event_name": "Earnings Jun/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-",
+      "eps_actual": "-0.01",
+      "eps_surprise_pct": "-",
+      "result_status": "실제치 발표",
+      "next_day_change_pct": "-7.66%",
+      "market_cap": "$58,338,180",
+      "url": "https://www.nasdaq.com/market-activity/stocks/lfs/earnings",
+      "collected_at": "2026-10-09T23:36:40.065717+09:00"
+    },
+    {
+      "event_date": "2026-10-07",
+      "ticker": "SMXT",
+      "company": "Solarmax Technology Inc.",
+      "event_name": "Earnings Jun/2026",
+      "earnings_call_time": "TAS",
+      "eps_estimate": "-",
+      "eps_actual": "-0.98",
+      "eps_surprise_pct": "-",
+      "result_status": "실제치 발표",
+      "next_day_change_pct": "+6.15%",
+      "market_cap": "$22,098,722",
+      "url": "https://www.nasdaq.com/market-activity/stocks/smxt/earnings",
+      "collected_at": "2026-10-09T23:36:40.065717+09:00"
     },
     {
       "event_date": "2026-10-07",
@@ -313,7 +599,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-20.86%",
       "market_cap": "596.75M",
       "url": "https://finance.yahoo.com/quote/ANGO",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -328,7 +614,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+16.79%",
       "market_cap": "94.79M",
       "url": "https://finance.yahoo.com/quote/BYRN",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -343,7 +629,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+4.40%",
       "market_cap": "15.49M",
       "url": "https://finance.yahoo.com/quote/CANOF",
       "collected_at": "2026-10-07T10:20:43.723991+09:00"
@@ -358,7 +644,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+3.91%",
       "market_cap": "595.11M",
       "url": "https://finance.yahoo.com/quote/HELE",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -373,7 +659,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-1.73%",
       "market_cap": "540.56M",
       "url": "https://finance.yahoo.com/quote/HKD",
       "collected_at": "2026-10-07T10:20:43.723991+09:00"
@@ -388,7 +674,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-1.36%",
       "market_cap": "87.35M",
       "url": "https://finance.yahoo.com/quote/MWC",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -403,7 +689,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-1.26%",
       "market_cap": "2.79B",
       "url": "https://finance.yahoo.com/quote/NG",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -418,7 +704,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+1.87%",
       "market_cap": "51.69M",
       "url": "https://finance.yahoo.com/quote/NPT",
       "collected_at": "2026-10-07T10:20:43.723991+09:00"
@@ -433,7 +719,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-2.29%",
       "market_cap": "2.36B",
       "url": "https://finance.yahoo.com/quote/NRIX",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -448,7 +734,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-3.92%",
       "market_cap": "1.27B",
       "url": "https://finance.yahoo.com/quote/ODC",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -463,7 +749,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+3.73%",
       "market_cap": "169.02B",
       "url": "https://finance.yahoo.com/quote/PEP",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -478,7 +764,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+1.37%",
       "market_cap": "636.44M",
       "url": "https://finance.yahoo.com/quote/PKE",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -493,7 +779,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-3.05%",
       "market_cap": "2.46M",
       "url": "https://finance.yahoo.com/quote/TGL",
       "collected_at": "2026-10-07T10:20:43.723991+09:00"
@@ -508,7 +794,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "-3.49%",
       "market_cap": "549.01M",
       "url": "https://finance.yahoo.com/quote/TLRY",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -523,7 +809,7 @@
       "eps_actual": "-",
       "eps_surprise_pct": "-",
       "result_status": "예정",
-      "next_day_change_pct": "",
+      "next_day_change_pct": "+5.18%",
       "market_cap": "180.05M",
       "url": "https://finance.yahoo.com/quote/TORO",
       "collected_at": "2026-10-08T16:01:58.722295+09:00"
@@ -539,9 +825,9 @@
       "eps_surprise_pct": "98.31",
       "result_status": "Beat",
       "next_day_change_pct": "+2.78%",
-      "market_cap": "$834,731,780",
+      "market_cap": "$851,913,600",
       "url": "https://www.nasdaq.com/market-activity/stocks/apog/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -554,9 +840,9 @@
       "eps_surprise_pct": "27.12",
       "result_status": "Beat",
       "next_day_change_pct": "+0.38%",
-      "market_cap": "$6,586,715,100",
+      "market_cap": "$6,814,620,700",
       "url": "https://www.nasdaq.com/market-activity/stocks/lw/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -569,9 +855,9 @@
       "eps_surprise_pct": "75",
       "result_status": "Beat",
       "next_day_change_pct": "-2.34%",
-      "market_cap": "$2,608,547,840",
+      "market_cap": "$2,556,363,780",
       "url": "https://www.nasdaq.com/market-activity/stocks/neog/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -584,9 +870,9 @@
       "eps_surprise_pct": "49.18",
       "result_status": "Beat",
       "next_day_change_pct": "+13.08%",
-      "market_cap": "$3,290,293,760",
+      "market_cap": "$3,667,439,870",
       "url": "https://www.nasdaq.com/market-activity/stocks/peng/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -599,9 +885,9 @@
       "eps_surprise_pct": "1.54",
       "result_status": "Beat",
       "next_day_change_pct": "+0.02%",
-      "market_cap": "$12,558,258,200",
+      "market_cap": "$12,680,674,300",
       "url": "https://www.nasdaq.com/market-activity/stocks/rpm/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -614,9 +900,9 @@
       "eps_surprise_pct": "3.31",
       "result_status": "Beat",
       "next_day_change_pct": "+2.35%",
-      "market_cap": "$19,753,941,000",
+      "market_cap": "$20,918,009,900",
       "url": "https://www.nasdaq.com/market-activity/stocks/stz/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -629,9 +915,9 @@
       "eps_surprise_pct": "-2.13",
       "result_status": "Miss",
       "next_day_change_pct": "-5.69%",
-      "market_cap": "$254,239,280",
+      "market_cap": "$232,927,776",
       "url": "https://www.nasdaq.com/market-activity/stocks/sar/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -644,9 +930,9 @@
       "eps_surprise_pct": "-50.86",
       "result_status": "Miss",
       "next_day_change_pct": "-6.89%",
-      "market_cap": "$1,945,651,330",
+      "market_cap": "$1,763,771,900",
       "url": "https://www.nasdaq.com/market-activity/stocks/ws/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -674,9 +960,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-3.08%",
-      "market_cap": "$42,095,944",
+      "market_cap": "$39,059,848",
       "url": "https://www.nasdaq.com/market-activity/stocks/axil/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -689,9 +975,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+0.23%",
-      "market_cap": "$647,470,980",
+      "market_cap": "$650,729,020",
       "url": "https://www.nasdaq.com/market-activity/stocks/vlgea/earnings",
-      "collected_at": "2026-10-08T16:02:25.569066+09:00"
+      "collected_at": "2026-10-09T23:36:38.428337+09:00"
     },
     {
       "event_date": "2026-10-06",
@@ -1094,9 +1380,9 @@
       "eps_surprise_pct": "-",
       "result_status": "Beat",
       "next_day_change_pct": "-1.62%",
-      "market_cap": "$538,642,820",
+      "market_cap": "$516,879,456",
       "url": "https://www.nasdaq.com/market-activity/stocks/tmq/earnings",
-      "collected_at": "2026-10-08T16:02:15.423207+09:00"
+      "collected_at": "2026-10-09T23:36:30.290474+09:00"
     },
     {
       "event_date": "2026-10-02",
@@ -1109,9 +1395,9 @@
       "eps_surprise_pct": "-83.72",
       "result_status": "Miss",
       "next_day_change_pct": "+6.55%",
-      "market_cap": "$194,728,560",
+      "market_cap": "$191,175,712",
       "url": "https://www.nasdaq.com/market-activity/stocks/tayd/earnings",
-      "collected_at": "2026-10-08T16:02:15.423207+09:00"
+      "collected_at": "2026-10-09T23:36:30.290474+09:00"
     },
     {
       "event_date": "2026-10-02",
@@ -1199,9 +1485,9 @@
       "eps_surprise_pct": "3.13",
       "result_status": "Beat",
       "next_day_change_pct": "-6.31%",
-      "market_cap": "$129,096,475,000",
+      "market_cap": "$139,082,433,000",
       "url": "https://www.nasdaq.com/market-activity/stocks/acn/earnings",
-      "collected_at": "2026-10-08T16:02:12.465815+09:00"
+      "collected_at": "2026-10-09T23:36:28.397103+09:00"
     },
     {
       "event_date": "2026-10-01",
@@ -1214,9 +1500,9 @@
       "eps_surprise_pct": "6.17",
       "result_status": "Beat",
       "next_day_change_pct": "+3.17%",
-      "market_cap": "$9,069,872,100",
+      "market_cap": "$8,993,536,000",
       "url": "https://www.nasdaq.com/market-activity/stocks/ayi/earnings",
-      "collected_at": "2026-10-08T16:02:12.465815+09:00"
+      "collected_at": "2026-10-09T23:36:28.397103+09:00"
     },
     {
       "event_date": "2026-10-01",
@@ -1259,9 +1545,9 @@
       "eps_surprise_pct": "14.67",
       "result_status": "Beat",
       "next_day_change_pct": "+1.20%",
-      "market_cap": "$12,215,527,400",
+      "market_cap": "$12,360,821,800",
       "url": "https://www.nasdaq.com/market-activity/stocks/mkc/earnings",
-      "collected_at": "2026-10-08T16:02:12.465815+09:00"
+      "collected_at": "2026-10-09T23:36:28.397103+09:00"
     },
     {
       "event_date": "2026-10-01",
@@ -1274,9 +1560,9 @@
       "eps_surprise_pct": "11.63",
       "result_status": "Beat",
       "next_day_change_pct": "-3.64%",
-      "market_cap": "$51,406,537,000",
+      "market_cap": "$51,599,630,000",
       "url": "https://www.nasdaq.com/market-activity/stocks/nke/earnings",
-      "collected_at": "2026-10-08T16:02:12.465815+09:00"
+      "collected_at": "2026-10-09T23:36:28.397103+09:00"
     },
     {
       "event_date": "2026-10-01",
@@ -1379,9 +1665,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "",
-      "market_cap": "$12,215,527,400",
+      "market_cap": "$12,360,821,800",
       "url": "https://www.nasdaq.com/market-activity/stocks/mkc.v/earnings",
-      "collected_at": "2026-10-08T16:02:12.465815+09:00"
+      "collected_at": "2026-10-09T23:36:28.397103+09:00"
     },
     {
       "event_date": "2026-10-01",
@@ -1499,9 +1785,9 @@
       "eps_surprise_pct": "84.62",
       "result_status": "Beat",
       "next_day_change_pct": "+9.10%",
-      "market_cap": "$182,716,736",
+      "market_cap": "$187,994,080",
       "url": "https://www.nasdaq.com/market-activity/stocks/bset/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1514,9 +1800,9 @@
       "eps_surprise_pct": "32.26",
       "result_status": "Beat",
       "next_day_change_pct": "-1.79%",
-      "market_cap": "$6,421,185,000",
+      "market_cap": "$6,478,474,200",
       "url": "https://www.nasdaq.com/market-activity/stocks/cag/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1529,9 +1815,9 @@
       "eps_surprise_pct": "4.63",
       "result_status": "Beat",
       "next_day_change_pct": "+2.84%",
-      "market_cap": "$9,674,183,700",
+      "market_cap": "$10,190,239,700",
       "url": "https://www.nasdaq.com/market-activity/stocks/fds/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1544,9 +1830,9 @@
       "eps_surprise_pct": "7.2",
       "result_status": "Beat",
       "next_day_change_pct": "+4.51%",
-      "market_cap": "$32,399,120,400",
+      "market_cap": "$31,348,105,200",
       "url": "https://www.nasdaq.com/market-activity/stocks/jbl/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1559,9 +1845,9 @@
       "eps_surprise_pct": "5.67",
       "result_status": "Beat",
       "next_day_change_pct": "+3.03%",
-      "market_cap": "$1,180,848,360,000",
+      "market_cap": "$1,169,870,550,000",
       "url": "https://www.nasdaq.com/market-activity/stocks/mu/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1589,9 +1875,9 @@
       "eps_surprise_pct": "18.97",
       "result_status": "Beat",
       "next_day_change_pct": "-8.48%",
-      "market_cap": "$1,520,519,940",
+      "market_cap": "$1,564,664,060",
       "url": "https://www.nasdaq.com/market-activity/stocks/prgs/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1619,9 +1905,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-3.26%",
-      "market_cap": "$2,961,452,800",
+      "market_cap": "$3,028,249,090",
       "url": "https://www.nasdaq.com/market-activity/stocks/calm/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1634,9 +1920,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-5.56%",
-      "market_cap": "$6,409,883",
+      "market_cap": "$7,506,559",
       "url": "https://www.nasdaq.com/market-activity/stocks/clgn/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1664,9 +1950,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-4.90%",
-      "market_cap": "$5,476,864",
+      "market_cap": "$5,259,240",
       "url": "https://www.nasdaq.com/market-activity/stocks/gure/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1679,9 +1965,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-3.17%",
-      "market_cap": "$158,746,880",
+      "market_cap": "$156,953,120",
       "url": "https://www.nasdaq.com/market-activity/stocks/htlm/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1724,9 +2010,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-3.58%",
-      "market_cap": "$85,738,688",
+      "market_cap": "$88,363,344",
       "url": "https://www.nasdaq.com/market-activity/stocks/yrd/earnings",
-      "collected_at": "2026-10-08T16:02:10.514403+09:00"
+      "collected_at": "2026-10-09T23:36:26.462860+09:00"
     },
     {
       "event_date": "2026-09-30",
@@ -1874,9 +2160,9 @@
       "eps_surprise_pct": "5.15",
       "result_status": "Beat",
       "next_day_change_pct": "-2.27%",
-      "market_cap": "$35,739,738,000",
+      "market_cap": "$35,161,555,000",
       "url": "https://www.nasdaq.com/market-activity/stocks/ccl/earnings",
-      "collected_at": "2026-10-08T16:02:08.285711+09:00"
+      "collected_at": "2026-10-09T23:36:24.673982+09:00"
     },
     {
       "event_date": "2026-09-29",
@@ -1889,9 +2175,9 @@
       "eps_surprise_pct": "7.08",
       "result_status": "Beat",
       "next_day_change_pct": "+0.28%",
-      "market_cap": "$1,515,695,870",
+      "market_cap": "$1,596,240,000",
       "url": "https://www.nasdaq.com/market-activity/stocks/cnxc/earnings",
-      "collected_at": "2026-10-08T16:02:08.285711+09:00"
+      "collected_at": "2026-10-09T23:36:24.673982+09:00"
     },
     {
       "event_date": "2026-09-29",
@@ -1904,9 +2190,9 @@
       "eps_surprise_pct": "70.59",
       "result_status": "Beat",
       "next_day_change_pct": "-6.96%",
-      "market_cap": "$7,848,017,900",
+      "market_cap": "$7,562,712,600",
       "url": "https://www.nasdaq.com/market-activity/stocks/kmx/earnings",
-      "collected_at": "2026-10-08T16:02:08.285711+09:00"
+      "collected_at": "2026-10-09T23:36:24.673982+09:00"
     },
     {
       "event_date": "2026-09-29",
@@ -1919,9 +2205,9 @@
       "eps_surprise_pct": "-75",
       "result_status": "Miss",
       "next_day_change_pct": "+1.72%",
-      "market_cap": "$5,010,360,800",
+      "market_cap": "$4,693,186,600",
       "url": "https://www.nasdaq.com/market-activity/stocks/uec/earnings",
-      "collected_at": "2026-10-08T16:02:08.285711+09:00"
+      "collected_at": "2026-10-09T23:36:24.673982+09:00"
     },
     {
       "event_date": "2026-09-29",
@@ -1949,9 +2235,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-1.46%",
-      "market_cap": "$51,270,632",
+      "market_cap": "$47,701,156",
       "url": "https://www.nasdaq.com/market-activity/stocks/celu/earnings",
-      "collected_at": "2026-10-08T16:02:08.285711+09:00"
+      "collected_at": "2026-10-09T23:36:24.673982+09:00"
     },
     {
       "event_date": "2026-09-29",
@@ -1964,9 +2250,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+0.44%",
-      "market_cap": "$58,268,664",
+      "market_cap": "$58,779,792",
       "url": "https://www.nasdaq.com/market-activity/stocks/ih/earnings",
-      "collected_at": "2026-10-08T16:02:08.285711+09:00"
+      "collected_at": "2026-10-09T23:36:24.673982+09:00"
     },
     {
       "event_date": "2026-09-29",
@@ -2429,9 +2715,9 @@
       "eps_surprise_pct": "4.81",
       "result_status": "Beat",
       "next_day_change_pct": "-1.29%",
-      "market_cap": "$8,710,671,400",
+      "market_cap": "$8,602,175,500",
       "url": "https://www.nasdaq.com/market-activity/stocks/jef/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2459,9 +2745,9 @@
       "eps_surprise_pct": "1.11",
       "result_status": "Beat",
       "next_day_change_pct": "+2.32%",
-      "market_cap": "$5,174,245,400",
+      "market_cap": "$5,205,960,700",
       "url": "https://www.nasdaq.com/market-activity/stocks/mtn/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2474,9 +2760,9 @@
       "eps_surprise_pct": "9.09",
       "result_status": "Beat",
       "next_day_change_pct": "-13.33%",
-      "market_cap": "$35,735,000",
+      "market_cap": "$33,437,750",
       "url": "https://www.nasdaq.com/market-activity/stocks/nnvc/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2489,9 +2775,9 @@
       "eps_surprise_pct": "-362.5",
       "result_status": "Miss",
       "next_day_change_pct": "-0.85%",
-      "market_cap": "$57,389,776",
+      "market_cap": "$59,421,272",
       "url": "https://www.nasdaq.com/market-activity/stocks/cast/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2504,9 +2790,9 @@
       "eps_surprise_pct": "-1800",
       "result_status": "Miss",
       "next_day_change_pct": "-1.89%",
-      "market_cap": "$12,037,927",
+      "market_cap": "$12,711,201",
       "url": "https://www.nasdaq.com/market-activity/stocks/pbk/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2521,7 +2807,7 @@
       "next_day_change_pct": "+4.98%",
       "market_cap": "$5,417,807",
       "url": "https://www.nasdaq.com/market-activity/stocks/adxn/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2534,9 +2820,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-7.25%",
-      "market_cap": "$4,181,403,650",
+      "market_cap": "$4,082,927,870",
       "url": "https://www.nasdaq.com/market-activity/stocks/air/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2549,9 +2835,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-0.83%",
-      "market_cap": "$27,339,530",
+      "market_cap": "$26,043,260",
       "url": "https://www.nasdaq.com/market-activity/stocks/fkwl/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2564,9 +2850,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-1.05%",
-      "market_cap": "$17,687,268",
+      "market_cap": "$17,616,518",
       "url": "https://www.nasdaq.com/market-activity/stocks/foxx/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2579,9 +2865,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+8.63%",
-      "market_cap": "$1,994,794,880",
+      "market_cap": "$2,003,240,060",
       "url": "https://www.nasdaq.com/market-activity/stocks/idt/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2594,9 +2880,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-1.64%",
-      "market_cap": "$61,864,296",
+      "market_cap": "$69,363,648",
       "url": "https://www.nasdaq.com/market-activity/stocks/intg/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2609,9 +2895,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+1.47%",
-      "market_cap": "$42,874,248",
+      "market_cap": "$37,096,868",
       "url": "https://www.nasdaq.com/market-activity/stocks/lits/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2624,9 +2910,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+3.12%",
-      "market_cap": "$5,832,003",
+      "market_cap": "$5,692,672",
       "url": "https://www.nasdaq.com/market-activity/stocks/mitq/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2639,9 +2925,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+0.00%",
-      "market_cap": "$3,829,069",
+      "market_cap": "$3,690,335",
       "url": "https://www.nasdaq.com/market-activity/stocks/mkzr/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2654,9 +2940,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-13.53%",
-      "market_cap": "$8,332,247",
+      "market_cap": "$7,173,250",
       "url": "https://www.nasdaq.com/market-activity/stocks/naii/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2684,9 +2970,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+3.54%",
-      "market_cap": "$73,747,344",
+      "market_cap": "$72,193,512",
       "url": "https://www.nasdaq.com/market-activity/stocks/ntwk/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2699,9 +2985,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-5.74%",
-      "market_cap": "$49,377,564",
+      "market_cap": "$51,188,076",
       "url": "https://www.nasdaq.com/market-activity/stocks/poci/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2714,9 +3000,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-4.80%",
-      "market_cap": "$16,758,636",
+      "market_cap": "$16,046,260",
       "url": "https://www.nasdaq.com/market-activity/stocks/ptn/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2729,9 +3015,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+37.33%",
-      "market_cap": "$160,712,864",
+      "market_cap": "$161,474,912",
       "url": "https://www.nasdaq.com/market-activity/stocks/sang/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -2744,9 +3030,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-0.49%",
-      "market_cap": "$149,011,328",
+      "market_cap": "$145,290,704",
       "url": "https://www.nasdaq.com/market-activity/stocks/trak/earnings",
-      "collected_at": "2026-10-08T16:02:06.418770+09:00"
+      "collected_at": "2026-10-09T23:36:22.445015+09:00"
     },
     {
       "event_date": "2026-09-28",
@@ -3629,9 +3915,9 @@
       "eps_surprise_pct": "33.33",
       "result_status": "Beat",
       "next_day_change_pct": "-1.98%",
-      "market_cap": "$513,390,688",
+      "market_cap": "$497,347,232",
       "url": "https://www.nasdaq.com/market-activity/stocks/nb/earnings",
-      "collected_at": "2026-10-08T16:02:02.202618+09:00"
+      "collected_at": "2026-10-09T23:36:16.433842+09:00"
     },
     {
       "event_date": "2026-09-25",
@@ -3659,9 +3945,9 @@
       "eps_surprise_pct": "-207.69",
       "result_status": "Miss",
       "next_day_change_pct": "-5.12%",
-      "market_cap": "$39,766,468",
+      "market_cap": "$40,142,808",
       "url": "https://www.nasdaq.com/market-activity/stocks/ixhl/earnings",
-      "collected_at": "2026-10-08T16:02:02.202618+09:00"
+      "collected_at": "2026-10-09T23:36:16.433842+09:00"
     },
     {
       "event_date": "2026-09-25",
@@ -3689,9 +3975,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-2.67%",
-      "market_cap": "$274,514,144",
+      "market_cap": "$269,340,064",
       "url": "https://www.nasdaq.com/market-activity/stocks/afb/earnings",
-      "collected_at": "2026-10-08T16:02:02.202618+09:00"
+      "collected_at": "2026-10-09T23:36:16.433842+09:00"
     },
     {
       "event_date": "2026-09-25",
@@ -3706,7 +3992,7 @@
       "next_day_change_pct": "+6.70%",
       "market_cap": "$13,741,902",
       "url": "https://www.nasdaq.com/market-activity/stocks/astc/earnings",
-      "collected_at": "2026-10-08T16:02:02.202618+09:00"
+      "collected_at": "2026-10-09T23:36:16.433842+09:00"
     },
     {
       "event_date": "2026-09-25",
@@ -3719,9 +4005,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-5.02%",
-      "market_cap": "$10,042,920",
+      "market_cap": "$9,842,971",
       "url": "https://www.nasdaq.com/market-activity/stocks/btoc/earnings",
-      "collected_at": "2026-10-08T16:02:02.202618+09:00"
+      "collected_at": "2026-10-09T23:36:16.433842+09:00"
     },
     {
       "event_date": "2026-09-25",
@@ -3749,9 +4035,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "-2.09%",
-      "market_cap": "$3,756,265",
+      "market_cap": "$3,798,470",
       "url": "https://www.nasdaq.com/market-activity/stocks/ibg/earnings",
-      "collected_at": "2026-10-08T16:02:02.202618+09:00"
+      "collected_at": "2026-10-09T23:36:16.433842+09:00"
     },
     {
       "event_date": "2026-09-25",
@@ -3764,9 +4050,9 @@
       "eps_surprise_pct": "-",
       "result_status": "실제치 발표",
       "next_day_change_pct": "+6.10%",
-      "market_cap": "$8,500,000",
+      "market_cap": "$8,540,000",
       "url": "https://www.nasdaq.com/market-activity/stocks/marps/earnings",
-      "collected_at": "2026-10-08T16:02:02.202618+09:00"
+      "collected_at": "2026-10-09T23:36:16.433842+09:00"
     },
     {
       "event_date": "2026-09-25",
@@ -44777,291 +45063,6 @@
       "market_cap": "$23,843,186",
       "url": "https://www.nasdaq.com/market-activity/stocks/txmd/earnings",
       "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "VEEA",
-      "company": "Veea Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.08",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$8,759,753",
-      "url": "https://www.nasdaq.com/market-activity/stocks/veea/earnings",
-      "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "VELO",
-      "company": "Velo3D, Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.39",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$427,422,524",
-      "url": "https://www.nasdaq.com/market-activity/stocks/velo/earnings",
-      "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "VHC",
-      "company": "VirnetX Holding Corp",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.99",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$61,406,449",
-      "url": "https://www.nasdaq.com/market-activity/stocks/vhc/earnings",
-      "collected_at": "2026-08-13T10:21:26.238677+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "VIVS",
-      "company": "VivoSim Labs, Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-1.14",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$4,721,592",
-      "url": "https://www.nasdaq.com/market-activity/stocks/vivs/earnings",
-      "collected_at": "2026-08-13T10:21:26.238677+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "WAVE",
-      "company": "Eco Wave Power Global AB (publ)",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.16",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$43,677,648",
-      "url": "https://www.nasdaq.com/market-activity/stocks/wave/earnings",
-      "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "WKSP",
-      "company": "Worksport, Ltd.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.33",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$8,995,420",
-      "url": "https://www.nasdaq.com/market-activity/stocks/wksp/earnings",
-      "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "WRAP",
-      "company": "Wrap Technologies, Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.04",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$98,156,389",
-      "url": "https://www.nasdaq.com/market-activity/stocks/wrap/earnings",
-      "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "WVVI",
-      "company": "Willamette Valley Vineyards, Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.09",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$11,452,917",
-      "url": "https://www.nasdaq.com/market-activity/stocks/wvvi/earnings",
-      "collected_at": "2026-08-13T10:21:26.238677+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "XTNT",
-      "company": "Xtant Medical Holdings, Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.07",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$45,579,558",
-      "url": "https://www.nasdaq.com/market-activity/stocks/xtnt/earnings",
-      "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "XXI",
-      "company": "Twenty One Capital, Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-0.02",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$3,649,795,721",
-      "url": "https://www.nasdaq.com/market-activity/stocks/xxi/earnings",
-      "collected_at": "2026-08-25T16:00:45.556229+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "YHC",
-      "company": "LQR House Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-99.99",
-      "eps_surprise_pct": "-",
-      "result_status": "실제치 발표",
-      "next_day_change_pct": "",
-      "market_cap": "$1,634,654",
-      "url": "https://www.nasdaq.com/market-activity/stocks/yhc/earnings",
-      "collected_at": "2026-08-13T10:21:26.238677+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "ACHR",
-      "company": "Archer Aviation Inc.",
-      "event_name": "Q2 2026 Earnings Announcement",
-      "earnings_call_time": "AMC",
-      "eps_estimate": "-0.25",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "4.78B",
-      "url": "https://finance.yahoo.com/quote/ACHR",
-      "collected_at": "2026-08-11T16:00:29.621387+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "ACM",
-      "company": "AECOM",
-      "event_name": "Q3 2026 Earnings Announcement",
-      "earnings_call_time": "AMC",
-      "eps_estimate": "1.46",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "9.42B",
-      "url": "https://finance.yahoo.com/quote/ACM",
-      "collected_at": "2026-08-11T16:00:29.621387+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "ALC",
-      "company": "Alcon Inc.",
-      "event_name": "Q2 2026 Earnings Announcement",
-      "earnings_call_time": "TNS",
-      "eps_estimate": "0.76",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "35.91B",
-      "url": "https://finance.yahoo.com/quote/ALC",
-      "collected_at": "2026-08-11T16:00:29.621387+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "AMBO",
-      "company": "Ambow Education Holding Ltd.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$5,148,580",
-      "url": "https://www.nasdaq.com/market-activity/stocks/ambo/earnings",
-      "collected_at": "2026-08-11T16:00:39.119762+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "ANY",
-      "company": "Sphere 3D Corp.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "-",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$18,100,215",
-      "url": "https://www.nasdaq.com/market-activity/stocks/any/earnings",
-      "collected_at": "2026-08-11T16:00:39.119762+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "ARI",
-      "company": "Apollo Commercial Real Estate Finance",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "0.05",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$898,063,986",
-      "url": "https://www.nasdaq.com/market-activity/stocks/ari/earnings",
-      "collected_at": "2026-08-11T16:00:39.119762+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "ASST",
-      "company": "Strive, Inc.",
-      "event_name": "Earnings Jun/2026",
-      "earnings_call_time": "TAS",
-      "eps_estimate": "0.38",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "$1,050,940,463",
-      "url": "https://www.nasdaq.com/market-activity/stocks/asst/earnings",
-      "collected_at": "2026-08-11T16:00:39.119762+09:00"
-    },
-    {
-      "event_date": "2026-08-11",
-      "ticker": "ASTS",
-      "company": "AST SpaceMobile, Inc.",
-      "event_name": "Q2 2026 Earnings Announcement",
-      "earnings_call_time": "AMC",
-      "eps_estimate": "-0.29",
-      "eps_actual": "-",
-      "eps_surprise_pct": "-",
-      "result_status": "예정",
-      "next_day_change_pct": "",
-      "market_cap": "20.55B",
-      "url": "https://finance.yahoo.com/quote/ASTS",
-      "collected_at": "2026-08-11T16:00:29.621387+09:00"
     }
   ]
 }
