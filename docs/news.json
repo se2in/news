@@ -1,150 +1,157 @@
 {
-  "generated_at": "2026-11-23T06:32:26.318666+09:00",
+  "generated_at": "2026-11-23T10:22:27.483369+09:00",
   "market_trends": [
     {
-      "name": "Dow 지수",
-      "value": "48,147.33",
-      "change": "-949.77 (-1.93%)",
-      "timestamp": "2026-11-21T06:35:59+09:00",
-      "url": "https://finance.yahoo.com/quote/%5EDJI"
+      "name": "KOSPI 지수",
+      "value": "4,687.56",
+      "change": "-182.40 (-3.75%) 하락",
+      "timestamp": "2026-11-23T10:19:00+09:00",
+      "url": "https://stock.naver.com/domestic/index/KOSPI/price"
     },
     {
-      "name": "Nasdaq 지수",
-      "value": "22,617.73",
-      "change": "-1,261.47 (-5.28%)",
-      "timestamp": "2026-11-21T07:15:59+09:00",
-      "url": "https://finance.yahoo.com/quote/%5EIXIC"
+      "name": "KOSDAQ 지수",
+      "value": "627.52",
+      "change": "-18.16 (-2.81%) 하락",
+      "timestamp": "2026-11-23T10:19:00+09:00",
+      "url": "https://stock.naver.com/domestic/index/KOSDAQ/price"
     },
     {
-      "name": "EWY",
-      "value": "123.26",
-      "change": "-11.33 (-8.42%)",
-      "timestamp": "2026-11-21T06:00:03+09:00",
-      "url": "https://finance.yahoo.com/quote/EWY"
+      "name": "미국 나스닥 선물 지수",
+      "value": "25,826.75",
+      "change": "+700.25 (+2.79%)",
+      "timestamp": "2026-11-23T10:09:55+09:00",
+      "url": "https://finance.yahoo.com/quote/NQ=F"
     },
     {
-      "name": "한국 야간선물",
-      "value": "",
-      "change": "확인 필요",
-      "timestamp": "",
-      "url": "https://sonmul.kro.kr/"
+      "name": "KOSPI 투자자별 매매동향",
+      "value": "개인 -2,865억 / 외국인 -468억 / 기관 +2,508억",
+      "change": "",
+      "timestamp": "2026-11-23",
+      "url": "https://stock.naver.com/domestic/index/KOSPI/price"
+    },
+    {
+      "name": "KOSDAQ 투자자별 매매동향",
+      "value": "개인 -976억 / 외국인 +143억 / 기관 +826억",
+      "change": "",
+      "timestamp": "2026-11-23",
+      "url": "https://stock.naver.com/domestic/index/KOSDAQ/price"
     }
   ],
   "featured_stocks": {
-    "session": "korea_last_session",
-    "title": "한국 특징주 (휴장 - 마지막 거래일 2026-11-20 기준)",
+    "session": "korea_regular",
+    "title": "한국 장중 특징주",
     "description": "네이버 증권 상승률 상위 종목 기준",
-    "trade_date": "2026-11-20",
+    "trade_date": "2026-11-23",
     "stocks": [
       {
         "market": "KOSPI",
-        "name": "한진칼우",
-        "code": "18064K",
-        "price": "99,700",
-        "change": "+23,000",
-        "change_pct": "+29.99%",
-        "volume": "480,419",
-        "url": "https://finance.naver.com/item/main.naver?code=18064K",
-        "markdown": "[한진칼우](https://finance.naver.com/item/main.naver?code=18064K)"
+        "name": "금호건설우",
+        "code": "002995",
+        "price": "18,400",
+        "change": "+1,960",
+        "change_pct": "+11.92%",
+        "volume": "7,775",
+        "url": "https://finance.naver.com/item/main.naver?code=002995",
+        "markdown": "[금호건설우](https://finance.naver.com/item/main.naver?code=002995)"
       },
       {
         "market": "KOSPI",
-        "name": "대한항공우",
-        "code": "003495",
-        "price": "27,150",
-        "change": "+3,000",
-        "change_pct": "+12.42%",
-        "volume": "649,809",
-        "url": "https://finance.naver.com/item/main.naver?code=003495",
-        "markdown": "[대한항공우](https://finance.naver.com/item/main.naver?code=003495)"
+        "name": "한국화장품",
+        "code": "123690",
+        "price": "7,090",
+        "change": "+630",
+        "change_pct": "+9.75%",
+        "volume": "2,679,801",
+        "url": "https://finance.naver.com/item/main.naver?code=123690",
+        "markdown": "[한국화장품](https://finance.naver.com/item/main.naver?code=123690)"
+      },
+      {
+        "market": "KOSPI",
+        "name": "에이피알",
+        "code": "278470",
+        "price": "254,000",
+        "change": "+18,500",
+        "change_pct": "+7.86%",
+        "volume": "192,848",
+        "url": "https://finance.naver.com/item/main.naver?code=278470",
+        "markdown": "[에이피알](https://finance.naver.com/item/main.naver?code=278470)"
+      },
+      {
+        "market": "KOSPI",
+        "name": "깨끗한나라우",
+        "code": "004545",
+        "price": "5,080",
+        "change": "+330",
+        "change_pct": "+6.95%",
+        "volume": "10,185",
+        "url": "https://finance.naver.com/item/main.naver?code=004545",
+        "markdown": "[깨끗한나라우](https://finance.naver.com/item/main.naver?code=004545)"
+      },
+      {
+        "market": "KOSPI",
+        "name": "한진",
+        "code": "002320",
+        "price": "19,280",
+        "change": "+780",
+        "change_pct": "+4.22%",
+        "volume": "172,906",
+        "url": "https://finance.naver.com/item/main.naver?code=002320",
+        "markdown": "[한진](https://finance.naver.com/item/main.naver?code=002320)"
       },
       {
         "market": "KOSDAQ",
-        "name": "타임X AI",
-        "code": "304840",
-        "price": "1,586",
-        "change": "+366",
+        "name": "휴림로봇",
+        "code": "090710",
+        "price": "5,720",
+        "change": "+1,320",
         "change_pct": "+30.00%",
-        "volume": "127,114",
-        "url": "https://finance.naver.com/item/main.naver?code=304840",
-        "markdown": "[타임X AI](https://finance.naver.com/item/main.naver?code=304840)"
-      },
-      {
-        "market": "KOSDAQ",
-        "name": "삐아",
-        "code": "451250",
-        "price": "7,810",
-        "change": "+1,800",
-        "change_pct": "+29.95%",
-        "volume": "756,491",
-        "url": "https://finance.naver.com/item/main.naver?code=451250",
-        "markdown": "[삐아](https://finance.naver.com/item/main.naver?code=451250)"
-      },
-      {
-        "market": "KOSDAQ",
-        "name": "드림인사이트",
-        "code": "362990",
-        "price": "1,625",
-        "change": "+365",
-        "change_pct": "+28.97%",
-        "volume": "250,240",
-        "url": "https://finance.naver.com/item/main.naver?code=362990",
-        "markdown": "[드림인사이트](https://finance.naver.com/item/main.naver?code=362990)"
-      },
-      {
-        "market": "KOSDAQ",
-        "name": "마녀공장",
-        "code": "439090",
-        "price": "17,100",
-        "change": "+2,630",
-        "change_pct": "+18.18%",
-        "volume": "3,691,917",
-        "url": "https://finance.naver.com/item/main.naver?code=439090",
-        "markdown": "[마녀공장](https://finance.naver.com/item/main.naver?code=439090)"
+        "volume": "9,735,099",
+        "url": "https://finance.naver.com/item/main.naver?code=090710",
+        "markdown": "[휴림로봇](https://finance.naver.com/item/main.naver?code=090710)"
       },
       {
         "market": "KOSDAQ",
         "name": "큐로셀",
         "code": "372320",
-        "price": "25,350",
-        "change": "+3,700",
-        "change_pct": "+17.09%",
-        "volume": "164,594",
+        "price": "27,550",
+        "change": "+6,350",
+        "change_pct": "+29.95%",
+        "volume": "54,109",
         "url": "https://finance.naver.com/item/main.naver?code=372320",
         "markdown": "[큐로셀](https://finance.naver.com/item/main.naver?code=372320)"
       },
       {
         "market": "KOSDAQ",
-        "name": "금양그린파워",
-        "code": "282720",
-        "price": "9,260",
-        "change": "+1,330",
-        "change_pct": "+16.77%",
-        "volume": "1,868,977",
-        "url": "https://finance.naver.com/item/main.naver?code=282720",
-        "markdown": "[금양그린파워](https://finance.naver.com/item/main.naver?code=282720)"
+        "name": "애드바이오텍",
+        "code": "179530",
+        "price": "627",
+        "change": "+144",
+        "change_pct": "+29.81%",
+        "volume": "1,120,936",
+        "url": "https://finance.naver.com/item/main.naver?code=179530",
+        "markdown": "[애드바이오텍](https://finance.naver.com/item/main.naver?code=179530)"
       },
       {
         "market": "KOSDAQ",
-        "name": "HLB생명과학",
-        "code": "067630",
-        "price": "2,650",
-        "change": "+365",
-        "change_pct": "+15.97%",
-        "volume": "6,695,069",
-        "url": "https://finance.naver.com/item/main.naver?code=067630",
-        "markdown": "[HLB생명과학](https://finance.naver.com/item/main.naver?code=067630)"
+        "name": "휴림에이텍",
+        "code": "078590",
+        "price": "2,765",
+        "change": "+635",
+        "change_pct": "+29.81%",
+        "volume": "298,432",
+        "url": "https://finance.naver.com/item/main.naver?code=078590",
+        "markdown": "[휴림에이텍](https://finance.naver.com/item/main.naver?code=078590)"
       },
       {
         "market": "KOSDAQ",
-        "name": "카티스",
-        "code": "140430",
-        "price": "2,740",
-        "change": "+335",
-        "change_pct": "+13.93%",
-        "volume": "2,714,860",
-        "url": "https://finance.naver.com/item/main.naver?code=140430",
-        "markdown": "[카티스](https://finance.naver.com/item/main.naver?code=140430)"
+        "name": "뷰티스킨",
+        "code": "406820",
+        "price": "2,335",
+        "change": "+465",
+        "change_pct": "+24.87%",
+        "volume": "2,749,732",
+        "url": "https://finance.naver.com/item/main.naver?code=406820",
+        "markdown": "[뷰티스킨](https://finance.naver.com/item/main.naver?code=406820)"
       }
     ]
   },
@@ -152,71 +159,71 @@
     "naver": {
       "정치": [
         {
-          "headline": "국민의힘, '1호 청년 정책 패키지' 발표 예정...지도부 총출동",
-          "url": "https://n.news.naver.com/mnews/article/052/0002436224",
+          "headline": "靑재정보좌관 “주식시장 충격 일시적... AI 혁명은 비가역적인 변화”",
+          "url": "https://n.news.naver.com/mnews/article/023/0004011153",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "김정은, 주북 러 대사 신임장 접수…30여년 만에 직접 제정받아",
-          "url": "https://n.news.naver.com/mnews/article/003/0014338408",
+          "headline": "\"조희대의 시계는 사건마다 다르게 흘러\"...민주당 \"12월 소추안 의결\"",
+          "url": "https://n.news.naver.com/mnews/article/047/0002536773",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "'조희대 탄핵 추진' 놓고 공방…與 \"역사적 책무\" 野 \"삼권분립 훼손\"",
-          "url": "https://n.news.naver.com/mnews/article/421/0009303165",
+          "headline": "최교진 교육장관 사퇴...민주 \"12월 내 조희대 탄핵 추진\" [뉴스와이드]",
+          "url": "https://n.news.naver.com/mnews/article/052/0002436506",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "‘당정 원팀’ 성과에도…與 계파갈등 출구 못 찾고 지지율 하락",
-          "url": "https://n.news.naver.com/mnews/article/011/0004684825",
+          "headline": "李대통령 “돼지 눈엔 돼지만…해외순방을 음주가무로 생각”",
+          "url": "https://n.news.naver.com/mnews/article/025/0003566935",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "국힘 \"최교진 사퇴로 끝날 일 아냐…'AI 부정' 특검·전수조사해야\"",
-          "url": "https://n.news.naver.com/mnews/article/088/0001041629",
+          "headline": "김정은 “패권·팽창 추구 안 해”",
+          "url": "https://n.news.naver.com/mnews/article/011/0004684953",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "조국혁신당 ‘조국’ 뗄까…조국 “범민주진보까지 품어야” 당명 변경 제안",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767125",
+          "headline": "'李 공소취소' 또 모호한 답변 … 이용철 \"진상규명 집중할 때\"",
+          "url": "https://n.news.naver.com/mnews/article/009/0005767287",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "윤상현 \"'비상계엄은 내란' 대법원 판결 존중…당 입장 정리해야\"",
-          "url": "https://n.news.naver.com/mnews/article/088/0001041621",
+          "headline": "한병도 “조희대, 국민 인내심 시험…탄핵은 내란 청산 역사적 소명”",
+          "url": "https://n.news.naver.com/mnews/article/011/0004685004",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "정치·정부 (23일, 월)[오늘의 주요일정]",
-          "url": "https://n.news.naver.com/mnews/article/421/0009303752",
+          "headline": "李 대통령 지지율 37.3% 2주 연속 상승…국힘 42.5%·민주 35.6% [리얼미터]",
+          "url": "https://n.news.naver.com/mnews/article/448/0000652715",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "李, 최교진 장관 면직 … \"문제지 촬영·전송 막겠다\"",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767338",
+          "headline": "청해부대 작전구역 확대에…국회 \"이란전 불개입 원칙 밝혀야\"",
+          "url": "https://n.news.naver.com/mnews/article/015/0005356779",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "민주당, 조희대 탄핵 추진‥\"12월 내 의결 목표\"",
-          "url": "https://n.news.naver.com/mnews/article/214/0001537204",
+          "headline": "한미국방장관 회담 한달 앞두고 전작권 반대 목소리",
+          "url": "https://n.news.naver.com/mnews/article/277/0005846202",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -224,71 +231,71 @@
       ],
       "경제": [
         {
-          "headline": "“서울만 문제가 아니다” 광명·수원에도 억대 재초환 통보",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767124",
+          "headline": "차기 은행연합회장에 박종복 전 SC제일은행장",
+          "url": "https://n.news.naver.com/mnews/article/138/0002249499",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "대만, 일주일 새 17.5% 급락에…'전일 종가 미만 공매도' 금지",
-          "url": "https://n.news.naver.com/mnews/article/421/0009302866",
+          "headline": "이노션, 유튜브 '베스트 에이전시 파트너' 수상",
+          "url": "https://n.news.naver.com/mnews/article/001/0016457214",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "집주인 5명중 1명 \"나 혼자 삽니다\"",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767305",
+          "headline": "[속보] 정부, 불법 공매도 3개월간 특별 감시…위법행위 엄정 대응",
+          "url": "https://n.news.naver.com/mnews/article/015/0005356792",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "中전기차 韓점유율 34% 무방비 …\"생산세액공제 시급\"",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767242",
+          "headline": "한전도 뚫렸다…고객 152만명 개인정보 유출에 대국민 사과",
+          "url": "https://n.news.naver.com/mnews/article/018/0006413767",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "“아래층 이사 온 집도 ‘부모찬스’ 쓴 거래”…17억 이상 주택 가진 30대 급증",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767170",
+          "headline": "11월 1~20일 수출 774억달러 신기록…반도체가 절반 이상",
+          "url": "https://n.news.naver.com/mnews/article/028/0002833449",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "한전, 고객 등 개인정보 150여만건 유출",
-          "url": "https://n.news.naver.com/mnews/article/056/0012298825",
+          "headline": "LG전자·협력사, AI 자동화로 제조 혁신…류재철 대표 “미래 성장기회 만들자”",
+          "url": "https://n.news.naver.com/mnews/article/366/0001206441",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "'검은 월요일' 공포에…'증시안정펀드' 가동 준비",
-          "url": "https://n.news.naver.com/mnews/article/055/0001404964",
+          "headline": "KB운용, '내 연금 사용 설명서' 발간…“수령 시점부터 거꾸로 설계”",
+          "url": "https://n.news.naver.com/mnews/article/277/0005846204",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "대학생 45% \"취업 작년보다 어렵다\"",
-          "url": "https://n.news.naver.com/mnews/article/422/0000928718",
+          "headline": "K푸드 무기로 캄보디아 진출…GS25 영토 확장",
+          "url": "https://n.news.naver.com/mnews/article/015/0005356867",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "중고차 온라인 광고에 수수료 포함 총비용 표시 의무화",
-          "url": "https://n.news.naver.com/mnews/article/001/0016456258",
+          "headline": "\"패닉지수 극단, 美주식 저가매수 기회\"",
+          "url": "https://n.news.naver.com/mnews/article/422/0000928886",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "엔터·항공 웃고 유통은 신중론…中 한한령 완화 수혜주 ‘옥석 가리기’",
-          "url": "https://n.news.naver.com/mnews/article/022/0004177015",
+          "headline": "쌍용건설, 2천381억원 규모 부산 거제2구역 재건축 수주",
+          "url": "https://n.news.naver.com/mnews/article/001/0016457454",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -296,71 +303,71 @@
       ],
       "사회": [
         {
-          "headline": "최교진, '수능 대혼란' 책임지고 사의…李 대통령 즉각 수락(종합)",
-          "url": "https://n.news.naver.com/mnews/article/277/0005846027",
+          "headline": "'출근 대란' 현실화 될까…서울 지하철 노사, 총파업 예고일 전날 최종교섭",
+          "url": "https://n.news.naver.com/mnews/article/055/0001404908",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "과거 수능 시험지 안버렸다…부정행위 의심자 조사 검토",
-          "url": "https://n.news.naver.com/mnews/article/015/0005356758",
+          "headline": "해경 \"태안 실종 어선 해광호 선체 해저서 확인\"…수색 닷새만",
+          "url": "https://n.news.naver.com/mnews/article/079/0004212476",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "[속보] 코레일 \"22일 첫차부터 경부선 일반열차 운행 재개\"",
-          "url": "https://n.news.naver.com/mnews/article/015/0005356621",
+          "headline": "법관대표회의 의장 “어디까지 인내하나… 대법원장 탄핵, 도 넘었다”",
+          "url": "https://n.news.naver.com/mnews/article/005/0001886793",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "겨우 1000원 로또 복권 안 준다고 식당주인 살해…무기징역→45년 감형",
-          "url": "https://n.news.naver.com/mnews/article/082/0001408292",
+          "headline": "시험지만 남아있다면…과거 수능 부정행위 의심자도 추적 조사",
+          "url": "https://n.news.naver.com/mnews/article/001/0016456003",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "평창서 공기총 사격 연습하다가 행인 숨지게 한 60대 구속영장",
-          "url": "https://n.news.naver.com/mnews/article/032/0003484174",
+          "headline": "코레일 장애인 전형 합격했는데…“신체검사 뒤 취소 통보”",
+          "url": "https://n.news.naver.com/mnews/article/005/0001886791",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "대구시, 미취업 청년 시험 응시료 연간 12만원 지원…6000명 혜택 예상",
-          "url": "https://n.news.naver.com/mnews/article/277/0005846071",
+          "headline": "'관저이전 특혜 의혹' 윤한홍·김건희 첫 공판",
+          "url": "https://n.news.naver.com/mnews/article/052/0002436545",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "실종 어선 '해광호' 53m 해저에서 발견‥실종자 7명 수색",
-          "url": "https://n.news.naver.com/mnews/article/214/0001537253",
+          "headline": "\"분양가 너무 높아\"...남양주 수분양자들 승소 확정",
+          "url": "https://n.news.naver.com/mnews/article/052/0002436591",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "“아들, 핸드폰 엄마한테 주고 가”…논술시험장, 단추에 머리끈까지 살폈다",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767334",
+          "headline": "창원 아파트서 40대 여성, 아기와 추락…엄마 숨지고 아이 무사",
+          "url": "https://n.news.naver.com/mnews/article/001/0016456737",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "[속보] 철도노조 \"안전운행 투쟁 26일로 연기…사고 복구가 먼저\"",
-          "url": "https://n.news.naver.com/mnews/article/015/0005356796",
+          "headline": "음주운전 형사처벌 안 알리고 근무한 철도 기관사…法 “당연면직 정당”",
+          "url": "https://n.news.naver.com/mnews/article/011/0004684936",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "노동장관 “정년연장, 정부 입장 발표 시점 다가와”",
-          "url": "https://n.news.naver.com/mnews/article/081/0003701893",
+          "headline": "영등포구 “파크골프장 이용하시려고요? 3000원이면 충분합니다”",
+          "url": "https://n.news.naver.com/mnews/article/021/0002834629",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -368,71 +375,71 @@
       ],
       "생활": [
         {
-          "headline": "오늘 서울 -5.8도 올가을 최저…내일 전국 비",
-          "url": "https://n.news.naver.com/mnews/article/422/0000928632",
+          "headline": "전국 비·눈에 강원 최대 8㎝ 적설…출근길 '강풍·어는 비' 주의(종합)",
+          "url": "https://n.news.naver.com/mnews/article/421/0009303814",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "강원 23일 최대 5㎝ 눈·20㎜ 비⋯대설 예비특보",
-          "url": "https://n.news.naver.com/mnews/article/087/0001232612",
+          "headline": "예방접종, 바로 알고 맞나요? ⑫예방접종 전후 주의 사항 [약손+]",
+          "url": "https://n.news.naver.com/mnews/article/657/0000057734",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "“이젠 피아노가 두렵지 않다” 여든 살 거장의 첫 고백",
-          "url": "https://n.news.naver.com/mnews/article/025/0003566963",
+          "headline": "삼척시, 반려동물 진료비 가구당 5만 원 지원···12월 11일까지 신청",
+          "url": "https://n.news.naver.com/mnews/article/032/0003484353",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "\"길선주 '말세론', 항일운동 이어져…나라 대통합 바람\"",
-          "url": "https://n.news.naver.com/mnews/article/003/0014337701",
+          "headline": "AI 학습용 저작물 어떻게 계약하나…문체부, 표준계약서안 2종 공개",
+          "url": "https://n.news.naver.com/mnews/article/014/0005607978",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "르노, 긴급구조 시간까지 단축",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767198",
+          "headline": "뷰익, 국내 첫 모델 ‘엘렉트라 E7’ 사전계약 돌입…4360만원부터",
+          "url": "https://n.news.naver.com/mnews/article/016/0002726931",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "내일 아침 영하권 강추위...서울 -4도, 한낮에도 쌀쌀[날씨]",
-          "url": "https://n.news.naver.com/mnews/article/052/0002436162",
+          "headline": "추위 반짝 주춤...점차 전국 비·강원 산간 눈[날씨]",
+          "url": "https://n.news.naver.com/mnews/article/052/0002436575",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "DG 첫 아시아 여성 작곡가 탄질 \"시행착오 겪는 인간 음악이 아름다워\"",
-          "url": "https://n.news.naver.com/mnews/article/015/0005356689",
+          "headline": "먹으면서도 후회는 없다…건강하게 즐기는 착한 간식 8가지",
+          "url": "https://n.news.naver.com/mnews/article/296/0000107676",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "동영상뉴스 재생시간 01:43",
-          "url": "https://n.news.naver.com/mnews/article/422/0000928839",
+          "headline": "\"25년 명성 전동화로 잇는다\"…KGM, 신형 SUV 차명 '렉스턴 PHEV' 확정",
+          "url": "https://n.news.naver.com/mnews/article/015/0005356935",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "“과식 막아줘”⋯47kg 홍진경, 김에 싸먹는 ‘이 과일’ 뭐길래?",
-          "url": "https://n.news.naver.com/mnews/article/296/0000107668",
+          "headline": "동영상뉴스 재생시간 01:03",
+          "url": "https://n.news.naver.com/mnews/article/056/0012299074",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "매일 닭가슴살 챙겨 먹는데 오후마다 더부룩하다면…식단 고수들이 ‘이 곡물’로 갈아타는 까닭",
-          "url": "https://n.news.naver.com/mnews/article/022/0004177227",
+          "headline": "하루 TV 1시간 더 봤을 뿐인데…'이것' 망가지는 속도 빨라졌다 [매일비타민]",
+          "url": "https://n.news.naver.com/mnews/article/088/0001041694",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -440,71 +447,71 @@
       ],
       "IT": [
         {
-          "headline": "리만가설 풀었다는 AI…“수학자들, 이젠 체념”",
-          "url": "https://n.news.naver.com/mnews/article/025/0003567062",
+          "headline": "수학의 종말…167년 난제 '리만가설' 푼 클로드",
+          "url": "https://n.news.naver.com/mnews/article/015/0005356769",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "LGU+ 홍범식 유임…AI 성과 속 신뢰 회복은 과제[어바웃 C]",
-          "url": "https://n.news.naver.com/mnews/article/293/0000093627",
+          "headline": "카카오모빌리티 美 상장 갈등에 TPG 국제중재…1.5조 규모 주장",
+          "url": "https://n.news.naver.com/mnews/article/421/0009303896",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "밟히고 눌릴수록 더 잘 퍼진다… 암 전이 새로운 비밀 밝혀졌다",
-          "url": "https://n.news.naver.com/mnews/article/023/0004011007",
+          "headline": "개인정보 AI 활용 특례 세부기준 마련…시행령 개정안 입법예고",
+          "url": "https://n.news.naver.com/mnews/article/018/0006413998",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "AI·모빌리티로 외연 확대한 지스타 2026 폐막…나흘간 20만명 방문",
-          "url": "https://n.news.naver.com/mnews/article/421/0009303673",
+          "headline": "\"4시간 줄 서 먼저 해본다\" 지스타 달군 K-신작[K-게임, 세계로②]",
+          "url": "https://n.news.naver.com/mnews/article/003/0014337631",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "GTA6, 출시 첫날 5조원치 팔렸다…휴가 신청자 32% 증가",
-          "url": "https://n.news.naver.com/mnews/article/008/0005444630",
+          "headline": "“엔비디아·AMD 손잡았지만 메모리 구하기 어렵다”…정부, AI반도체 공급망 점검",
+          "url": "https://n.news.naver.com/mnews/article/018/0006413888",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "카카오 3년 사법리스크의 여파…AI 경쟁 속 사업 확장 차질",
-          "url": "https://n.news.naver.com/mnews/article/001/0016456041",
+          "headline": "“암세포에 반복적 압력 가하면 전이 촉진”…KAIST, 암 확산 원리 찾았다",
+          "url": "https://n.news.naver.com/mnews/article/016/0002726707",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "[HIF 2026] 노화 세포 되살리고 근육 지키고…건강수명 늘리는 롱제비티 산업 뜬다",
-          "url": "https://n.news.naver.com/mnews/article/366/0001206532",
+          "headline": "\"AI안경, 걱정 덜고 유익하게\"…KAIST서 머리 맞댄 대학생들",
+          "url": "https://n.news.naver.com/mnews/article/421/0009304134",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "메모리값에 흔들리는 저가폰 공식… 가격 올리고 물량 줄인다",
-          "url": "https://n.news.naver.com/mnews/article/366/0001206522",
+          "headline": "AI 코딩 시대 예비 개발자는 어디서 배우나…AWS 베테랑 \"혼자 끙끙대지 말라\"",
+          "url": "https://n.news.naver.com/mnews/article/003/0014338665",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "1분 만에 놓는 항암제 주사, 기술수출 속도",
-          "url": "https://n.news.naver.com/mnews/article/009/0005767356",
+          "headline": "카카오모빌리티 美 상장 제동 후폭풍…TPG, 1.5조 중재 신청",
+          "url": "https://n.news.naver.com/mnews/article/138/0002249534",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "수능 보느라 고생한 우리 애 폰 바꿔줄까 했더니…300만원 '헉'",
-          "url": "https://n.news.naver.com/mnews/article/421/0009303798",
+          "headline": "여성이 추위를 더 잘 타는 이유는?…생쥐 실험에서 얻은 단서",
+          "url": "https://n.news.naver.com/mnews/article/028/0002833452",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -512,43 +519,15 @@
       ],
       "세계": [
         {
-          "headline": "트럼프 간절하던 북미회담 …“북한이 수용불가 조건 제시”",
-          "url": "https://n.news.naver.com/mnews/article/056/0012298844",
+          "headline": "엔비디아 AI칩 중국 밀수 의혹…WSJ \"배후에 52세 중국인 사업가\"",
+          "url": "https://n.news.naver.com/mnews/article/654/0000212613",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "\"엔비디아 칩 中밀수망에 앨리스 황·캄보디아 범죄조직 얽혀\"",
-          "url": "https://n.news.naver.com/mnews/article/001/0016457003",
-          "source": "naver",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "[영상] '무기 운송 의심' 러 화물선 발트해서 피격…\"우크라 가능성\"",
-          "url": "https://n.news.naver.com/mnews/article/001/0016456436",
-          "source": "naver",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "젤렌스키 “성탄절 전 3자 종전협상 개최 동의”…‘G20서 협상’ 가능성",
-          "url": "https://n.news.naver.com/mnews/article/056/0012298754",
-          "source": "naver",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "\"中 국가안전부 '엔비디아 스캔들' 2년 전부터 AI 반도체 확보 작전\"",
-          "url": "https://n.news.naver.com/mnews/article/421/0009303715",
-          "source": "naver",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "‘세계 3대 요리학교’ 美 CIA도 한식 가르친다",
-          "url": "https://n.news.naver.com/mnews/article/020/0003764285",
+          "headline": "이란, 액체연료 신형 발사대 공개…\"군사력 증강\"",
+          "url": "https://n.news.naver.com/mnews/article/448/0000652579",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -561,22 +540,50 @@
           "comments": ""
         },
         {
-          "headline": "\"반도체 유출·젠슨 황 별개\"‥캄보디아 조직 관여",
-          "url": "https://n.news.naver.com/mnews/article/214/0001537280",
+          "headline": "트럼프, 공습 카드 접나…\"이란 핵무기 차단 영구합의 마련\"",
+          "url": "https://n.news.naver.com/mnews/article/008/0005444539",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "“강대국 정글법칙 재확인”… 3자 회담, ‘세력권 외교’ 부활 우려",
-          "url": "https://n.news.naver.com/mnews/article/005/0001886691",
+          "headline": "美재무 \"엔비디아 수출 통제 규정 준수 여부가 핵심\"",
+          "url": "https://n.news.naver.com/mnews/article/422/0000928885",
           "source": "naver",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "세공기술자로 명품 불가리 일군 파올로 불가리, 89세 일기로 별세",
-          "url": "https://n.news.naver.com/mnews/article/029/0003060487",
+          "headline": "“북한, 영변 농축시설에 원심분리기 추가설치 가능성”···고농축 우라늄 연 35kg 더 뽑아내나",
+          "url": "https://n.news.naver.com/mnews/article/032/0003484348",
+          "source": "naver",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "트럼프에 8500억 안겨준 '밈코인' 근황 보니…'역대급 추락'",
+          "url": "https://n.news.naver.com/mnews/article/015/0005356856",
+          "source": "naver",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "\"트럼프, 김정은에 만나자 제안했지만 北 '조건' 내걸어 무산\"",
+          "url": "https://n.news.naver.com/mnews/article/214/0001537214",
+          "source": "naver",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "‘젠슨 황 불륜’ 美서 놀이 됐다…‘中 스파이 흉내 대회’에 네티즌 눈살 [월드픽]",
+          "url": "https://n.news.naver.com/mnews/article/081/0003701853",
+          "source": "naver",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "\"리비아에서 러시아 군함 등 선박 잇달아 피격\"",
+          "url": "https://n.news.naver.com/mnews/article/052/0002436601",
           "source": "naver",
           "score": "",
           "comments": ""
@@ -739,15 +746,43 @@
           "comments": ""
         },
         {
-          "headline": "How exposed is the S&P 500 to an AI trade bust?",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/exposed-p-500-ai-trade-211253614.html?.tsrc=rss",
+          "headline": "Dow Jones Futures Rise As Oracle, Korea Try To Ease Market Fears; Look For These Absolute Losers",
+          "url": "https://finance.yahoo.com/m/9ef9da98-bccf-3565-9a30-9bc3e57ad4b9/dow-jones-futures-rise-as.html?.tsrc=rss",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Dow Jones Futures Due As Oracle, Korea Try To Ease Market Fears; Look For These Absolute Losers",
-          "url": "https://finance.yahoo.com/m/9ef9da98-bccf-3565-9a30-9bc3e57ad4b9/dow-jones-futures-due-as.html?.tsrc=rss",
+          "headline": "Oil Markets Are Betting on a Surplus That Hasn't Arrived Yet",
+          "url": "https://finance.yahoo.com/energy/articles/oil-markets-betting-surplus-hasnt-000000925.html?.tsrc=rss",
+          "source": "yahoo",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "Jim Cramer Warns the Market Is “Destroying Savings for the Many”",
+          "url": "https://247wallst.com/investing/2026/11/22/jim-cramer-warns-the-market-is-destroying-savings-for-the-many/?.tsrc=rss",
+          "source": "yahoo",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "General Motors (GM) Joins The NASDAQ Composite, Is The Stock Still Undervalued?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/general-motors-gm-joins-nasdaq-220818980.html?.tsrc=rss",
+          "source": "yahoo",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "U.S. Energy Exports Hit Records as Global Competition Intensifies",
+          "url": "https://finance.yahoo.com/energy/articles/u-energy-exports-hit-records-220000693.html?.tsrc=rss",
+          "source": "yahoo",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "How exposed is the S&P 500 to an AI trade bust?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/exposed-p-500-ai-trade-211253614.html?.tsrc=rss",
           "source": "yahoo",
           "score": "",
           "comments": ""
@@ -767,42 +802,35 @@
           "comments": ""
         },
         {
-          "headline": "Billionaire Ray Dalio’s Bridgewater Keeps 16% of Its $23 Billion Stock Portfolio in S&P 500 Index Funds, Even After Cutting Them",
-          "url": "https://247wallst.com/investing/2026/11/22/billionaire-ray-dalios-bridgewater-keeps-16-of-its-23-billion-stock-portfolio-in-sp-500-index-funds-even-after-cutting-them/?.tsrc=rss",
-          "source": "yahoo",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "Here Are the 4 Investing Rules I'm Never Breaking, No Matter How Scary the Stock Market Gets",
-          "url": "https://www.fool.com/investing/2026/11/22/here-are-the-4-investing-rules-i-m-never-breaking-no-matter-how-scary-the-stock-market-gets/?.tsrc=rss",
-          "source": "yahoo",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "The S&P 500 and Dow Jones Are Dangerously Close to Joining the Nasdaq in a Correction. Here’s the Level That Would Put the Nasdaq in a Bear Market, and What History Says Investors Should Do During a Stock Market Crash.",
-          "url": "https://www.fool.com/investing/2026/11/22/the-s-and-p-500-and-dow-jones-are-dangerously-close-to-joining-the-nasdaq-in-a-correction-here-s-the-level-that-would-put-the-nasdaq-in-a-bear-market-and-what-history-says-investors-should-do-during-a/?.tsrc=rss",
-          "source": "yahoo",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "The S&P 500 Just Whipsawed Near a Record High. Here’s Why I’m Lowering My Expectations, Not Selling.",
-          "url": "https://www.fool.com/investing/2026/11/22/sp-500-whipsawed-near-record-high-why-im-lowering-expectations-not-selling/?.tsrc=rss",
-          "source": "yahoo",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "What do the U.S. midterms mean for investors?",
-          "url": "https://finance.yahoo.com/markets/stocks/articles/u-midterms-mean-investors-162618596.html?.tsrc=rss",
+          "headline": "Shanghai Forest Cabin Cosmetics Group And 2 Top Founder Run Stocks",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/shanghai-forest-cabin-cosmetics-group-002307512.html?.tsrc=rss",
           "source": "yahoo",
           "score": "",
           "comments": ""
         }
       ],
       "IT": [
+        {
+          "headline": "Nvidia Just Lost Nearly Half Its Value. A 62-Year-Old With $1 Million in an S&P 500 Index Fund Owns About $50,000 of It Without Buying a Share",
+          "url": "https://247wallst.com/investing/2026/11/22/nvidia-just-lost-nearly-half-its-value-a-62-year-old-with-1-million-in-an-sp-500-index-fund-owns-about-50000-of-it-without-buying-a-share/?.tsrc=rss",
+          "source": "yahoo",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "Bessent Softens on Jensen Huang. Can Nvidia Stock Finally Catch a Break?",
+          "url": "https://beincrypto.com/bessent-jensen-huang-nvidia-stock-outlook/?.tsrc=rss",
+          "source": "yahoo",
+          "score": "",
+          "comments": ""
+        },
+        {
+          "headline": "3 AI Hardware Stocks Down More Than 30% From Their Records to Buy Now and Hold Through 2030",
+          "url": "https://www.fool.com/investing/2026/11/22/3-ai-hardware-stocks-down-more-than-30-from-their-records-to-buy-now-and-hold-through-2030/?.tsrc=rss",
+          "source": "yahoo",
+          "score": "",
+          "comments": ""
+        },
         {
           "headline": "15% of parents already cut college savings after Microsoft AI CEO told a mom 'probably not' to bother saving",
           "url": "https://finance.yahoo.com/technology/ai/articles/15-parents-already-cut-college-211500548.html?.tsrc=rss",
@@ -825,50 +853,29 @@
           "comments": ""
         },
         {
-          "headline": "What Is Apple (AAPL) Planning With Its New Autonomous AI Agent?",
-          "url": "https://finance.yahoo.com/technology/ai/articles/apple-aapl-planning-autonomous-ai-200614575.html?.tsrc=rss",
+          "headline": "Down 75%, SoundHound AI Stock Needs This 1 Thing to Happen by 2027",
+          "url": "https://www.fool.com/investing/2026/11/22/down-75-soundhound-ai-stock-needs-this-1-thing-to-happen-by-2027/?.tsrc=rss",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Your 401(k) Has New Contribution Limits for 2027. Here's What You Need to Know",
-          "url": "https://www.fool.com/retirement/2026/11/22/your-401-k-has-new-contribution-limits-for-2027-here-s-what-you-need-to-know/?.tsrc=rss",
+          "headline": "Upstart Is Yesterday's News. Is This Fintech Stock the Better Buy?",
+          "url": "https://www.fool.com/investing/2026/11/22/upstart-is-yesterdays-news-is-this-fintech-stock-the-better-buy/?.tsrc=rss",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Procter & Gamble Has Raised Its Dividend 70 Straight Years. Here's Why I'd Buy Before 2027.",
-          "url": "https://www.fool.com/investing/2026/11/22/procter-gamble-has-raised-its-dividend-70-straight-years-heres-why-id-buy-before-2027/?.tsrc=rss",
+          "headline": "Apple Is Now 25% of Berkshire Hathaway's Stock Portfolio. Here's What Holding Every Share Tells Investors.",
+          "url": "https://www.fool.com/investing/2026/11/22/apple-is-now-25-of-berkshire-hathaway-s-stock-portfolio-here-s-what-holding-every-share-tells-investors/?.tsrc=rss",
           "source": "yahoo",
           "score": "",
           "comments": ""
         },
         {
-          "headline": "Does Anthropic Have a Competitive Advantage? These are the Four Big Ones",
-          "url": "https://www.fool.com/investing/2026/11/22/does-anthropic-have-a-competitive-advantage-these-are-the-four-big-ones/?.tsrc=rss",
-          "source": "yahoo",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "Warren Buffett’s Successor, Greg Abel, Has Invested Nearly 47% of Berkshire Hathaway’s $360 Billion Stock Portfolio in Just 3 Stocks (and None Are AI Hyperscalers)",
-          "url": "https://www.fool.com/investing/2026/11/22/warren-buffett-s-successor-greg-abel-has-invested-nearly-47-of-berkshire-hathaway-s-usd360-billion-stock-portfolio-in-just-3-stocks-and-none-are-ai-hyperscalers/?.tsrc=rss",
-          "source": "yahoo",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "Anthropic Stock Could Soar by 72%, According to This Wall Street Analyst",
-          "url": "https://www.fool.com/investing/2026/11/22/anthropic-stock-could-soar-by-72-according-to-this-wall-street-analyst/?.tsrc=rss",
-          "source": "yahoo",
-          "score": "",
-          "comments": ""
-        },
-        {
-          "headline": "When Can Anthropic Insiders Sell? What the Post-IPO Lockup Period Means for Shareholders.",
-          "url": "https://www.fool.com/investing/2026/11/22/when-can-anthropic-insiders-sell-what-the-lockup-means-for-shareholders/?.tsrc=rss",
+          "headline": "Where Will USA Rare Earth Stock Be in 5 Years? This Mine Holds the Keys.",
+          "url": "https://www.fool.com/investing/2026/11/22/where-will-usa-rare-earth-stock-be-in-5-years-this-mine-holds-the-keys/?.tsrc=rss",
           "source": "yahoo",
           "score": "",
           "comments": ""
